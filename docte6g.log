@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.1)  11 MAY 2026 01:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.1)  11 MAY 2026 10:21
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -302,29 +302,46 @@ File: omsptm.fd
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <11> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 29.
  (./00_Abstract/abstract.tex
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 2.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)
-LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 8.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 8.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)) (./01_Introduction/introduction.tex
-
-LaTeX Warning: Reference `sec:results' on page 1 undefined on input line 9.
-
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}
+)
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 8.
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)) (./01_Introduction/introduction.tex [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}
 
 
 ]
+Underfull \hbox (badness 1412) in paragraph at lines 32--33
+\OT1/ptm/m/n/10 nects to ns-3 through \OT1/pcr/m/n/10 PropagationLossModel\OT1/ptm/m/n/10 ,
+ []
 
-LaTeX Warning: Reference `sec:results' on page 2 undefined on input line 19.
 
-) (./02_Literature_Review/literature_review.tex (./02_Literature_Review/Massive MIMO for 6G.tex) (./02_Literature_Review/Stochastic vs Deterministic Channel Modeling.tex) (./02_Literature_Review/Ray-Tracing based Simulation.tex [2]) (./02_Literature_Review/Simu5G and Sionna Prior Integration Limitations.tex) (./02_Literature_Review/ns3.tex)
+Underfull \hbox (badness 1681) in paragraph at lines 38--39
+[]\OT1/ptm/b/n/10 A 5G NR per-for-mance and en-ergy eval-u-a-tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--41
+\OT1/ptm/m/n/10 with pure ns-3 prop-a-ga-tion and socket-coupled
+ []
+
+
+Underfull \hbox (badness 4967) in paragraph at lines 40--41
+\OT1/pcr/m/n/10 ns3sionna \OT1/ptm/m/n/10 in IEEE 802.11ax sce-nar-ios across
+ []
+
+
+Underfull \hbox (badness 2556) in paragraph at lines 40--41
+\OT1/ptm/m/n/10 CQI/MCS se-lec-tion, ap-pli-ca-tion through-put, packet
+ []
+
+) (./02_Literature_Review/literature_review.tex (./02_Literature_Review/Massive MIMO for 6G.tex) (./02_Literature_Review/Stochastic vs Deterministic Channel Modeling.tex [2]) (./02_Literature_Review/Ray-Tracing based Simulation.tex) (./02_Literature_Review/Simu5G and Sionna Prior Integration Limitations.tex) (./02_Literature_Review/ns3.tex [3])
 Underfull \hbox (badness 10000) in paragraph at lines 14--17
 []\OT1/ptm/m/n/10 Moreover, ns-3 pro-vide mo-bil-ity model such
  []
@@ -334,18 +351,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--17
 \OT1/ptm/m/n/10 as \OT1/pcr/m/n/10 ConstantPositionMobilityModel \OT1/ptm/m/n/10 and
  []
 
-(./02_Literature_Review/5GLENA NR Module.tex) (./02_Literature_Review/SionnaRT.tex)) [3] (./03_Methodology/methodology.tex (./03_Methodology/00_system_architecture.tex
+(./02_Literature_Review/5GLENA NR Module.tex) (./02_Literature_Review/SionnaRT.tex)) (./03_Methodology/methodology.tex (./03_Methodology/00_system_architecture.tex
 <images/SionnaRT_System_Architecture.drawio.png, id=24, 945.5325pt x 1617.04124pt>
 File: images/SionnaRT_System_Architecture.drawio.png Graphic file (type png)
 <use images/SionnaRT_System_Architecture.drawio.png>
 Package pdftex.def Info: images/SionnaRT_System_Architecture.drawio.png  used on input line 7.
 (pdftex.def)             Requested size: 252.0pt x 430.95662pt.
-
+ [4 <./images/SionnaRT_System_Architecture.drawio.png>]
 Underfull \hbox (badness 7558) in paragraph at lines 24--31
 []\OT1/ptm/m/n/10 When the call to \OT1/pcr/m/n/10 PropagationLossModel \OT1/ptm/m/n/10 and
  []
 
-) [4 <./images/SionnaRT_System_Architecture.drawio.png>] (./03_Methodology/01_cache_mechanism.tex [5]) (./03_Methodology/02_adaptive_virtual_receiver_generation.tex) (./03_Methodology/03_propagation_calculation.tex [6]) (./03_Methodology/04_energy_model.tex
+) (./03_Methodology/01_cache_mechanism.tex [5]) (./03_Methodology/02_adaptive_virtual_receiver_generation.tex [6]) (./03_Methodology/03_propagation_calculation.tex) (./03_Methodology/04_energy_model.tex
 Underfull \hbox (badness 3058) in paragraph at lines 3--7
 []\OT1/ptm/m/n/10 To eval-u-ate the net-work en-ergy con-sump-tion dur-ing
  []
@@ -365,33 +382,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--7
 \OT1/pcr/m/n/10 NrUeEnergyModel \OT1/ptm/m/n/10 mod-ules. These mod-els are
  []
 
-)) (./04_Results/results.tex (./04_Results/01_experiment_part_I.tex
-
-LaTeX Warning: Citation `zubow2024ns3-preprint' on page 7 undefined on input line 6.
-
-
-LaTeX Warning: Citation `zubow2024ns3-preprint' on page 7 undefined on input line 10.
-
-(./04_Results/01_experiment_part_I/01_total_sim_time_scaling.tex
-<images/total-sim-time-scaling.png, id=44, 514.5624pt x 191.7564pt>
+)) [7] (./04_Results/results.tex (./04_Results/01_experiment_part_I.tex (./04_Results/01_experiment_part_I/01_total_sim_time_scaling.tex
+<images/total-sim-time-scaling.png, id=49, 514.5624pt x 191.7564pt>
 File: images/total-sim-time-scaling.png Graphic file (type png)
 <use images/total-sim-time-scaling.png>
 Package pdftex.def Info: images/total-sim-time-scaling.png  used on input line 9.
 (pdftex.def)             Requested size: 252.0pt x 93.9117pt.
- [7]) (./04_Results/01_experiment_part_I/02_speedup_analysis.tex
-<images/speed_comparison.png, id=51, 515.0442pt x 211.0284pt>
+) (./04_Results/01_experiment_part_I/02_speedup_analysis.tex [8 <./images/total-sim-time-scaling.png>]
+<images/speed_comparison.png, id=56, 515.0442pt x 211.0284pt>
 File: images/speed_comparison.png Graphic file (type png)
 <use images/speed_comparison.png>
 Package pdftex.def Info: images/speed_comparison.png  used on input line 10.
 (pdftex.def)             Requested size: 252.0pt x 103.25346pt.
-) (./04_Results/01_experiment_part_I/03_gpu_footprint_utilization.tex [8 <./images/total-sim-time-scaling.png> <./images/speed_comparison.png>]
-<images/gpu_usage.png, id=60, 517.4532pt x 236.082pt>
+) (./04_Results/01_experiment_part_I/03_gpu_footprint_utilization.tex
+<images/gpu_usage.png, id=57, 517.4532pt x 236.082pt>
 File: images/gpu_usage.png Graphic file (type png)
 <use images/gpu_usage.png>
 Package pdftex.def Info: images/gpu_usage.png  used on input line 13.
 (pdftex.def)             Requested size: 252.0pt x 114.97513pt.
 )) (./04_Results/02_experiment_part_II.tex (./04_Results/02_experiment_part_II/01_experiment_configuration.tex
-<images/free_space.png, id=61, 621.32124pt x 611.28375pt>
+<images/free_space.png, id=58, 621.32124pt x 611.28375pt>
 File: images/free_space.png Graphic file (type png)
 <use images/free_space.png>
 Package pdftex.def Info: images/free_space.png  used on input line 23.
@@ -400,45 +410,37 @@ LaTeX Font Info:    Trying to load font information for OT1+phv on input line 23
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 )
-<images/urban_macro.png, id=62, 1012.78375pt x 565.11125pt>
+<images/urban_macro.png, id=59, 1012.78375pt x 565.11125pt>
 File: images/urban_macro.png Graphic file (type png)
 <use images/urban_macro.png>
 Package pdftex.def Info: images/urban_macro.png  used on input line 25.
 (pdftex.def)             Requested size: 165.12378pt x 92.12697pt.
-<images/urban_micro.png, id=63, 829.0975pt x 607.26875pt>
+<images/urban_micro.png, id=60, 829.0975pt x 607.26875pt>
 File: images/urban_micro.png Graphic file (type png)
 <use images/urban_micro.png>
 Package pdftex.def Info: images/urban_micro.png  used on input line 27.
 (pdftex.def)             Requested size: 165.12378pt x 120.94196pt.
-
-
-LaTeX Warning: Citation `ericson' on page 9 undefined on input line 35.
-
-) (./04_Results/02_experiment_part_II/02_free_space_scenario.tex
+ [9 <./images/speed_comparison.png> <./images/gpu_usage.png>]) (./04_Results/02_experiment_part_II/02_free_space_scenario.tex
 Underfull \hbox (badness 6842) in paragraph at lines 11--16
  \OT1/ptm/m/it/10 1) Application-related met-rics: [][] \OT1/ptm/m/n/10 Fig-ure 6[] shows the
  []
 
-<images/free_space_flow_metrics.png, id=64, 1144.0341pt x 1433.8368pt>
+<images/free_space_flow_metrics.png, id=68, 1144.0341pt x 1433.8368pt>
 File: images/free_space_flow_metrics.png Graphic file (type png)
 <use images/free_space_flow_metrics.png>
 Package pdftex.def Info: images/free_space_flow_metrics.png  used on input line 19.
 (pdftex.def)             Requested size: 516.0pt x 646.70834pt.
-<images/free_space_propagation_metrics.png, id=65, 1144.0341pt x 1072.4868pt>
+<images/free_space_propagation_metrics.png, id=69, 1144.0341pt x 1072.4868pt>
 File: images/free_space_propagation_metrics.png Graphic file (type png)
 <use images/free_space_propagation_metrics.png>
 Package pdftex.def Info: images/free_space_propagation_metrics.png  used on input line 40.
 (pdftex.def)             Requested size: 516.0pt x 483.72742pt.
-[9 <./images/gpu_usage.png>]
 <images/free_space_power_consumption.png, id=70, 1289.2968pt x 710.4141pt>
 File: images/free_space_power_consumption.png Graphic file (type png)
 <use images/free_space_power_consumption.png>
 Package pdftex.def Info: images/free_space_power_consumption.png  used on input line 62.
 (pdftex.def)             Requested size: 258.0pt x 142.15617pt.
-) (./04_Results/02_experiment_part_II/03_urban_macro_scenario.tex
-Underfull \vbox (badness 2698) has occurred while \output is active []
-
- [10 <./images/free_space.png> <./images/urban_macro.png> <./images/urban_micro.png>]
+[10 <./images/free_space.png> <./images/urban_macro.png> <./images/urban_micro.png>]) (./04_Results/02_experiment_part_II/03_urban_macro_scenario.tex
 <images/urban_macro_flow_metrics.png, id=78, 1144.7568pt x 1433.8368pt>
 File: images/urban_macro_flow_metrics.png Graphic file (type png)
 <use images/urban_macro_flow_metrics.png>
@@ -454,7 +456,7 @@ File: images/urban_macro_power_consumption.png Graphic file (type png)
 <use images/urban_macro_power_consumption.png>
 Package pdftex.def Info: images/urban_macro_power_consumption.png  used on input line 83.
 (pdftex.def)             Requested size: 252.0pt x 138.84996pt.
-) (./04_Results/02_experiment_part_II/04_urban_micro_scenario.tex [11]
+ [11]) (./04_Results/02_experiment_part_II/04_urban_micro_scenario.tex
 <images/urban_micro_flow_metrics.png, id=84, 1144.7568pt x 1433.8368pt>
 File: images/urban_micro_flow_metrics.png Graphic file (type png)
 <use images/urban_micro_flow_metrics.png>
@@ -470,12 +472,7 @@ File: images/urban_micro_power_consumption.png Graphic file (type png)
 <use images/urban_micro_power_consumption.png>
 Package pdftex.def Info: images/urban_micro_power_consumption.png  used on input line 83.
 (pdftex.def)             Requested size: 252.0pt x 138.84996pt.
-))) (./05_Conclusion/conclusion.tex
-Underfull \hbox (badness 1688) in paragraph at lines 6--7
-[]\OT1/ptm/m/n/10 To over-come the se-vere com-pu-ta-tional bot-tle-necks of
- []
-
-) (./06_Bibliography/bibliography.tex [12]
+))) (./05_Conclusion/conclusion.tex [12]) (./06_Bibliography/bibliography.tex
 Underfull \hbox (badness 10000) in paragraph at lines 173--175
 []\OT1/ptm/m/n/8 Ericsson, ``Er-ic-s-son Mo-bil-ity Re-port,'' Nov. 2025.
  []
@@ -490,9 +487,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 173--175
 \OT1/ptm/m/n/8 assets / local / reports-[]papers / mobility-[]report / documents / 2025 /
  []
 
-) [13
-
-] [14 <./images/free_space_flow_metrics.png>] [15 <./images/free_space_propagation_metrics.png> <./images/free_space_power_consumption.png>] [16 <./images/urban_macro_flow_metrics.png>] [17
+) [13] [14 <./images/free_space_flow_metrics.png>] [15 <./images/free_space_propagation_metrics.png> <./images/free_space_power_consumption.png>] [16 <./images/urban_macro_flow_metrics.png>] [17
 
 
  <./images/urban_macro_propagation_metrics.png> <./images/urban_macro_power_consumption.png>] [18 <./images/urban_micro_flow_metrics.png>] [19
@@ -503,21 +498,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 173--175
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
  ) 
 Here is how much of TeX's memory you used:
- 4926 strings out of 476106
- 92506 string characters out of 5793934
- 1950975 words of memory out of 5000000
- 26767 multiletter control sequences out of 15000+600000
+ 4925 strings out of 476106
+ 92493 string characters out of 5793934
+ 1955975 words of memory out of 5000000
+ 26766 multiletter control sequences out of 15000+600000
  603440 words of font info for 128 fonts, out of 8000000 for 9000
  63 hyphenation exceptions out of 8191
- 57i,10n,65p,2541b,504s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,10n,65p,990b,504s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on docte6g.pdf (19 pages, 2646652 bytes).
+Output written on docte6g.pdf (19 pages, 2639088 bytes).
 PDF statistics:
  231 PDF objects out of 1000 (max. 8388607)
  124 compressed objects within 2 object streams

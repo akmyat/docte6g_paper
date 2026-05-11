@@ -3,11 +3,11 @@
 This section evaluates the computational cost of replacing a stochastic ns-3 propagation model with Sionna RT inside the simulator process.
 We compare three channel backends: \texttt{pure\_ns3}, \texttt{ns3sionna}, and \texttt{sionnart}.
 The \texttt{pure\_ns3} backend uses the standard ns-3 stochastic propagation model,
-while \texttt{ns3sionna}\cite{zubow2024ns3-preprint} communicates with an external Python Sionna RT server via ZMQ.
+while \texttt{ns3sionna}\cite{ns3sionna} communicates with an external Python Sionna RT server via ZMQ.
 Finally, \texttt{sionnart} loads Sionna RT directly into the simulator's address space via pybind11.
 
 To benchmark the computational cost of the three channel backends, the same network toplogy, which include a single IEEE 802.11ax access point and $N\in\{1,2,4,8,16,32\}$ stations,  and same application traffic are used.
-The benchmarking is done on IEEE 802.11ax instead of 5G NR as the \texttt{ns3sionna} \cite{zubow2024ns3-preprint} is tested only on IEEE 802.11ax and not on 5G NR.
+The benchmarking is done on IEEE 802.11ax instead of 5G NR as the \texttt{ns3sionna} \cite{ns3sionna} is tested only on IEEE 802.11ax and not on 5G NR.
 The same network topology and same application traffic profile are used so that total time differences of the simulations are caused by the channel backend rather than by changes in application traffic or node placement.
 With the same setup, three different scenarios are simulated:
 \begin{itemize}
