@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.1)  11 MAY 2026 10:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.1)  11 MAY 2026 15:20
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -302,15 +302,15 @@ File: omsptm.fd
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <11> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 29.
  (./00_Abstract/abstract.tex
-LaTeX Font Info:    Trying to load font information for U+msa on input line 8.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 10.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 8.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 10.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 8.
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 10.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )) (./01_Introduction/introduction.tex [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}
@@ -341,7 +341,10 @@ Underfull \hbox (badness 2556) in paragraph at lines 40--41
 \OT1/ptm/m/n/10 CQI/MCS se-lec-tion, ap-pli-ca-tion through-put, packet
  []
 
-) (./02_Literature_Review/literature_review.tex (./02_Literature_Review/Massive MIMO for 6G.tex) (./02_Literature_Review/Stochastic vs Deterministic Channel Modeling.tex [2]) (./02_Literature_Review/Ray-Tracing based Simulation.tex) (./02_Literature_Review/Simu5G and Sionna Prior Integration Limitations.tex) (./02_Literature_Review/ns3.tex [3])
+)
+Underfull \vbox (badness 4543) has occurred while \output is active []
+
+ (./02_Literature_Review/literature_review.tex (./02_Literature_Review/Massive MIMO for 6G.tex) (./02_Literature_Review/Stochastic vs Deterministic Channel Modeling.tex [2]) (./02_Literature_Review/Ray-Tracing based Simulation.tex) (./02_Literature_Review/Simu5G and Sionna Prior Integration Limitations.tex) (./02_Literature_Review/ns3.tex [3])
 Underfull \hbox (badness 10000) in paragraph at lines 14--17
 []\OT1/ptm/m/n/10 Moreover, ns-3 pro-vide mo-bil-ity model such
  []
@@ -439,7 +442,7 @@ Package pdftex.def Info: images/free_space_propagation_metrics.png  used on inpu
 File: images/free_space_power_consumption.png Graphic file (type png)
 <use images/free_space_power_consumption.png>
 Package pdftex.def Info: images/free_space_power_consumption.png  used on input line 62.
-(pdftex.def)             Requested size: 258.0pt x 142.15617pt.
+(pdftex.def)             Requested size: 516.0pt x 284.3232pt.
 [10 <./images/free_space.png> <./images/urban_macro.png> <./images/urban_micro.png>]) (./04_Results/02_experiment_part_II/03_urban_macro_scenario.tex
 <images/urban_macro_flow_metrics.png, id=78, 1144.7568pt x 1433.8368pt>
 File: images/urban_macro_flow_metrics.png Graphic file (type png)
@@ -450,12 +453,12 @@ Package pdftex.def Info: images/urban_macro_flow_metrics.png  used on input line
 File: images/urban_macro_propagation_metrics.png Graphic file (type png)
 <use images/urban_macro_propagation_metrics.png>
 Package pdftex.def Info: images/urban_macro_propagation_metrics.png  used on input line 59.
-(pdftex.def)             Requested size: 252.0pt x 236.22603pt.
+(pdftex.def)             Requested size: 516.0pt x 483.72742pt.
 <images/urban_macro_power_consumption.png, id=80, 1289.2968pt x 710.4141pt>
 File: images/urban_macro_power_consumption.png Graphic file (type png)
 <use images/urban_macro_power_consumption.png>
 Package pdftex.def Info: images/urban_macro_power_consumption.png  used on input line 83.
-(pdftex.def)             Requested size: 252.0pt x 138.84996pt.
+(pdftex.def)             Requested size: 516.0pt x 284.3232pt.
  [11]) (./04_Results/02_experiment_part_II/04_urban_micro_scenario.tex
 <images/urban_micro_flow_metrics.png, id=84, 1144.7568pt x 1433.8368pt>
 File: images/urban_micro_flow_metrics.png Graphic file (type png)
@@ -466,12 +469,12 @@ Package pdftex.def Info: images/urban_micro_flow_metrics.png  used on input line
 File: images/urban_micro_propagation_metrics.png Graphic file (type png)
 <use images/urban_micro_propagation_metrics.png>
 Package pdftex.def Info: images/urban_micro_propagation_metrics.png  used on input line 59.
-(pdftex.def)             Requested size: 252.0pt x 236.22603pt.
+(pdftex.def)             Requested size: 516.0pt x 483.72742pt.
 <images/urban_micro_power_consumption.png, id=86, 1289.2968pt x 710.4141pt>
 File: images/urban_micro_power_consumption.png Graphic file (type png)
 <use images/urban_micro_power_consumption.png>
 Package pdftex.def Info: images/urban_micro_power_consumption.png  used on input line 83.
-(pdftex.def)             Requested size: 252.0pt x 138.84996pt.
+(pdftex.def)             Requested size: 516.0pt x 284.3232pt.
 ))) (./05_Conclusion/conclusion.tex [12]) (./06_Bibliography/bibliography.tex
 Underfull \hbox (badness 10000) in paragraph at lines 173--175
 []\OT1/ptm/m/n/8 Ericsson, ``Er-ic-s-son Mo-bil-ity Re-port,'' Nov. 2025.
@@ -487,13 +490,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 173--175
 \OT1/ptm/m/n/8 assets / local / reports-[]papers / mobility-[]report / documents / 2025 /
  []
 
-) [13] [14 <./images/free_space_flow_metrics.png>] [15 <./images/free_space_propagation_metrics.png> <./images/free_space_power_consumption.png>] [16 <./images/urban_macro_flow_metrics.png>] [17
-
-
- <./images/urban_macro_propagation_metrics.png> <./images/urban_macro_power_consumption.png>] [18 <./images/urban_micro_flow_metrics.png>] [19
-
-
- <./images/urban_micro_propagation_metrics.png> <./images/urban_micro_power_consumption.png>] (./docte6g.aux)
+) [13] [14 <./images/free_space_flow_metrics.png>] [15 <./images/free_space_propagation_metrics.png>] [16 <./images/free_space_power_consumption.png>] [17 <./images/urban_macro_flow_metrics.png>] [18 <./images/urban_macro_propagation_metrics.png>] [19 <./images/urban_macro_power_consumption.png>] [20 <./images/urban_micro_flow_metrics.png>] [21 <./images/urban_micro_propagation_metrics.png>] [22 <./images/urban_micro_power_consumption.png>] (./docte6g.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -508,10 +505,10 @@ Here is how much of TeX's memory you used:
  63 hyphenation exceptions out of 8191
  57i,10n,65p,990b,504s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on docte6g.pdf (19 pages, 2639088 bytes).
+Output written on docte6g.pdf (22 pages, 2639640 bytes).
 PDF statistics:
- 231 PDF objects out of 1000 (max. 8388607)
- 124 compressed objects within 2 object streams
+ 240 PDF objects out of 1000 (max. 8388607)
+ 130 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  81 words of extra memory for PDF output out of 10000 (max. 10000000)
 
