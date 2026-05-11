@@ -1,14 +1,140 @@
 \relax 
-\bibcite{ams}{1}
 \@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {II}Literature Review}{1}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {III}Methodology}{1}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {IV}Results}{1}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {V}Conclusion}{1}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{References}{1}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{Biographies}{1}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{Aung Kaung MYAT}{1}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{Aung Kaung MYAT}{1}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{Aung Kaung MYAT}{1}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{Aung Kaung MYAT}{1}{}\protected@file@percent }
-\gdef \@abspage@last{1}
+\@writefile{toc}{\contentsline {section}{\numberline {II}Background}{2}{}\protected@file@percent }
+\newlabel{sec:litreview}{{II}{2}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-A}}Massive MIMO for 6G}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-B}}Stochastic vs Deterministic Channel Modeling}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-C}}Ray-Tracing based Simulation}{2}{}\protected@file@percent }
+\citation{simu5g}
+\citation{ns3}
+\citation{5glena}
+\citation{sionna}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-D}}Simu5G and Sionna Prior Integration Limitations}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-E}}ns3}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-F}}5G LENA NR Module}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-G}}Sionna RT}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {III}Methodology}{4}{}\protected@file@percent }
+\newlabel{sec:methodology}{{III}{4}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Architecture of the integrated simulation framework. }}{4}{}\protected@file@percent }
+\newlabel{fig:system_architecture}{{1}{4}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-A}}Sionna Propagation Cache Mechanism}{5}{}\protected@file@percent }
+\newlabel{sec:sionna-cache-mechanism}{{\mbox  {III-A}}{5}{}{}{}}
+\newlabel{subsec:cache-validity}{{\mbox  {III-A}1}{5}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {III-A}1}Displacement-Based Cache Validity}{5}{}\protected@file@percent }
+\newlabel{subsec:cache-refresh}{{\mbox  {III-A}2}{5}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {III-A}2}Snapshot Refresh}{5}{}\protected@file@percent }
+\newlabel{subsec:cache-lookup-fallback}{{\mbox  {III-A}3}{5}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {III-A}3}Lookup and Fallback Behavior}{5}{}\protected@file@percent }
+\newlabel{subsec:derived-mimo-caches}{{\mbox  {III-A}4}{5}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {III-A}4}Derived MIMO Caches}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-B}}Adaptive Virtual Receiver Generation}{6}{}\protected@file@percent }
+\newlabel{subsec:adaptive-virtual-rx-generation}{{\mbox  {III-B}}{6}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-C}}Propagation Calculation}{6}{}\protected@file@percent }
+\newlabel{subsec:propagation-calculation}{{\mbox  {III-C}}{6}{}{}{}}
+\citation{zubow2024ns3-preprint}
+\citation{zubow2024ns3-preprint}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-D}}Energy Model for 5G NR gNB and UEs}{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Experiment Part I: Runtime Scaling of the Embedded Ray-Tracing Channel}{7}{}\protected@file@percent }
+\newlabel{sec:results-part1-runtime-scaling}{{IV}{7}{}{}{}}
+\newlabel{subsec:total-sim-time-scaling}{{\mbox  {IV-}1}{7}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {IV-}1}Total Simulation Time Scaling}{7}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Total simulation runtime of the three channel backends as the number of stations increases. The communication with external Sionna RT server via ZMQ in \texttt  {ns3sionna} causes large overhead. The embedded \texttt  {sionnart} backend avoids the round trip overhead, while the pure ns-3 baseline provides the analytical-channel lower bound.}}{8}{}\protected@file@percent }
+\newlabel{fig:total-sim-time-scaling}{{2}{8}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Total simulation runtime in seconds for representative station counts.}}{8}{}\protected@file@percent }
+\newlabel{tab:total-sim-time-scaling}{{I}{8}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces The left graph shows the ratio of \texttt  {ns3sionna} runtime to \texttt  {sionnart} runtime. The right graph is the ratio of \texttt  {sionnart} runtime to \texttt  {pure\_ns-3} baseline runtime.}}{8}{}\protected@file@percent }
+\newlabel{fig:speed-comparison}{{3}{8}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces Ratios at $N=32$. The first ratio is $T_{\mathrm  {ns3sionna}}/T_{\mathrm  {sionnart}}$; the second is $T_{\mathrm  {sionnart}}/T_{\mathrm  {pure\ ns3}}$.}}{8}{}\protected@file@percent }
+\newlabel{tab:speed-comparison}{{II}{8}{}{}{}}
+\newlabel{subsec:speedup-analysis}{{\mbox  {IV-}2}{8}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {IV-}2}Speedup Analysis}{8}{}\protected@file@percent }
+\newlabel{subsec:gpu-usage}{{\mbox  {IV-}3}{8}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {IV-}3}GPU Footprint and Utilization}{8}{}\protected@file@percent }
+\citation{ericson}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Reported GPU memory footprint and peak utilization for the two Sionna-backed backends.}}{9}{}\protected@file@percent }
+\newlabel{fig:gpu-usage}{{4}{9}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Experiment Part II: NR Application, Propagation, and Energy Evaluation}{9}{}\protected@file@percent }
+\newlabel{sec:exp2-nr-energy}{{V}{9}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-A}}Experiment Configuration}{9}{}\protected@file@percent }
+\newlabel{subsec:exp2-setup}{{\mbox  {V-A}}{9}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-B}}Free-Space Scenario}{9}{}\protected@file@percent }
+\newlabel{subsec:exp2-free-space}{{\mbox  {V-B}}{9}{}{}{}}
+\newlabel{subsubsec:exp2-free-space-flow}{{\mbox  {V-B}1}{9}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {V-B}1}Application-related metrics}{9}{}\protected@file@percent }
+\newlabel{subsubsec:exp2-free-space-propagation}{{\mbox  {V-B}2}{9}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {V-B}2}Propagation-related Metrics}{9}{}\protected@file@percent }
+\newlabel{fig:scenario_free_space}{{5a}{10}{}{}{}}
+\newlabel{sub@fig:scenario_free_space}{{(a)}{a}}
+\newlabel{fig:scenario_urban_macro}{{5b}{10}{}{}{}}
+\newlabel{sub@fig:scenario_urban_macro}{{(b)}{b}}
+\newlabel{fig:scenario_urban_micro}{{5c}{10}{}{}{}}
+\newlabel{sub@fig:scenario_urban_micro}{{(c)}{c}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces The three simulated radio environments: (a) free space, (b) urban macro, and (c) urban micro.}}{10}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Free-space scenario.}}}{10}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Urban macro scenario.}}}{10}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Urban micro scenario.}}}{10}{}\protected@file@percent }
+\newlabel{fig:scenarios}{{5}{10}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces Application data rate by application and load.}}{10}{}\protected@file@percent }
+\newlabel{tab:exp2-offered-load}{{III}{10}{}{}{}}
+\newlabel{subsubsec:exp2-free-space-energy}{{\mbox  {V-B}3}{10}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {V-B}3}Energy Consumption related Metrics}{10}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-C}}Urban Macro Scenario}{10}{}\protected@file@percent }
+\newlabel{subsec:exp2-urban-macro}{{\mbox  {V-C}}{10}{}{}{}}
+\newlabel{subsubsec:exp2-urban-macro-flow}{{\mbox  {V-C}1}{10}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {V-C}1}Application-related Metrics}{10}{}\protected@file@percent }
+\newlabel{subsubsec:exp2-urban-macro-propagation}{{\mbox  {V-C}2}{11}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {V-C}2}Propagation-related Metrics}{11}{}\protected@file@percent }
+\newlabel{subsubsec:exp2-urban-macro-energy}{{\mbox  {V-C}3}{11}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {V-C}3}Energy Consumption-related Metrics}{11}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-D}}Urban Micro Scenario}{11}{}\protected@file@percent }
+\newlabel{subsec:exp2-urban-micro}{{\mbox  {V-D}}{11}{}{}{}}
+\newlabel{subsubsec:exp2-urban-micro-flow}{{\mbox  {V-D}1}{11}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {V-D}1}Application-related Metrics}{11}{}\protected@file@percent }
+\bibcite{sionna}{1}
+\bibcite{sionnart}{2}
+\bibcite{ns3}{3}
+\bibcite{5glena}{4}
+\bibcite{tr38901}{5}
+\bibcite{omnet}{6}
+\bibcite{simu5g}{7}
+\newlabel{subsubsec:exp2-urban-micro-propagation}{{\mbox  {V-D}2}{12}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {V-D}2}Propagation-related Metrics}{12}{}\protected@file@percent }
+\newlabel{subsubsec:exp2-urban-micro-energy}{{\mbox  {V-D}3}{12}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {V-D}3}Energy Consumption-related Metrics}{12}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Conclusion}{12}{}\protected@file@percent }
+\newlabel{sec:conclusion}{{VI}{12}{}{}{}}
+\@writefile{toc}{\contentsline {section}{References}{12}{}\protected@file@percent }
+\bibcite{ns3sionna}{8}
+\bibcite{pybind11}{9}
+\bibcite{eesm}{10}
+\bibcite{bojovic_mimo}{11}
+\bibcite{bojovic_beamforming}{12}
+\bibcite{raymobtime_sionna}{13}
+\bibcite{alsamman_mmwave}{14}
+\bibcite{han_thz}{15}
+\bibcite{uwaechia_mmwave}{16}
+\bibcite{cazzella_dt_mimo}{17}
+\bibcite{zhou_isac}{18}
+\bibcite{gao_isac_mimo}{19}
+\bibcite{hua_isac_beamforming}{20}
+\bibcite{samorzewski_energy}{21}
+\bibcite{ericsson_mobility}{22}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Free-space Application-related metrics by traffic type, direction, and gNB array size.}}{14}{}\protected@file@percent }
+\newlabel{fig:exp2-free-space-flow}{{6}{14}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Free-space propagation-related metrics by channel mode and gNB array size.}}{15}{}\protected@file@percent }
+\newlabel{fig:exp2-free-space-propagation}{{7}{15}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Free-space energy consumptions of gNB and UEs by array size, and traffic load.}}{15}{}\protected@file@percent }
+\newlabel{fig:exp2-free-space-energy}{{8}{15}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Urban macro Application-related metrics by traffic type, direction, and gNB array size.}}{16}{}\protected@file@percent }
+\newlabel{fig:exp2-urban-macro-flow}{{9}{16}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Urban macro propagation-related metrics by channel mode and gNB array size.}}{17}{}\protected@file@percent }
+\newlabel{fig:exp2-urban-macro-propagation}{{10}{17}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Urban macro energy consumptions of gNB and UEs by array size, and traffic load.}}{17}{}\protected@file@percent }
+\newlabel{fig:exp2-urban-macro-energy}{{11}{17}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Urban micro Application-related metrics by traffic type, direction, and gNB array size.}}{18}{}\protected@file@percent }
+\newlabel{fig:exp2-urban-micro-flow}{{12}{18}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Urban micro propagation-related metrics by channel mode and gNB array size.}}{19}{}\protected@file@percent }
+\newlabel{fig:exp2-urban-micro-propagation}{{13}{19}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Urban micro energy consumptions of gNB and UEs by array size, and traffic load.}}{19}{}\protected@file@percent }
+\newlabel{fig:exp2-urban-micro-energy}{{14}{19}{}{}{}}
+\gdef \@abspage@last{19}

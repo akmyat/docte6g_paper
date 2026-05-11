@@ -1,0 +1,452 @@
+JOURNAL OF LATEX CLASS FILES, VOL. 18, NO. 9, SEPTEMBER 2020
+
+1
+
+An Embedded Ray-Traced Channel Model for ns-3: Architecture,
+Caching, and Energy-Aware NR Evaluation
+Aung Kaung MYAT, Hrishikesh Dutta, Roberto Minerva, Noel Crespi
+SAMOVAR, Télécom SudParis
+Institut Polytechnique de Paris
+Palaiseau, France
+Email: {aung-kaung.myat, hrishikesh.dutta, roberto.minerva, noel.crespi}@telecom-sudparis.eu
+
+I. E XPERIMENT PART II: NR A PPLICATION ,
+P ROPAGATION , AND E NERGY E VALUATION
+After the embedded approach is validated, we evaluate
+the performance of the embedded Sionna RT backend in a
+realistic 3GPP NR deployment. In this section, the performance changes and energy consumption according to different
+traffic loads and gNB’s antenna array sizes are evaluated. The
+performances are tested on three different radio environments:
+free space, urban micro, and urban macro.
+A. Experiment Configuration
+In each simulation run, one gNB and20 UEs are used for
+simulation. The number of UEs is fixed to 20 due to the
+computation limitation of GPU and total time required to finish
+the simulation to be in reasonable range. Different gNB array
+is varied over 2 × 2, 4 × 4, and 8 × 8 while each UEs uses a
+2 × 2 array. The simulations are tested in three different radio
+environments:
+• free space: 2 GHz carrier, 35 m gNB height, and UE
+distances from 50 m to 1000 m;
+• urban macro: 3.5 GHz carrier, 25 m gNB height, and
+UE distances from 35 m to 150 m;
+• urban micro: 28 GHz carrier, 10 m gNB height, and UE
+distances from 10 m to 80 m.
+The height of gNB antenna is set to different values depending
+on the radio environments. The UE positions are generated
+randomly in the given environments and the distance between
+gNB and UEs are set according to the environments. The
+free-space scenario is the baseline, the urban macro scenario
+represents a sub-6 GHz deployment, and the urban micro
+scenario represents the most demanding physical setting as
+it combines a mmWave carrier with geometry-sensitive shortrange links. The 3D visualizations of these three environments
+are shown in Figure 1.
+For scheduling UEs, a TDMA proportional fair scheduler,
+and full-buffer TDD slots are used. On top of the realistic
+wireless channel model, different applications with different
+traffic loads are tested. The traffic profile includes video, voice
+over IP (VoIP), social media, gaming, and FTP. The number of
+UE for each application is set to 12(80%), 2(10%), 2(10%),
+1(5%), and 3(15%) for DL, and 12(80%), 2(10%), 2(10%),
+1(5%), and 3(15%) for UL, respectively as mentioned in [?].
+
+The data rate for each application according to load levels are
+summarized in Table I.
+B. Free-Space Scenario
+The free-space scenario is used as the baseline scenario
+because it don’t have any building blockage and makes the
+distance as the dominant large-scale factor. The UEs are
+randomly spread over a wide radius up to 1000m from the
+gNB. As a result, the scenario contains both favourable near
+links and very weak cell-edge links.
+1) Application-related metrics: Figure 2 shows the
+application-related metrics for the free-space scenario. The
+downlink flows are dominated by high-rate applications such
+as video streamin,g social media, gaming and FTP. The
+stochastic ns-3 channel gives higher downlink throughput than
+Sionna RT in this long range scenario. At 8 × 8 antenna array
+configuration, ns-3 delivers 4.85 Mbit/s with 21.57% packet
+loss, while Sionna RT delivers 3.77 Mbit/s with 26.62% packet
+loss. The same ordering is visible at 2×2, where ns-3 delivers
+4.77 Mbit/s and Sionna RT delivers 3.52 Mbit/s.
+Overall, the performance improve slightly as the antenna
+array size of gNB increases from 2 × 2 to 8 × 8. The reason
+the performance is low in this scenario compared to others
+is because the cell radius is large relative to the carrier
+and transmit configurations. Even though the UEs near the
+gNB were able to achieve higher throughput, the average
+performance is reduced due to the UEs that are fars.
+2) Propagation-related Metrics: The propagation-related
+results are presented in Figure 3. The average path loss is
+around 94.2 dB and the estimated receive power is around
+−48.2 dBm for both ns-3 and Sionna RT modes. The path
+delay metrics differentiate two models. The ns-3 reports about
+3059 ns path delay while Sionna RT reports about 2237 ns.
+Both are within the expected range for hundreds of metres of
+radio path length and the difference reflects the different delay
+calculations used by the two propagation backends.
+In both model, CQI and MCS improve with gNB array sizes
+but ns-3 remains more optimistic. At 8 × 8, ns-3 achieve mean
+CQI 15 and mean MCS 27 while Sionna RT achieve mean
+CQI 14.79 and mean MCS 26.59. The gap between ns-3 and
+Sionna RT is small because most of flows are direct path as
+there is no obstcales like building in the free-sapce scenario.
+Larger array size helps to improve the performance in terms of
+
+JOURNAL OF LATEX CLASS FILES, VOL. 18, NO. 9, SEPTEMBER 2020
+
+(a) Free-space scenario.
+
+2
+
+(b) Urban macro scenario.
+
+(c) Urban micro scenario.
+
+Fig. 1. The three simulated radio environments: (a) free space, (b) urban macro, and (c) urban micro.
+TABLE I
+A PPLICATION DATA RATE BY APPLICATION AND LOAD .
+Application
+Video
+VoIP
+Social
+Gaming
+FTP
+Total
+
+Flows
+12 DL / 12 UL
+2 DL / 2 UL
+2 DL / 2 UL
+1 DL / 1 UL
+3 DL / 3 UL
+20 DL / 20 UL
+
+Low
+DL
+UL
+24.000
+0.300
+0.128
+0.032
+1.000
+0.050
+0.100
+0.025
+3.000
+0.150
+28.228
+0.557
+
+CQI and MCS because of the beamforming gain and spatial
+selectivity but they do not change the fundamental fact that
+some UEs are very far from the gNB.
+3) Energy Consumption related Metrics: In Figure 4, the
+energy consumptions of gNB and UEs by array size, and traffic
+load are presented. The gNB power consumption increases
+with array size in both ns-3 and Sionna RT. In ns-3, the gNB
+consumes 31.16 W for 2 × 2, 64.58 W for 4 × 4, and 199.39
+W for 8 × 8. In Sionna RT, the gNB consumes 30.08 W for
+2 × 2, 59.08 W for 4 × 4, and 173.50 W for 8 × 8. The power
+consumption of UE is similar for all configurations because
+UE array is fixed at 2 × 2.
+The results shows throughput-per-power trade-off is poor
+especially for larger array sizes in this scenario. The larger
+array 8×8 consumes roughly six times the gNB power of 2×2
+array but the downlink throughput improve only slightly. This
+is because array gain helps the radio link, but it cannot remove
+the scheduling and queueing pressure caused by serving many
+long-distance UEs at high traffic load.
+C. Urban Macro Scenario
+The urban macro scenarios is based on the Charles de Gaulle
+Etoile in Paris, which is a dense urban environment with tall
+buildings and many obstacles. The gNB is placed at the top
+of the Arc de Triomphe at a height of 25 m and UEs are
+distributed in a circle of radius 500 m around the gNB. The
+antennas are configured to use the 3.5 GHz carrier frequency,
+which is in the sub 6-Hz range. This scenario is one of the
+challenging scenario for 6G network deployments due to the
+high density of buildings and obstacles.
+
+Medium
+DL
+UL
+96.000
+1.200
+0.256
+0.064
+10.000
+0.500
+1.000
+0.250
+30.000
+1.500
+137.256
+3.514
+
+High
+DL
+UL
+300.000
+3.750
+2.000
+0.500
+40.000
+2.000
+10.000
+2.500
+150.000
+7.500
+502.000
+16.250
+
+1) Application-related Metrics: Figure 5 illustrates the
+application-related metrics for the urban macro scenario,
+comparing ns-3 (solid bars) and Sionna RT (hatched bars)
+across various antenna configurations. Among the traffic types,
+data-intensive applications such as FTP and video streaming
+achieve the highest throughput in both simulators. For FTP,
+ns-3 outperforms Sionna RT at the 2 × 2 configuration where
+ns-3 achieve roughly 16.8 Mbps whereas Sionna RT achieve
+15.2 Mbps. But as the gNB array size increase to 4 × 4 and
+8 × 8, Sionna RT perform better than ns-3 and achieve nearly
+19.5 Mbps whereas ns-3 achieve 18.5 Mbps. The statistical ns3 approach performs well generally but Sionna RT approach
+performs better at larger array size as it can better leverage
+massive MIMO spatial multiplexing by capturing multipath
+components such as reflections and diffractions from the
+buildings and environment. In contrast, for video streaming
+application, ns-3 consistently achieve higher than Sionna RT
+across all antenna configurations.
+For Sionna RT, higher packet loss for video traffic is
+observed in downlink which values are 9.5%, 7.6% and 4.6%
+respectively for 2 × 2, 4 × 4 and 8 × 8 antenna configurations.
+Ns-3 performs better than Sionna RT for video traffic and
+for FTP traffic under 2 × 2 configuration, however, Sionna
+RT outperforms ns-3 for FTP traffic under 4 × 4 and 8 × 8
+configurations. Overall, increasing the antenna array size significantly reduce packet loss for most of the applications in
+both simulators. In the uplink, the packet loss for all most
+all of the applications are very high for both simulators,
+ranging from 15% for VoIP to nearly 100% for gaming and
+social applications in Sionna RT. This reflects the impact of
+
+JOURNAL OF LATEX CLASS FILES, VOL. 18, NO. 9, SEPTEMBER 2020
+
+harsh environment conditions on the constrained transmission
+power of UEs which struggles to overcome severe blockages,
+resulting in poor uplink condition. Interestingly, Sionna RT
+still achieve higher throughput than ns-3 for gaming and FTP
+traffic in uplink eventhough Sionna RT observe higher packet
+loss than ns-3 for both applications.
+Packet delay and jitter metrics further align with these
+observations. Downlink delay is worst for video and FTP
+traffic where Sionna RT achieve 295 ms, 220ms, and 175 ms
+for FTP and 220 ms, 145 ms, and 65 ms for video, respectively
+for 2×2, 4×4, 8×8 antenna configurations. Ns-3 also observes
+high delay for video and FTP traffic in downlink as well,
+however, it is lower than Sionna RT. The reason Sionna RT
+experience higher delay is because the detailed multipath components captured by ray-tracing introduce longer propagation
+paths and varying signal arrival times, increasing the queuing
+delay. Jitter remains relatively low in both simulators for all
+the applications but ns-3 occasionally reports high spike for
+application like FTP and gaming.
+2) Propagation-related Metrics: The propagation-related
+results are presented in Figure 6. Path loss and received power
+remain consistent across all antenna size in both simulators
+at roughly 83.5 dB and −37.5 dBm respectively. Both ns3 and Sionna RT achieve nearly identical values for propagation related metrics but differences can only be observed
+in path delay, CQI and MCS. Ns-3 estimate a path delay
+of approximately 220 ns while Sionna RT estimate higher
+delay around 360 ns across all antenna configurations. Higher
+delay in Sionna RT was due to taking into consideration for
+multipath components.
+Similarly, lower CQI and MCS values are observed in
+Sionna RT than ns-3 for all antenna configurations. For
+instance, in the 2 × 2 configuration, Sionna RT reports an
+average CQI of 9.5 and MCS of 16.5 while ns-3 estimates a
+CQI of 10.5 and MCS of 17.5. Nevertheless, increasing gNB
+array size from 2 × 2 to 8 × 8 improves CQI and MCS in
+both simulators. For example, Sionna RT reports an average
+CQI of 10 and MCS of 17 at 8 × 8 configuration while ns-3
+estimates a CQI of 11 and MCS of 18. Improving CQI and
+MCS according to gNB array size validate that increasing the
+array size enhances beamforming capabilities and effectively
+reduces impact of environment and improves overall link
+quality.
+3) Energy Consumption-related Metrics:
+In Figure 7, the energy consumptions of gNB and UEs
+by array size, and traffic load are presented. The power
+consumption of gNB scales accordingly with both antenna
+array size and traffic load and both simulators show similar
+scaling trends. For instance, both ns-3 and Sionna RT reports
+approximately 25 W, 40 W and 100 W for 2 × 2, 4 × 4, 8 × 8
+array configurations under low traffic load. However, Sionna
+RT reports slightly higher power consumption than ns-3 for all
+antenna configurations. The reason is link to lower CQI and
+MCS values estimated by Sionna RT, which alters resource
+block allocations and transmission durations compared to ns3. These results show that increasing gNB array size improve
+performance but at the cost of significantly higher energy
+consumption.
+
+3
+
+The power consumption of UE remains relatively stable
+for all antenna configurations in both simulators but scale
+noticeably with traffic load. The UE power consumption
+increases from approximately 0.058 W at low load to nearly
+0.095 W at high load. Both simulator observe nearly identical
+UE power consumption across all configurations but Sionna
+RT consumes slightly higher energy than ns-3. This is because
+UE are constrained to 2 × 2 antenna configuration in this
+experiment.
+D. Urban Micro Scenario
+The urban micro scenario is designed to simulate the dense
+street-level environment where gNB is deployed at lower
+elevation of 10 m, typically below the surrounding rooftops.
+In this scenario, the likelihood of non-line-of-sight (NLOS)
+conditions and strong multipath effects due to scattering from
+nearby buildings and street furniture is higher compared to
+the macro scenario. The complex propagation environment
+presents unique challenges for establishing reliable links,
+especially for high-throughput applications.
+1) Application-related Metrics: Figure 8 illustrates the
+application-level flow metrics for the urban scenario. A comparative analysis between the statistical ns-3 model (solid
+bars) and the ray-tracing Sionna model (hatched bars) reveals
+substantial differences in how each simulator resolves the complex 3D urban environment. In terms of downlink throughput,
+Sionna RT consistently achieve higher throughput for dataintensive applications such as FTP and gaming compared
+to ns-3. For example, in Sionna RT, FTP throughput reach
+nearly 20 Mbps with 4 × 4 and 8 × 8 gNB antenna array
+sizes while ns-3 reach around 15 Mbps. This mean that
+Sionna RT approach capture multipath components (reflections
+and diffractions) from urban structures which lead to higher
+downlink throughput than ns-3 approach when MIMO spatial
+multiplexing is leveraged. Moreover, larger gNB array sizes
+improve performance is clearly validated because scaling from
+2×2 to 8×8 antenna arrays enable to achieve higher througput
+in both ns-3 and Sionna RT.
+The packet loss metrics further emphasize the environmental
+impact. In downlink, ns-3 get high packet loss for FTP and
+gaming, nearly 30% in 2 × 2 configuration, while Sionna RT
+get lower loss rate for these applications. In the constract,
+Sionna RT approach have higher loss for video traffic at 2 × 2
+configuration compared to ns-3. In either case, increasing
+the antenna array size to 8 × 8 significantly reduces the
+downlink packet loss to near-zerio across most applications,
+demonstrating how massive MIMO configurations effectively
+overcome urban blockages and fading. However, the packet
+loss remains exceptionally high ranging from 60% to over
+90% for both simulators in uplink. This refelcts a fundamental
+real world limitation that constrained transmission power of
+UE and smaller antenna array szie struggles to overcome the
+urban obstacles.
+Packet delay and jitter metrics also align with the previous
+observations. Downlink delay is worst under 2 × 2 array
+configuration, with ns-3 experiencing extreme spikes for FTP
+> 350 ms and Sionna RT showing elevated delays for video
+
+JOURNAL OF LATEX CLASS FILES, VOL. 18, NO. 9, SEPTEMBER 2020
+
+and social traffic. The multipath components captured by raytracing can introduce variable signal arrival times, occasionally
+increasing delay and jitter for continuous streams in Sionna
+RT. However, as the gNB array scales to 8 × 8, both delay
+and jitter drop significantly which confirms that massive
+MIMO is essential for meeting the strict latency and reliability
+requirements of 6G applications in dense urban areas.
+2) Propagation-related Metrics: The propagation-related
+results are presented in Figure 9. Average path loss, received
+power remain consistent across all antenna size at roughly
+95.5 dB and −62.5 dBm for both simulators. Both ns-3
+and Sionna RT report nearly identical values for propagation
+related metrics.
+However, the differences between ns-3 and Sionna RT are
+clearly visible in the path delay and channel quality metrics.
+While ns-3 estimate a path delay of approximately 120 ns,
+while Sionna RT estimate higher delay around 178 ns across
+all antenna configurations. This difference can be attributed
+to the fact that Sionna RT approach take into account for
+multipath components from the 3D urban structures.
+Similarly, Sionna RT predicts lower average CQI and MCS
+values compared to ns-3. For instance, in the 2 × 2 configuration, Sionna RT reports an average CQI of 6 and MCS of 10
+while ns-3 estimates a CQI of 9.5 and MCS of 16.5. The lower
+CQI and MCS values in Sionna RT highlight the impact of the
+detailed multipath fading and interference captured by the ray
+tracer, leading to a harsher but more realistic channel quality
+assessment. Nevertheless, as the antenna array size scales from
+2 × 2 to 8 × 8, both CQI and MCS improve significantly in
+both simulators. This further validates that increasing the gNB
+array size enhances beamforming capabilities and effectively
+reduces the harsh urban channel conditions and improves
+overall link quality.
+3) Energy Consumption-related Metrics: In Figure 10, the
+energy consumptions of gNB and UEs by array size, and
+traffic load are presented. For the gNB, the power consumption
+scales accordingly with both antenna array size and traffic
+load. For low traffic load, both ns-3 and Sionna RT report
+23 W, 33 W, and 68 W for 2 × 2, 4 × 4, 8 × 8 antenna
+configurations, respectively. However, under high traffic load,
+the power consumption of the 8 × 8 array configuration spikes
+drastically to 215 W in ns-3 and 193 W in Sionna RT. While
+both simulators show similar scaling trends, Sionna RT reports
+slightly lower power consumption under high load. The reason
+is link to the lower CQI and MCS values estimated by Sionna
+RT, which alters resource block allocations and transmission
+durations compared to ns-3. These results show that larger
+array sizes improve performance but at the cost of significantly
+higher energy consumption.
+For the UE, the average power consumption remains relatively stable across different gNB antenna sizes but scales
+noticeably with traffic load. The UE power consumption increases from approximately 0.05 W at low load to nearly 0.09
+W at high load. Sionna RT and ns-3 predict nearly identical UE
+power consumption across all configurations. This confirms
+that the uplink transmission behavior and energy modeling
+are consistent between both simulators, and that the UEs are
+operating near their transmit power limits in the challenging
+
+4
+
+urban environment regardless of the gNB’s antenna array size.
+
+JOURNAL OF LATEX CLASS FILES, VOL. 18, NO. 9, SEPTEMBER 2020
+
+Fig. 2. Free-space Application-related metrics by traffic type, direction, and gNB array size.
+
+5
+
+JOURNAL OF LATEX CLASS FILES, VOL. 18, NO. 9, SEPTEMBER 2020
+
+Fig. 3. Free-space propagation-related metrics by channel mode and gNB array size.
+
+Fig. 4. Free-space energy consumptions of gNB and UEs by array size, and traffic load.
+
+6
+
+JOURNAL OF LATEX CLASS FILES, VOL. 18, NO. 9, SEPTEMBER 2020
+
+Fig. 5. Urban macro Application-related metrics by traffic type, direction, and gNB array size.
+
+7
+
+JOURNAL OF LATEX CLASS FILES, VOL. 18, NO. 9, SEPTEMBER 2020
+
+Fig. 6. Urban macro propagation-related metrics by channel mode and gNB
+array size.
+
+Fig. 7. Urban macro energy consumptions of gNB and UEs by array size,
+and traffic load.
+
+8
+
+JOURNAL OF LATEX CLASS FILES, VOL. 18, NO. 9, SEPTEMBER 2020
+
+Fig. 8. Urban micro Application-related metrics by traffic type, direction, and gNB array size.
+
+9
+
+JOURNAL OF LATEX CLASS FILES, VOL. 18, NO. 9, SEPTEMBER 2020
+
+Fig. 9. Urban micro propagation-related metrics by channel mode and gNB
+array size.
+
+Fig. 10. Urban micro energy consumptions of gNB and UEs by array size,
+and traffic load.
+
+10
+
+
