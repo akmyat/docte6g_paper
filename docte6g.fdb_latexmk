@@ -1,6 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1778506235.94759 "docte6g.tex" "docte6g.pdf" "docte6g" 1778506238.22672 0
+["pdflatex"] 1778507318.77209 "/home/aung/code/docte6g_paper/docte6g.tex" "docte6g.pdf" "docte6g" 1778507321.0299 0
   "/etc/texmf/web2c/texmf.cnf" 1774305524.93312 475 c0e671620eb5563b2130f56340a5fde8 ""
+  "/home/aung/code/docte6g_paper/docte6g.tex" 1778455112.16547 1471 45b7d6f45b772f6e6059544758edc798 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/courier/pcrb7t.tfm" 1136768653 960 4ab65358b8406f30ef5496c8c096d22b ""
@@ -124,13 +125,13 @@
   "02_Literature_Review/Stochastic vs Deterministic Channel Modeling.tex" 1778506151.06977 1591 b9b40d03672b336bfc21e7598f9d2e22 ""
   "02_Literature_Review/literature_review.tex" 1778165608.67556 1060 19cc8d49280a5331977ece99e38cf15c ""
   "02_Literature_Review/ns3.tex" 1778506151.07177 1783 eb0069c47ca27c464d062dc26fdd0d6a ""
-  "03_Methodology/00_system_architecture.tex" 1778506167.99875 4786 ad8cf397a1eb737bcfddbc2249633ad2 ""
+  "03_Methodology/00_system_architecture.tex" 1778507317.91804 5371 b9720a52f9b04c34c598e30d96e822f8 ""
   "03_Methodology/01_cache_mechanism.tex" 1778158513.78104 6840 6425b3f28a099c321abf685e73044ae6 ""
   "03_Methodology/02_adaptive_virtual_receiver_generation.tex" 1778164152.04536 3938 384120683288af8c5a7f88df72ec9415 ""
   "03_Methodology/03_propagation_calculation.tex" 1778506167.99875 2626 712a3f38ad9e41a4e521924d8166b42e ""
   "03_Methodology/04_energy_model.tex" 1778506167.99975 3070 c76cb7370865ef9cb9aa1d7ad542f757 ""
   "03_Methodology/methodology.tex" 1778165708.64272 310 5cc12f8fc90681484901769a3159be07 ""
-  "04_Results/01_experiment_part_I.tex" 1778506204.53548 2025 e73af0df401c43dd05ddb4b66ba0718f ""
+  "04_Results/01_experiment_part_I.tex" 1778507059.74952 2025 e73af0df401c43dd05ddb4b66ba0718f ""
   "04_Results/01_experiment_part_I/01_total_sim_time_scaling.tex" 1778413291.06787 4491 d2ebf6a9a7cd6475e2682fe1c71bc040 ""
   "04_Results/01_experiment_part_I/02_speedup_analysis.tex" 1778413395.12679 2404 6096bfb567c85d76b179cb8de897ed55 ""
   "04_Results/01_experiment_part_I/03_gpu_footprint_utilization.tex" 1778413430.58488 1746 37bd2c77e0b11c3d92d7576c12200284 ""
@@ -143,7 +144,7 @@
   "05_Conclusion/conclusion.tex" 1778486407.47045 3357 5785a0213ab0fa9c57733b5df35ffd6c ""
   "06_Bibliography/bibliography.tex" 1778455446.51486 8382 58e256d12866ccde8a4d8d2e8e886902 ""
   "IEEEtran.cls" 1772620046.15464 282108 7379a03af5f3d0dad26db23a43c3a726 ""
-  "docte6g.aux" 1778506238.17366 14672 aece0268733a44bc926cc665f399d662 "pdflatex"
+  "docte6g.aux" 1778507320.99303 14674 ba03790f01706c06ed05e90e50e3da0c "pdflatex"
   "docte6g.tex" 1778455112.16547 1471 45b7d6f45b772f6e6059544758edc798 ""
   "images/SionnaRT_System_Architecture.drawio.png" 1777898882.59089 269393 d3474e21b398825521accb1ccd6959e1 ""
   "images/free_space.png" 1776061255.07712 7656 e7d300882b1603539370c8c416809bd6 ""

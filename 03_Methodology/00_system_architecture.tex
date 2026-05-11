@@ -41,3 +41,7 @@ During the simulation, when the channel information requested is not in the cach
 Path solver calculate path loss, time of arrival, angle of arrival, angle of departure, etc based on the rays propagated in the 3D environment \cite{sionnart,alsamman_mmwave,raymobtime_sionna}.
 These calculation are done on GPU for efficient computation which give substantial performance.
 Finally, the calculated channel information is returned to the ns-3 side through the wrapper class and updated in the cache.
+
+All of the experiments in this paper are conducted on an Asus Ascent GX10 AI supercomputer, powered by the NVIDIA GB10 Grace Blackwell Superchip.
+This system integrates a 20-core Arm-based NVIDIA Grace CPU with an NVIDIA Blackwell GPU, delivering up to 1 petaFLOP of AI performance.
+Furthermore, it is equipped with 128GB of unified LPDDR5x memory and NVIDIA ConnectX-7 networking technology, providing the necessary computational power and memory bandwidth to efficiently handle the intensive ray-tracing operations and system-level simulations required by our integrated framework.

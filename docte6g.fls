@@ -3,7 +3,7 @@ INPUT /etc/texmf/web2c/texmf.cnf
 INPUT /usr/share/texmf/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
-INPUT docte6g.tex
+INPUT /home/aung/code/docte6g_paper/docte6g.tex
 OUTPUT docte6g.log
 INPUT ./IEEEtran.cls
 INPUT IEEEtran.cls
