@@ -1,2 +1,19 @@
 \section{Introduction}
-This is introduction
+
+Sixth-generation cellular and next-generation wireless local-area networks are increasingly defined by their interaction with the radio environment rather than by abstract path-loss exponents. Joint communication and sensing, integrated access and backhaul, reconfigurable intelligent surfaces, and AI-driven beam management all require simulation tools that can resolve geometry, materials, and antenna directivity at the level of individual rays. At the same time, the network and transport behavior that determines user-perceived performance -- random access, scheduling, hybrid ARQ, congestion control, mobility procedures -- lives several layers above the physical channel and is most faithfully captured by discrete-event simulators with mature protocol stacks.
+
+ns-3 is the de facto open-source platform for that protocol-stack fidelity. It ships with a modular contrib system, a stable C++ API for propagation and spectrum models, and an actively maintained 5G NR module (5G LENA). Its propagation models, however, are by design mathematically tractable rather than environment-specific: Friis, log-distance, 3GPP TR~38.901 spatial-channel models, and a handful of empirical alternatives. None capture the deterministic multipath structure of a particular factory floor or city block.
+
+NVIDIA's Sionna~RT is, conversely, a state-of-the-art differentiable ray tracer with first-class support for planar antenna arrays, dual polarization, and scene loading. It is, however, a Python library oriented around standalone link-level studies; it does not implement MAC, RLC, PDCP, or any network protocol.
+
+Bridging the two has historically meant \emph{socket-coupling}: launching the ray tracer as a separate process and exchanging position and channel data over ZMQ or TCP. The reference implementation \texttt{ns3sionna} follows this pattern, and our own measurements (Section~\ref{sec:results}) confirm that under mobility-dominated load it imposes prohibitive overhead -- wall-clock times in the tens of minutes for ten seconds of simulated time at modest user counts. The cost is dominated not by ray tracing itself but by per-step IPC, serialization, and the absence of a shared cache state between the two address spaces.
+
+This paper contributes:
+
+\begin{enumerate}
+\item \textbf{An embedded integration}, \texttt{contrib/sionnart}, in which the Python interpreter and Sionna~RT live inside the ns-3 process via pybind11. C++ propagation models call Python directly, circumventing expensive IPC overheads and enabling a shared memory space.
+\item \textbf{A displacement-based coherence-aware cache and proactive virtual receiver generation.} To further minimize computationally expensive ray-tracing calls, we introduce a cache whose validity bound is mathematically tied to spatial displacement and array geometry, coupled with an adaptive mechanism that samples future channel states along a mobile node's predicted trajectory.
+\item \textbf{An evaluation across two experimental campaigns.} Campaign~I quantifies the runtime advantages of our architecture, demonstrating up to a $232\times$ speedup over socket-coupled designs while maintaining a minimal, flat GPU memory footprint under high-mobility loads. Campaign~II examines the impact of channel realism on 5G NR networks across free space, urban macro, and urban micro environments. It reveals how deterministic multipath fading enforces more conservative, realistic CQI/MCS scheduling than stochastic models, fundamentally shifting throughput and energy consumption trade-offs when scaling massive MIMO arrays up to $8\times8$.
+\end{enumerate}
+
+The remainder of the paper is organized as follows. Section~\ref{sec:litreview} reviews related simulation platforms and motivates ns-3 as the host. Section~\ref{sec:methodology} describes the system architecture, cache mechanism, adaptive virtual receiver generation, and the NR energy formulation. Section~\ref{sec:results} reports experimental results from both campaigns. Section~\ref{sec:conclusion} discusses limitations, concludes, and outlines future work.
