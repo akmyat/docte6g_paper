@@ -1,0 +1,9 @@
+\subsection{Sionna RT}
+Sionna \cite{sionna} version two is a hardware-accelerated differentiable open-source library for research on communication systems.
+It is built on top of Mitsuba 3 and Dr.JIt while the API is written in PyTorch unlike the original Sionna library.
+It is composed of \texttt{Sionna RT} which is a stand-alone ray tracer for radio propagation modelling, \texttt{Sionna PHY}, a link-level simulator for wireless and optical communication and \texttt{Sionna SYS}, system-level simulation functionalities based on physical-layer abstraction.
+
+However, it lacks the functionalities to simulate the whole 5G NR protocol stack. This is where ns-3 comes in.
+Sionna RT provides the realistic channel modelling which reflect the propagation of radio waves in a given environment while ns-3 provides the functionalities to simulate the remaining part of the 5G NR protocol stack.
+To integrate the Sionna RT into ns-3, we leverage pybind11, allowing Sionna RT to live directly within the ns-3 process.
+This allows the simulator to calculate spatially consistent CIRs with minimum overhead, effectively replacing stochastic abstractions with deterministic physical calculations.

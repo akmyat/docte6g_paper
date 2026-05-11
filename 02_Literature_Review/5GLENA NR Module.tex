@@ -1,0 +1,9 @@
+\subsection{5G LENA NR Module}
+5G-LENA NR \cite{5glena} is an extension of ns-3 developed by CTTC for simulating 3GPP compliant 5G NR cellular networks across both  sub-6 Hz and mmWave frequency ranges (0.5 to 100 GHz).
+The module implements  5G NR core network components, protocol stack including the Physical (PHY), Medium Access Control (MAC), Radio Link Control (RLC), and Packet Data Convergence Protocol (PDCP) layers.
+The MAC layer in 5G-LENA supports flexible schedulers (e.g., Proportional Fair, Round Robin) for both TDMA and OFDMA-based access, while the PHY layer handles advanced MIMO models and MCS (Modulation and Coding Scheme) adaptation.
+
+While 5G-LENA NR provides the protocol stacks for 5G NR, it still rely on the standard ns-3 propagation models which cause the same limitations previously discussed.
+Specifically, it lacks the site-specific channel information related to environment that it is deployed in.
+Such information are important to model different research scenarios such as ISAC in 6G network systems.
+This gap in physical-layer realism is the final motivator for us to integrate a ray-tracing engine into 5G-LENA NR.
