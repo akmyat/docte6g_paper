@@ -1,2 +1,10 @@
 \section{Conclusion}
-This is conclusion section.
+\label{sec:conclusion}
+
+To meet the demanding requirements of 6G systems research, which increasingly relies on massive MIMO and spatially consistent channel models, we presented \texttt{sionnart}: an embedded integration of the Sionna~RT ray-tracing engine directly into the ns-3 network simulator. By replacing traditional stochastic models with deterministic, physically realistic ray-tracing, our framework captures the complex multipath environments critical for next-generation network evaluation.
+
+To overcome the severe computational bottlenecks of prior socket-coupled integrations, our methodology introduced an embedded architecture utilizing a displacement-based, coherence-aware cache and a proactive adaptive virtual receiver generation mechanism. These design choices dramatically reduce ray-tracing overhead.
+
+We characterized the framework's behavior across two experimental campaigns. In the first campaign, evaluating runtime scaling and integration overhead, \texttt{sionnart} achieved up to a $232\times$ speedup (over two orders of magnitude lower wall-clock time) compared to the \texttt{ns3sionna} socket-based baseline. It also maintained a minimal, flat GPU memory footprint (under 500 MiB), and even outperformed the analytical Friis baseline in stationary regimes thanks to efficient caching.
+
+In the second campaign, a comprehensive 5G NR evaluation across diverse radio environments (free space, urban macro, and urban micro), replacing the analytical channel with a ray-traced one materially shifted SINR distributions, link-adaptation outcomes, throughput, and downstream energy estimates. Specifically, the ray-traced model captured realistic multipath fading that led to more conservative, accurate CQI/MCS scheduling. The results also validated that while scaling gNB antenna arrays (up to $8 \times 8$) is essential for overcoming harsh urban blockages and improving throughput, it introduces significant energy consumption trade-offs that an analytical model fundamentally cannot recover.
