@@ -1,0 +1,144 @@
+\subsection{Sionna Propagation Cache Mechanism}
+\label{sec:sionna-cache-mechanism}
+
+\subsubsection{Displacement-Based Cache Validity}
+\label{subsec:cache-validity}
+
+Performing the calculation using ray-tracing on Sionna RT is an computationally intensive calculation.
+The goal of the cache mechanism is to reduce this computationally expensive calculation for every ns-3 propagation query.
+When the receiver moved only a small distance from the previous position, the propagation information does not change significantly.
+By using this idea, the cache validation is implemented based on spatial displacement rather than a fixed time interval.
+In this section, how the cache is implemented is described in detail.
+
+The cache stores the records of the each transmitter and receiver pair for ns-3 simulation.
+Each cache entry is indexed by a canonical unordered node pair,
+\begin{equation}
+    \kappa(a,b)=\left(\min(I_a,I_b),\max(I_a,I_b)\right),
+\end{equation}
+where $I_a$ and $I_b$ are ns-3 node identifiers.
+During the runtime, the cache stores the node positions $\mathbf{x}_a^0$ and $\mathbf{x}_b^0$, path loss, transmission delay, channel frequency reqponse (CFR), and the state for path whether it is in Line of Sight (LoS).
+
+The distance between Tx and Rx is calculated using
+\begin{equation}
+    d_{a,b}^0=\left\|\mathbf{x}_a^0-\mathbf{x}_b^0\right\|_2 ,
+\end{equation}
+and the validity radius can be calculated using
+\begin{equation}
+    \Delta_{a,b}=
+    \max\left(
+    \Delta_{\min},
+    \alpha \frac{0.886 d_{a,b}^0}{N_{\mathrm{tx,col}}}
+    \right).
+\end{equation}
+where $\alpha$ is set to $0.4$ and $\Delta_{\min}$ is set to $0.1$ m as default values.
+
+When the query for propagation delay and path loss happens for the Tx-Rx pair, the current posisitons  $\mathbf{x}_a(t)$ and $\mathbf{x}_b(t)$
+are compared against the trace-time positions.
+A valid cache entry is found if
+\begin{equation}
+    \left\|\mathbf{x}_a(t)-\mathbf{x}_a^0\right\|_2 < \Delta_{a,b}
+    \quad\mathrm{and}\quad
+    \left\|\mathbf{x}_b(t)-\mathbf{x}_b^0\right\|_2 < \Delta_{a,b}.
+\end{equation}.
+Ifboth inequalities are satisfied, the propagation delay and path loss and other data are returned directly.
+Otherwise, the cache lookup is considered as a cache miss and the snapshot is refreshed.
+
+\subsubsection{Snapshot Refresh}
+\label{subsec:cache-refresh}
+
+When the cache miss happen, it does not referesh only one link between Tx and Rx.
+Instread, it refreshes the cache for all Tx-Rx pairs.
+First, positions of every node which are using \texttt{SionnaMobilityModel} are synchronized into the Python Sionna scene.
+Then it performs one batched calculation using ray-tracing for all Tx-Rx pairs by invoking \texttt{perform\_calculation} in \texttt{sionnart.py}.
+This is designed in such a way to reduce overall computation using ray-tracing by calculating for all Tx-Rx pairs at once.
+When the calculation are completes, it converts the returned records through pybind, and inserts them as new cache records in ns-3 propagation cache.
+For each record, the cache stores
+\begin{equation}
+    \left(
+    \tau_{a,b},\,
+    L_{a,b},\,
+    \mathbf{h}_{a,b},\,
+    \mathbf{H}_{a,b},\,
+    \mathbf{f},\,
+    \mathrm{LoS}_{a,b},\,
+    \mathbf{x}_a^0,\,
+    \mathbf{x}_b^0,\,
+    \Delta_{a,b}
+    \right),
+\end{equation}
+where $\tau_{a,b}$ is delay, $L_{a,b}$ is path loss, $\mathbf{h}_{a,b}$ is the
+scalar CFR, $\mathbf{H}_{a,b}$ is the MIMO CFR, and $\mathbf{f}$ is the
+frequency vector.
+The old cache records are removed only if the new results contains usable records.
+
+\subsubsection{Lookup and Fallback Behavior}
+\label{subsec:cache-lookup-fallback}
+
+ns-3 query propagation related information for each Tx and Rx pair.
+For a normal link, the cache lookup sequence is that it search the canonical key, test displacment validity, and return the first valid entry it found.
+If no valid entry exists, the cache refreshes the full records and retris the same lookup sequence.
+
+In Sionna RT, the link between nodes with same radio role, such as Tx--Tx or Rx--Rx, are not computable.
+In such cases, the dummy entry with large path loss and delay are returned instead.
+If Sionna RT does not return usable data for the requested link after refresh, the cache falls back to stochastic Friis model and constant constant-speed delay are returned for that lookup.
+
+Moreover, before calling Sionna RT to refresh the cache, it checks estimated received power using Friis in order to avoid unnecessary computation expensive calculation.
+If
+\begin{equation}
+    P_{\mathrm{Friis}}^{\mathrm{rx}} + M
+    <
+    P_{\mathrm{weak}},
+\end{equation}
+where $P_{\mathrm{weak}}=-95$ dBm and $M=6$ dB by default, the link is treated
+as too weak to justify ray tracing.
+In that case,  Friis loss and constant-speed delay are used directly.
+
+\subsubsection{Derived MIMO Caches}
+\label{subsec:derived-mimo-caches}
+
+The cache records returned from Sionna side stores the normalized element-level MIMO CFR.
+However, ns-3 needs derived quantities such as  port-level channel, matrices, PSD-scaled matrices, and effective gains after precoding.
+These quantities depend not only on geometry but also on antenna objects, beamforming vectors, PSDs, and precoders.
+Thus, these information are computed based on the returned element-level MIMO CFR and other information from the ns-3 side, and stored in the propagation entry as derived quantities.
+
+The calculation can be done as followed.
+For a given beam configuration, the element-level channel is projected onto
+antenna ports.
+For resource block $q$, transmit port $p_t$, and receive port
+$p_r$, the port-level channel has the form
+\begin{equation}
+    G_{p_r,p_t}[q]
+    =
+    \sum_{i\in\mathcal{E}_{p_r}}
+    \sum_{j\in\mathcal{E}_{p_t}}
+    w_{r,i}\,w_{t,j}\,
+    \widetilde{H}_{i,j}[q],
+\end{equation}
+where $\mathcal{E}_{p_r}$ and $\mathcal{E}_{p_t}$ are the receive and transmit
+element sets associated with the ports, and $w_{r,i}$ and $w_{t,j}$ are the
+beamforming weights.
+This port CFR is cached using antenna identifiers,
+beamforming-vector hashes, port counts, and link direction.
+
+For spectrum propagation, the port CFR is scaled by the input PSD:
+\begin{equation}
+    C_{p_r,p_t}[q]
+    =
+    \sqrt{S[q]}\,G_{p_r,p_t}[q],
+\end{equation}
+where $S[q]$ is the PSD value on resource block $q$. The most recent
+PSD-scaled matrix is cached using a PSD hash and PSD size.
+
+When a precoding matrix $\mathbf{W}[q]$ is provided, the effective gain per
+resource block is
+\begin{equation}
+    g[q]
+    =
+    \sum_{p_r}\sum_s
+    \left|
+    \sum_{p_t} G_{p_r,p_t}[q] W_{p_t,s}[q]
+    \right|^2 .
+\end{equation}
+These gains are cached using the port-CFR key, precoder hash, precoder
+dimensions, and output resource-block count.
+This avoids repeated beamforming and precoding reductions while the underlying propagation entry remains valid.

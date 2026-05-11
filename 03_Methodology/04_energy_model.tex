@@ -1,0 +1,38 @@
+\subsection{Energy Model for 5G NR gNB and UEs}
+
+To evaluate the network energy consumption during simulations, the ns-3 energy framework is extended by implementing custom \texttt{NrGnbEnergyModel} and \texttt{NrUeEnergyModel} modules.
+These models are implemented by tracking the operational states of the NR spectrum PHY layer which can be repesented as
+the state space $\mathcal{S} = \{\mathrm{IDLE}, \mathrm{RX\_CTRL}, \mathrm{RX\_DATA}, \mathrm{TX}, \mathrm{CCA\_BUSY}\}$.
+Then the power draw of the nodes are calculated base on the time it spend on each state.
+
+For the User Equipment (UE), the total energy consumed is computed from its base power profile:
+\begin{equation}
+    E_\mathrm{UE} = \int_{0}^{T} P_\mathrm{UE}\!\left(s(t)\right)\, dt = \sum_{s \in \mathcal{S}} P_s^\mathrm{UE} \cdot \tau_s,
+\end{equation}
+where $P_s^\mathrm{UE}$ is the power consumption in state $s$, and $\tau_s$ is the cumulative time spent in that state.
+
+By contrast, the Next Generation NodeB (gNB) power model accounts for both a baseline operating load and the scaling effects of its antenna array:
+\begin{equation}
+    E_\mathrm{gNB} = \int_{0}^{T} P_\mathrm{gNB}(s(t))\, dt = \sum_{s \in \mathcal{S}} (P_\mathrm{fixed} + N_\mathrm{ant} P_s^\mathrm{gNB}) \tau_s,
+\end{equation}
+where $P_\mathrm{fixed}$ is the constant hardware power draw, $N_\mathrm{ant}$ is the number of antennas, and $P_s^\mathrm{gNB}$ is the per-antenna state power.
+
+The time a node spends in active states ($\tau_s$) is driven by the network's link adaptation, which relies on the Signal-to-Interference-Plus-Noise Ratio (SINR).
+For a receiver $i$ on subcarrier $k$, the SINR is calculated as:
+\begin{equation}
+    \mathrm{SINR}_{i,k} = \frac{P_\mathrm{tx}\, G_\mathrm{tx}\, G_\mathrm{rx}\, |H_{i,k}|^2}{N_0 W_k + \sum_{j \neq i} P_\mathrm{tx}\, G_\mathrm{tx}\, G_\mathrm{rx}\, |H_{j,k}|^2},
+\end{equation}
+where the core variable is the channel coefficient $H$, supplied by our propagation model (see Section~\ref{subsec:propagation-calculation}).
+
+The gNB uses this SINR to select a Modulation and Coding Scheme (MCS).
+A strong signal allows the use of a more efficient MCS.
+This higher spectral efficiency ($\eta_i$) means data is sent faster, reducing the time the node must spend in the power-intensive transmit state ($\tau_{\mathrm{TX},i}$).
+Ultimately, this determines the overall energy efficiency, measured as energy per delivered bit:
+\begin{equation}
+    \mathcal{E}_b = \frac{E_\mathrm{node}}{\sum_i \eta_i\, W_i\, \tau_{\mathrm{TX},i}},
+\end{equation}
+where $E_\mathrm{node}$ is the total energy of the UE or gNB.
+
+Crucially, this formulation reveals that the evaluated energy efficiency $\mathcal{E}_b$ is highly sensitive to the calculation of the channel coefficient $H$.
+A simple analytical model (like Friis) provides a basic approximation, whereas a ray tracer captures a highly realistic, environment-specific channel.
+In the second part of the experiment, we evaluates exactly how much this choice of propagation model changes the final energy metrics.

@@ -1,0 +1,63 @@
+\subsection{Propagation Calculation}
+\label{subsec:propagation-calculation}
+
+This is the point where the cache and adaptive virtual receiver generation mechanisms meet.
+When a cache miss occurs, ns-3 synchronize the current mobility state of the UEs and positions to Python scene.
+Then any eligible virtual receivers are added to the Python scene by invoking the adaptive virtual receiver generation function.
+Afer all of that finished, Sionna ray-tracing done over all receivers including the virtual receivers over the augmented scene.
+The results is a single geometrically consistent snapshot containing both present and future possible channel records.
+
+Let $\mathcal{R}$ be the physical receiver set and $\mathcal{V}_r$ the virtual
+receivers generated for UE $r$.
+Ray tracing is performed over
+\begin{equation}
+    \mathcal{R}^{+}
+    =
+    \mathcal{R}\cup\bigcup_{r\in\mathcal{R}}\mathcal{V}_r .
+\end{equation}
+The Sionna \texttt{PathSolver} is called with maximum depth $3$, line-of-sight
+paths, specular reflections, refraction, and synthetic arrays enabled; diffuse
+reflection is disabled.
+
+For each Tx--Rx pair $(b,r)$, the exported delay is the minimum
+valid path delay in nanoseconds,
+\begin{equation}
+    d_{b,r}=
+    \mathrm{round}
+    \left(
+    10^9 \min_{p:\tau_{b,r,p}\geq 0}\tau_{b,r,p}
+    \right).
+\end{equation}
+Let the MIMO channel frequency response be
+\begin{equation}
+    \mathbf{H}_{b,r}\in
+    \mathbb{C}^{N_{\mathrm{rx}}\times N_{\mathrm{tx}}\times N_f}.
+\end{equation}
+The average channel power and path loss are
+\begin{align}
+    P_{b,r} &=
+    \frac{1}{N_{\mathrm{rx}}N_{\mathrm{tx}}N_f}
+    \sum_{i,j,q}\left|H_{b,r}[i,j,q]\right|^2, \\
+    L_{b,r} &=-10\log_{10}(P_{b,r}).
+\end{align}
+If $P_{b,r}=0$, the implementation exports $L_{b,r}=200$ dB.
+
+The MIMO channel is normalized as
+\begin{equation}
+    \widetilde{H}_{b,r}[i,j,q]
+    =
+    \frac{H_{b,r}[i,j,q]}{\sqrt{P_{b,r}}}.
+\end{equation}
+This separates large-scale attenuation from small-scale frequency and antenna
+selectivity: $L_{b,r}$ carries the path loss, while
+$\widetilde{\mathbf{H}}_{b,r}$ carries the normalized MIMO structure. For
+ns-3 export, the tensor is flattened in the order
+\begin{equation}
+    q \rightarrow j \rightarrow i,
+\end{equation}
+corresponding to resource block, transmit antenna element, and receive antenna
+element.
+
+After the records are returned to ns-3, the temporary virtual receivers are
+removed from the Python scene.
+The ns-3 propagation cache then stores the returned records using the same displacement-validity rule as ordinary receiver samples.
