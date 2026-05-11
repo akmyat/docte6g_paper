@@ -1,0 +1,70 @@
+\subsection{Free-Space Scenario}
+\label{subsec:exp2-free-space}
+
+The free-space scenario is used as the baseline scenario because it don't have any building blockage and makes the distance as the dominant large-scale factor.
+The UEs are randomly spread over a wide radius up to $1000$m from the gNB.
+As a result, the scenario contains both favourable near links and very weak cell-edge links.
+
+\subsubsection{Application-related metrics}
+\label{subsubsec:exp2-free-space-flow}
+
+Figure \ref{fig:exp2-free-space-flow} shows the application-related metrics for the free-space scenario.
+The downlink flows are dominated by high-rate applications such as video streamin,g social media, gaming and FTP.
+The stochastic ns-3 channel gives higher downlink throughput than Sionna RT in this long range scenario.
+At $8\times8$ antenna array configuration, ns-3 delivers $4.85$ Mbit/s with $21.57\%$ packet loss, while Sionna RT delivers $3.77$ Mbit/s with $26.62\%$ packet loss.
+The same trend is visible at $2\times2$, where ns-3 delivers $4.77$ Mbit/s and Sionna RT delivers $3.52$ Mbit/s.
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=\linewidth]{images/free_space_flow_metrics.png}
+    \caption{Free-space Application-related metrics by traffic type, direction, and
+        gNB array size.}
+    \label{fig:exp2-free-space-flow}
+\end{figure*}
+
+Overall, the performance improve slightly as the antenna array size of gNB increases from $2\times2$ to $8\times8$.
+The reason the performance is low  in this scenario compared to others is because the cell radius is large relative to the carrier and transmit configurations.
+Even though the UEs near the gNB were able to achieve higher throughput, the average performance is reduced due to the UEs that are fars.
+
+\subsubsection{Propagation-related Metrics}
+\label{subsubsec:exp2-free-space-propagation}
+
+The propagation-related results are presented in Figure \ref{fig:exp2-free-space-propagation}.
+The average path loss is around $94.2$ dB and the estimated receive power is around $-48.2$ dBm for both ns-3 and Sionna RT modes.
+The path delay metrics differentiate two models.
+The ns-3 reports about $3059$ ns path delay while Sionna RT reports about $2237$ ns.
+Both are within the expected range for hundreds of metres of radio path length and the difference reflects the different delay calculations used by the two propagation backends.
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=\linewidth]{images/free_space_propagation_metrics.png}
+    \caption{Free-space propagation-related metrics by channel mode and gNB array
+        size.}
+    \label{fig:exp2-free-space-propagation}
+\end{figure*}
+
+In both model, CQI and MCS improve with gNB array sizes but ns-3 remains more optimistic.
+At $8\times8$, ns-3 achieve mean CQI $15$ and mean MCS $27$ while Sionna RT achieve mean CQI $14.79$ and mean MCS $26.59$.
+The gap between ns-3 and Sionna RT is small because most of flows are direct path as there is no obstcales like building in the free-sapce scenario.
+Larger array size helps to improve the performance in terms of CQI and MCS because of the beamforming gain and spatial selectivity but they do not change  the fundamental fact that some UEs are very far from the gNB.
+
+\subsubsection{Energy Consumption related Metrics}
+\label{subsubsec:exp2-free-space-energy}
+
+In Figure \ref{fig:exp2-free-space-energy}, the energy consumptions of gNB and UEs by array size, and traffic load are presented.
+The gNB power consumption increases with array size in both ns-3 and Sionna RT.
+In ns-3, the gNB consumes $31.16$ W for $2\times2$, $64.58$ W for $4\times4$, and $199.39$ W for $8\times8$.
+In Sionna RT, the gNB consumes $30.08$ W for $2\times2$, $59.08$ W for $4\times4$, and $173.50$ W for $8\times8$.
+The power consumption of UE is similar for all configurations because UE array is fixed at $2\times2$.
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/free_space_power_consumption.png}
+    \caption{Free-space energy consumptions of gNB and UEs by array size, and
+        traffic load.}
+    \label{fig:exp2-free-space-energy}
+\end{figure*}
+
+The results shows throughput-per-power trade-off is poor especially for larger array sizes in this scenario.
+The larger array $8\times8$ consumes roughly six times the gNB power of $2\times2$ array but the downlink throughput improve only slightly.
+This is because array gain helps the radio link, but it cannot remove the scheduling and queueing pressure caused by serving many long-distance UEs at high traffic load.

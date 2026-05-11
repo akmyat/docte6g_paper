@@ -1,0 +1,58 @@
+\subsection{Experiment Configuration}
+\label{subsec:exp2-setup}
+
+In each simulation run, one gNB and$20$ UEs are used for simulation.
+The number of UEs is fixed to 20 due to the computation limitation of GPU and total time required to finish the simulation to be in reasonable range.
+Different gNB array is varied over $2\times2$, $4\times4$, and $8\times8$ while each UEs uses a $2\times2$ array.
+The simulations are tested in three different radio environments:
+\begin{itemize}
+    \item \textbf{free space}: $2$ GHz carrier, $35$ m gNB height, and UE
+          distances from $50$ m to $1000$ m;
+    \item \textbf{urban macro}: $3.5$ GHz carrier, $25$ m gNB height, and UE
+          distances from $35$ m to $150$ m;
+    \item \textbf{urban micro}: $28$ GHz carrier, $10$ m gNB height, and UE
+          distances from $10$ m to $80$ m.
+\end{itemize}
+The height of gNB antenna is set to different values depending on the radio environments.
+The UE positions are generated randomly in the given environments and the distance between gNB and UEs are set according to the environments.
+The free-space scenario is the baseline, the urban macro scenario represents a sub-6 GHz deployment, and the urban micro scenario represents the most demanding physical setting as it combines a mmWave carrier with geometry-sensitive short-range links.
+The 3D visualizations of these three environments are shown in Figure~\ref{fig:scenarios}.
+
+\begin{figure*}[t]
+    \centering
+    \subfloat[Free-space scenario.]{\includegraphics[width=0.32\textwidth]{images/free_space.png}\label{fig:scenario_free_space}}
+    \hfill
+    \subfloat[Urban macro scenario.]{\includegraphics[width=0.32\textwidth]{images/urban_macro.png}\label{fig:scenario_urban_macro}}
+    \hfill
+    \subfloat[Urban micro scenario.]{\includegraphics[width=0.32\textwidth]{images/urban_micro.png}\label{fig:scenario_urban_micro}}
+    \caption{The three simulated radio environments: (a) free space, (b) urban macro, and (c) urban micro.}
+    \label{fig:scenarios}
+\end{figure*}
+
+For scheduling UEs, a TDMA proportional fair scheduler, and full-buffer TDD slots are used.
+On top of the realistic wireless channel model, different applications with different traffic loads are tested.
+The traffic profile includes video, voice over IP (VoIP), social media, gaming, and FTP.
+The number of UE for each application is set to 12(80\%), 2(10\%), 2(10\%), 1(5\%), and 3(15\%) for DL, and 12(80\%), 2(10\%), 2(10\%), 1(5\%), and 3(15\%) for UL, respectively as mentioned in \cite{ericson}.
+The data rate for each application according to load levels are summarized in Table \ref{tab:exp2-offered-load}.
+
+\begin{table*}[t]
+    \centering
+    \caption{Application data rate by application and load.}
+    \label{tab:exp2-offered-load}
+    \begin{tabular}{lrrrrrrr}
+        \hline
+        Application                & Flows                    & \multicolumn{2}{c}{Low} &
+        \multicolumn{2}{c}{Medium} & \multicolumn{2}{c}{High}                                                                        \\
+        \cline{3-8}
+                                   &                          & DL                      & UL    & DL      & UL    & DL      & UL     \\
+        \hline
+        Video                      & 12 DL / 12 UL            & 24.000                  & 0.300 & 96.000  & 1.200 & 300.000 & 3.750  \\
+        VoIP                       & 2 DL / 2 UL              & 0.128                   & 0.032 & 0.256   & 0.064 & 2.000   & 0.500  \\
+        Social                     & 2 DL / 2 UL              & 1.000                   & 0.050 & 10.000  & 0.500 & 40.000  & 2.000  \\
+        Gaming                     & 1 DL / 1 UL              & 0.100                   & 0.025 & 1.000   & 0.250 & 10.000  & 2.500  \\
+        FTP                        & 3 DL / 3 UL              & 3.000                   & 0.150 & 30.000  & 1.500 & 150.000 & 7.500  \\
+        \hline
+        Total                      & 20 DL / 20 UL            & 28.228                  & 0.557 & 137.256 & 3.514 & 502.000 & 16.250 \\
+        \hline
+    \end{tabular}
+\end{table*}
