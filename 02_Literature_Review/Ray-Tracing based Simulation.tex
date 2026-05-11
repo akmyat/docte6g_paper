@@ -1,11 +1,11 @@
 \subsection{Ray-Tracing based Simulation}
-Ray-tracing is a deterministic channel modeling technique that provides a physically grounded representation of radio signal propagation.
-It models how electromagneticwaves interact with the enviroment by considering refelction, diffrations, and scattering.
+Ray-tracing is a deterministic channel modeling technique that provides a physically grounded representation of radio signal propagation \cite{alsamman_mmwave,han_thz}.
+It models how electromagneticwaves interact with the enviroment by considering refelction, diffrations, and scattering \cite{alsamman_mmwave,raymobtime_sionna}.
 
 The fundamental principle of ray-tracing is to approximate electromagnetic waves as rays whose paths are geometrically computed.
 The channel repose between a transmitter and a receiveris derived by tracing multiple propagation of emitted rays which interact with surronding objects, undergoing reflections, diffractions, or scattering based on the material and geometry of enviroment.
-Ray-tracing has been widely used sicne 1990s for modeling radio propagation in complex environments.
-Its deterministic nature enable high accuracy in predicting signal strength, delay spread, and angle of arrival, which are crucial for advanced wireless communication systems.
+Ray-tracing has been widely used sicne 1990s for modeling radio propagation in complex environments \cite{alsamman_mmwave}.
+Its deterministic nature enable high accuracy in predicting signal strength, delay spread, and angle of arrival, which are crucial for advanced wireless communication systems \cite{han_thz,raymobtime_sionna}.
 
 Main advantage of ray-tracing over traditional stochatic models is its ability to provide site-specific realistic channel modeling.
 This property enables channel evolves smoothly with user modiblity, making it suitable for evaluating advanced scenarios that are difficult to capture with stochatic models.
@@ -13,4 +13,4 @@ For example, ray-tracing can accurately capture the signal drop when a user move
 Furthermore, ray-tracing can provide detailed spatial information about the propagation environment, such as angle of arrival and delay spread, which are crucial for advanced wireless communication systems.
 
 Despite its advantages, ray-tracing is computationally expensive due to the need to evaluate a large number of propagation paths.
-Recent advances in computing hardware, especially the use of GPUs and parallel processing techniques, have made ray-tracing more practical for large-scale simulations.
+Recent advances in computing hardware, especially the use of GPUs and parallel processing techniques, have made ray-tracing more practical for large-scale simulations \cite{sionnart,raymobtime_sionna,cazzella_dt_mimo}.

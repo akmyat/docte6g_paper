@@ -3,7 +3,7 @@ INPUT /etc/texmf/web2c/texmf.cnf
 INPUT /usr/share/texmf/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
-INPUT /home/aung/code/docte6g_paper/docte6g.tex
+INPUT docte6g.tex
 OUTPUT docte6g.log
 INPUT ./IEEEtran.cls
 INPUT IEEEtran.cls
@@ -176,13 +176,13 @@ INPUT 02_Literature_Review/literature_review.tex
 INPUT ./02_Literature_Review/Massive MIMO for 6G.tex
 INPUT ./02_Literature_Review/Massive MIMO for 6G.tex
 INPUT 02_Literature_Review/Massive MIMO for 6G.tex
-INPUT ./02_Literature_Review/Stochastic vs Deterministic Channel Modeling.tex
-INPUT ./02_Literature_Review/Stochastic vs Deterministic Channel Modeling.tex
-INPUT 02_Literature_Review/Stochastic vs Deterministic Channel Modeling.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmb7t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmri7t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmri8r.tfm
+INPUT ./02_Literature_Review/Stochastic vs Deterministic Channel Modeling.tex
+INPUT ./02_Literature_Review/Stochastic vs Deterministic Channel Modeling.tex
+INPUT 02_Literature_Review/Stochastic vs Deterministic Channel Modeling.tex
 INPUT ./02_Literature_Review/Ray-Tracing based Simulation.tex
 INPUT ./02_Literature_Review/Ray-Tracing based Simulation.tex
 INPUT 02_Literature_Review/Ray-Tracing based Simulation.tex
@@ -209,13 +209,13 @@ INPUT ./images/SionnaRT_System_Architecture.drawio.png
 INPUT ./images/SionnaRT_System_Architecture.drawio.png
 INPUT ./images/SionnaRT_System_Architecture.drawio.png
 INPUT ./images/SionnaRT_System_Architecture.drawio.png
-INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
 INPUT ./03_Methodology/01_cache_mechanism.tex
 INPUT ./03_Methodology/01_cache_mechanism.tex
 INPUT 03_Methodology/01_cache_mechanism.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
 INPUT ./03_Methodology/02_adaptive_virtual_receiver_generation.tex
 INPUT ./03_Methodology/02_adaptive_virtual_receiver_generation.tex
 INPUT 03_Methodology/02_adaptive_virtual_receiver_generation.tex
@@ -254,13 +254,13 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/courier/pcrr7t.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/courier/pcrr8r.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmrc7t.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
 INPUT ./04_Results/01_experiment_part_I/02_speedup_analysis.tex
 INPUT ./04_Results/01_experiment_part_I/02_speedup_analysis.tex
 INPUT 04_Results/01_experiment_part_I/02_speedup_analysis.tex
-INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmrc7t.vf
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/courier/pcrr7t.vf
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/courier/pcrr8r.tfm
 INPUT ./images/speed_comparison.png
 INPUT ./images/speed_comparison.png
 INPUT ./images/speed_comparison.png
@@ -312,13 +312,13 @@ INPUT ./images/free_space_propagation_metrics.png
 INPUT ./images/free_space_propagation_metrics.png
 INPUT ./images/free_space_propagation_metrics.png
 INPUT ./images/free_space_propagation_metrics.png
-INPUT ./images/free_space_power_consumption.png
-INPUT ./images/free_space_power_consumption.png
-INPUT ./images/free_space_power_consumption.png
-INPUT ./images/free_space_power_consumption.png
-INPUT ./images/free_space_power_consumption.png
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/helvetic/phvr7t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/helvetic/phvr8r.tfm
+INPUT ./images/free_space_power_consumption.png
+INPUT ./images/free_space_power_consumption.png
+INPUT ./images/free_space_power_consumption.png
+INPUT ./images/free_space_power_consumption.png
+INPUT ./images/free_space_power_consumption.png
 INPUT ./04_Results/02_experiment_part_II/03_urban_macro_scenario.tex
 INPUT ./04_Results/02_experiment_part_II/03_urban_macro_scenario.tex
 INPUT 04_Results/02_experiment_part_II/03_urban_macro_scenario.tex

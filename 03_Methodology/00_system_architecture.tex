@@ -1,5 +1,5 @@
 The overall architecture of the proposed integrated simulation framework is depicted in Figure \ref{fig:system_architecture}.
-The proposed integrated simulation framework follows a layered design in which ns-3 remains the primary discrete-event simulator while Sionna RT is embedded as environment aware ray-tracing engine.
+The proposed integrated simulation framework follows a layered design in which ns-3 remains the primary discrete-event simulator while Sionna RT is embedded as environment aware ray-tracing engine \cite{pybind11,ns3sionna,sionna,sionnart}.
 The main goal of the architecture is to preserve the mature protocol, traffic generation, scheduling capabilities of ns-3, Sionna RT handle ray-tracing which provide realistic site-specific propagation channel model, while leveraging GPU acceleration for computation intensive process
 
 \begin{figure}[htbp]
@@ -38,6 +38,6 @@ So, wrapper class is created to call Sionna RT engine from ns-3 in this layer.
 Final bottom most layer which is in purple color is the Sionna RT engine where the ray-tracing is performed to compute the channel information.
 Before the simulation starts, the radio propagation parameters, antenna configuration, and 3D scene information are initlized by passing the information form ns-3 side.
 During the simulation, when the channel information requested is not in the cache, the calculation for future positions of the node, channel information for each node in different positions is calculated by using Sionna Path Solver.
-Path solver calculate path loss, time of arrival, angle of arrival, angle of departure, etc based on the rays propagated in the 3D environment.
+Path solver calculate path loss, time of arrival, angle of arrival, angle of departure, etc based on the rays propagated in the 3D environment \cite{sionnart,alsamman_mmwave,raymobtime_sionna}.
 These calculation are done on GPU for efficient computation which give substantial performance.
 Finally, the calculated channel information is returned to the ns-3 side through the wrapper class and updated in the cache.

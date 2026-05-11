@@ -1,6 +1,6 @@
 \subsection{Energy Model for 5G NR gNB and UEs}
 
-To evaluate the network energy consumption during simulations, the ns-3 energy framework is extended by implementing custom \texttt{NrGnbEnergyModel} and \texttt{NrUeEnergyModel} modules.
+To evaluate the network energy consumption during simulations, the ns-3 energy framework is extended by implementing custom \texttt{NrGnbEnergyModel} and \texttt{NrUeEnergyModel} modules \cite{samorzewski_energy}.
 These models are implemented by tracking the operational states of the NR spectrum PHY layer which can be repesented as
 the state space $\mathcal{S} = \{\mathrm{IDLE}, \mathrm{RX\_CTRL}, \mathrm{RX\_DATA}, \mathrm{TX}, \mathrm{CCA\_BUSY}\}$.
 Then the power draw of the nodes are calculated base on the time it spend on each state.

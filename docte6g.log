@@ -1,10 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.1)  11 MAY 2026 15:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.1)  11 MAY 2026 15:30
 entering extended mode
- \write18 enabled.
- file:line:error style messages enabled.
+ restricted \write18 enabled.
  %&-line parsing enabled.
-**/home/aung/code/docte6g_paper/docte6g.tex
-(/home/aung/code/docte6g_paper/docte6g.tex
+**docte6g.tex
+(./docte6g.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (./IEEEtran.cls
@@ -18,7 +17,8 @@ Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
 \@IEEEtrantmpcountB=\count188
 \@IEEEtrantmpcountC=\count189
 \@IEEEtrantmptoksA=\toks17
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 503.
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 5
+03.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
@@ -33,34 +33,42 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1086.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <5> not available
 (Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1086.
+
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1086.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <7> not available
 (Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1086.
+
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1086.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1086.
+
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1086.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <9> not available
 (Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1086.
+
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1086.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1086.
+
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <11> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1086.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <11> not available
 (Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1086.
+
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1086.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1086.
+
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <18> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1086.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <18> not available
 (Font)              Font shape `OT1/ptm/b/it' tried instead on input line 1086.
+
 \IEEEquantizedlength=\dimen147
 \IEEEquantizedlengthdiff=\dimen148
 \IEEEquantizedtextheightdiff=\dimen149
@@ -102,14 +110,17 @@ Package: amsmath 2023/05/13 v2.17o AMS math features
 For additional information on amsmath, use the `?' option.
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2021/08/26 v2.01 AMS text
- (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks18
 \ex@=\dimen164
-)) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen165
-) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
 \inf@bad=\count268
@@ -159,18 +170,22 @@ LaTeX Info: Redefining \Relbar on input line 971.
 \mathdisplay@stack=\toks22
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
-) (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-) (/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithmic.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithmic.sty
 Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
- (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
-) (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks23
 )
@@ -180,7 +195,8 @@ Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \c@ALC@depth=\count283
 \ALC@tlm=\skip54
 \algorithmicindent=\skip55
-) (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
 \col@sep=\dimen173
 \ar@mcellbox=\box55
@@ -189,9 +205,11 @@ Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
 \extratabsurround=\skip56
 \backup@length=\skip57
 \ar@cellbox=\box56
-) (/usr/share/texlive/texmf-dist/tex/latex/subfig/subfig.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/subfig/subfig.sty
 Package: subfig 2005/06/28 ver: 1.3 subfig package
- (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
 \caption@tempdima=\dimen175
 \captionmargin=\dimen176
@@ -203,7 +221,17 @@ Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
 \caption@hangindent=\dimen182
 Package caption Info: Unknown document class (or package),
 (caption)             standard defaults will be used.
-Package caption Info: \@makecaption = \long macro:#1#2->\ifx \@captype \@IEEEtablestring \footnotesize \bgroup \par \centering \@IEEEtabletopskipstrut {\normalfont \footnotesize #1}\\{\normalfont \footnotesize \scshape #2}\par \addvspace {0.5\baselineskip }\egroup \@IEEEtablecaptionsepspace \else \@IEEEfigurecaptionsepspace \setbox \@tempboxa \hbox {\normalfont \footnotesize {#1.}\nobreakspace \nobreakspace #2}\ifdim \wd \@tempboxa >\hsize \setbox \@tempboxa \hbox {\normalfont \footnotesize {#1.}\nobreakspace \nobreakspace }\parbox [t]{\hsize }{\normalfont \footnotesize \noindent \unhbox \@tempboxa #2}\else \ifCLASSOPTIONconference \hbox to\hsize {\normalfont \footnotesize \hfil \box \@tempboxa \hfil }\else \hbox to\hsize {\normalfont \footnotesize \box \@tempboxa \hfil }\fi \fi \fi  on input line 1175.
+Package caption Info: \@makecaption = \long macro:#1#2->\ifx \@captype \@IEEEta
+blestring \footnotesize \bgroup \par \centering \@IEEEtabletopskipstrut {\norma
+lfont \footnotesize #1}\\{\normalfont \footnotesize \scshape #2}\par \addvspace
+ {0.5\baselineskip }\egroup \@IEEEtablecaptionsepspace \else \@IEEEfigurecaptio
+nsepspace \setbox \@tempboxa \hbox {\normalfont \footnotesize {#1.}\nobreakspac
+e \nobreakspace #2}\ifdim \wd \@tempboxa >\hsize \setbox \@tempboxa \hbox {\nor
+malfont \footnotesize {#1.}\nobreakspace \nobreakspace }\parbox [t]{\hsize }{\n
+ormalfont \footnotesize \noindent \unhbox \@tempboxa #2}\else \ifCLASSOPTIONcon
+ference \hbox to\hsize {\normalfont \footnotesize \hfil \box \@tempboxa \hfil }
+\else \hbox to\hsize {\normalfont \footnotesize \box \@tempboxa \hfil }\fi \fi 
+\fi  on input line 1175.
 )
 \c@KVtest=\count284
 \sf@farskip=\skip58
@@ -218,43 +246,56 @@ Package caption Info: \@makecaption = \long macro:#1#2->\ifx \@captype \@IEEEtab
 \c@lotdepth=\count290
 \sf@top=\skip61
 \sf@bottom=\skip62
-) (/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
-) (/usr/share/texlive/texmf-dist/tex/latex/sttools/stfloats.sty
-Package: stfloats 2017/03/27 v3.3 Improve float mechanism and baselineskip settings
+)
+(/usr/share/texlive/texmf-dist/tex/latex/sttools/stfloats.sty
+Package: stfloats 2017/03/27 v3.3 Improve float mechanism and baselineskip sett
+ings
 \@dblbotnum=\count291
 \c@dblbotnumber=\count292
-) (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-) (/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2023-11-06 v1.5v LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks25
 \verbatim@line=\toks26
 \verbatim@in@stream=\read2
-) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
- (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
- (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
-) (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
- (/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen184
 \Gin@req@width=\dimen185
-) (/usr/share/texlive/texmf-dist/tex/latex/preprint/balance.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/preprint/balance.sty
 Package: balance 1999/02/23 4.3 (PWD)
 \oldvsize=\dimen186
-) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+)
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count293
 \l__pdf_internal_box=\box57
-) (./docte6g.aux)
+)
+(./docte6g.aux)
 \openout1 = `docte6g.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
@@ -291,37 +332,46 @@ Package caption Info: End \AtBeginDocument code.
 \everyMPtoPDFconversion=\toks28
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
- (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
 ))
-LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 29.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
+LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 2
+9.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <11> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 29.
- (./00_Abstract/abstract.tex
+
+(./00_Abstract/abstract.tex
 LaTeX Font Info:    Trying to load font information for U+msa on input line 10.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 10.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 10.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 1
+0.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)) (./01_Introduction/introduction.tex [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}
+))
+(./01_Introduction/introduction.tex [1{/var/lib/texmf/fonts/map/pdftex/updmap/p
+dftex.map}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}
 
 
 ]
-Underfull \hbox (badness 1412) in paragraph at lines 32--33
-\OT1/ptm/m/n/10 nects to ns-3 through \OT1/pcr/m/n/10 PropagationLossModel\OT1/ptm/m/n/10 ,
- []
-
-
 Underfull \hbox (badness 1681) in paragraph at lines 38--39
 []\OT1/ptm/b/n/10 A 5G NR per-for-mance and en-ergy eval-u-a-tion
  []
@@ -336,36 +386,43 @@ Underfull \hbox (badness 4967) in paragraph at lines 40--41
 \OT1/pcr/m/n/10 ns3sionna \OT1/ptm/m/n/10 in IEEE 802.11ax sce-nar-ios across
  []
 
-
-Underfull \hbox (badness 2556) in paragraph at lines 40--41
-\OT1/ptm/m/n/10 CQI/MCS se-lec-tion, ap-pli-ca-tion through-put, packet
- []
-
-)
-Underfull \vbox (badness 4543) has occurred while \output is active []
-
- (./02_Literature_Review/literature_review.tex (./02_Literature_Review/Massive MIMO for 6G.tex) (./02_Literature_Review/Stochastic vs Deterministic Channel Modeling.tex [2]) (./02_Literature_Review/Ray-Tracing based Simulation.tex) (./02_Literature_Review/Simu5G and Sionna Prior Integration Limitations.tex) (./02_Literature_Review/ns3.tex [3])
+) (./02_Literature_Review/literature_review.tex
+(./02_Literature_Review/Massive MIMO for 6G.tex) [2]
+(./02_Literature_Review/Stochastic vs Deterministic Channel Modeling.tex)
+(./02_Literature_Review/Ray-Tracing based Simulation.tex)
+(./02_Literature_Review/Simu5G and Sionna Prior Integration Limitations.tex)
+(./02_Literature_Review/ns3.tex [3])
 Underfull \hbox (badness 10000) in paragraph at lines 14--17
 []\OT1/ptm/m/n/10 Moreover, ns-3 pro-vide mo-bil-ity model such
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 14--17
-\OT1/ptm/m/n/10 as \OT1/pcr/m/n/10 ConstantPositionMobilityModel \OT1/ptm/m/n/10 and
+\OT1/ptm/m/n/10 as \OT1/pcr/m/n/10 ConstantPositionMobilityModel \OT1/ptm/m/n/1
+0 and
  []
 
-(./02_Literature_Review/5GLENA NR Module.tex) (./02_Literature_Review/SionnaRT.tex)) (./03_Methodology/methodology.tex (./03_Methodology/00_system_architecture.tex
-<images/SionnaRT_System_Architecture.drawio.png, id=24, 945.5325pt x 1617.04124pt>
+(./02_Literature_Review/5GLENA NR Module.tex)
+(./02_Literature_Review/SionnaRT.tex)) (./03_Methodology/methodology.tex
+(./03_Methodology/00_system_architecture.tex
+<images/SionnaRT_System_Architecture.drawio.png, id=24, 945.5325pt x 1617.04124
+pt>
 File: images/SionnaRT_System_Architecture.drawio.png Graphic file (type png)
 <use images/SionnaRT_System_Architecture.drawio.png>
-Package pdftex.def Info: images/SionnaRT_System_Architecture.drawio.png  used on input line 7.
+Package pdftex.def Info: images/SionnaRT_System_Architecture.drawio.png  used o
+n input line 7.
 (pdftex.def)             Requested size: 252.0pt x 430.95662pt.
- [4 <./images/SionnaRT_System_Architecture.drawio.png>]
+
 Underfull \hbox (badness 7558) in paragraph at lines 24--31
-[]\OT1/ptm/m/n/10 When the call to \OT1/pcr/m/n/10 PropagationLossModel \OT1/ptm/m/n/10 and
+[]\OT1/ptm/m/n/10 When the call to \OT1/pcr/m/n/10 PropagationLossModel \OT1/pt
+m/m/n/10 and
  []
 
-) (./03_Methodology/01_cache_mechanism.tex [5]) (./03_Methodology/02_adaptive_virtual_receiver_generation.tex [6]) (./03_Methodology/03_propagation_calculation.tex) (./03_Methodology/04_energy_model.tex
+[4]) (./03_Methodology/01_cache_mechanism.tex [5 <./images/SionnaRT_System_Arch
+itecture.drawio.png>])
+(./03_Methodology/02_adaptive_virtual_receiver_generation.tex [6])
+(./03_Methodology/03_propagation_calculation.tex)
+(./03_Methodology/04_energy_model.tex
 Underfull \hbox (badness 3058) in paragraph at lines 3--7
 []\OT1/ptm/m/n/10 To eval-u-ate the net-work en-ergy con-sump-tion dur-ing
  []
@@ -377,138 +434,198 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--7
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 3--7
-\OT1/ptm/m/n/10 by im-ple-ment-ing cus-tom \OT1/pcr/m/n/10 NrGnbEnergyModel \OT1/ptm/m/n/10 and
+\OT1/ptm/m/n/10 by im-ple-ment-ing cus-tom \OT1/pcr/m/n/10 NrGnbEnergyModel \OT
+1/ptm/m/n/10 and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3--7
-\OT1/pcr/m/n/10 NrUeEnergyModel \OT1/ptm/m/n/10 mod-ules. These mod-els are
+Underfull \hbox (badness 4391) in paragraph at lines 3--7
+\OT1/pcr/m/n/10 NrUeEnergyModel \OT1/ptm/m/n/10 mod-ules [[]]. These mod-els ar
+e
  []
 
-)) [7] (./04_Results/results.tex (./04_Results/01_experiment_part_I.tex (./04_Results/01_experiment_part_I/01_total_sim_time_scaling.tex
+[7])) (./04_Results/results.tex (./04_Results/01_experiment_part_I.tex
+(./04_Results/01_experiment_part_I/01_total_sim_time_scaling.tex
 <images/total-sim-time-scaling.png, id=49, 514.5624pt x 191.7564pt>
 File: images/total-sim-time-scaling.png Graphic file (type png)
 <use images/total-sim-time-scaling.png>
-Package pdftex.def Info: images/total-sim-time-scaling.png  used on input line 9.
+Package pdftex.def Info: images/total-sim-time-scaling.png  used on input line 
+9.
 (pdftex.def)             Requested size: 252.0pt x 93.9117pt.
-) (./04_Results/01_experiment_part_I/02_speedup_analysis.tex [8 <./images/total-sim-time-scaling.png>]
+) [8 <./images/total-sim-time-scaling.png>]
+(./04_Results/01_experiment_part_I/02_speedup_analysis.tex
 <images/speed_comparison.png, id=56, 515.0442pt x 211.0284pt>
 File: images/speed_comparison.png Graphic file (type png)
 <use images/speed_comparison.png>
 Package pdftex.def Info: images/speed_comparison.png  used on input line 10.
 (pdftex.def)             Requested size: 252.0pt x 103.25346pt.
-) (./04_Results/01_experiment_part_I/03_gpu_footprint_utilization.tex
+)
+(./04_Results/01_experiment_part_I/03_gpu_footprint_utilization.tex
 <images/gpu_usage.png, id=57, 517.4532pt x 236.082pt>
 File: images/gpu_usage.png Graphic file (type png)
 <use images/gpu_usage.png>
 Package pdftex.def Info: images/gpu_usage.png  used on input line 13.
 (pdftex.def)             Requested size: 252.0pt x 114.97513pt.
-)) (./04_Results/02_experiment_part_II.tex (./04_Results/02_experiment_part_II/01_experiment_configuration.tex
-<images/free_space.png, id=58, 621.32124pt x 611.28375pt>
+))
+(./04_Results/02_experiment_part_II.tex
+(./04_Results/02_experiment_part_II/01_experiment_configuration.tex [9 <./image
+s/speed_comparison.png> <./images/gpu_usage.png>]
+<images/free_space.png, id=65, 621.32124pt x 611.28375pt>
 File: images/free_space.png Graphic file (type png)
 <use images/free_space.png>
 Package pdftex.def Info: images/free_space.png  used on input line 23.
 (pdftex.def)             Requested size: 165.12378pt x 162.4558pt.
-LaTeX Font Info:    Trying to load font information for OT1+phv on input line 23.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
+LaTeX Font Info:    Trying to load font information for OT1+phv on input line 2
+3.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 )
-<images/urban_macro.png, id=59, 1012.78375pt x 565.11125pt>
+<images/urban_macro.png, id=66, 1012.78375pt x 565.11125pt>
 File: images/urban_macro.png Graphic file (type png)
 <use images/urban_macro.png>
 Package pdftex.def Info: images/urban_macro.png  used on input line 25.
 (pdftex.def)             Requested size: 165.12378pt x 92.12697pt.
-<images/urban_micro.png, id=60, 829.0975pt x 607.26875pt>
+<images/urban_micro.png, id=67, 829.0975pt x 607.26875pt>
 File: images/urban_micro.png Graphic file (type png)
 <use images/urban_micro.png>
 Package pdftex.def Info: images/urban_micro.png  used on input line 27.
 (pdftex.def)             Requested size: 165.12378pt x 120.94196pt.
- [9 <./images/speed_comparison.png> <./images/gpu_usage.png>]) (./04_Results/02_experiment_part_II/02_free_space_scenario.tex
+)
+(./04_Results/02_experiment_part_II/02_free_space_scenario.tex
 Underfull \hbox (badness 6842) in paragraph at lines 11--16
- \OT1/ptm/m/it/10 1) Application-related met-rics: [][] \OT1/ptm/m/n/10 Fig-ure 6[] shows the
+ \OT1/ptm/m/it/10 1) Application-related met-rics: [][] \OT1/ptm/m/n/10 Fig-ure
+ 6[] shows the
  []
 
 <images/free_space_flow_metrics.png, id=68, 1144.0341pt x 1433.8368pt>
 File: images/free_space_flow_metrics.png Graphic file (type png)
 <use images/free_space_flow_metrics.png>
-Package pdftex.def Info: images/free_space_flow_metrics.png  used on input line 19.
+Package pdftex.def Info: images/free_space_flow_metrics.png  used on input line
+ 19.
 (pdftex.def)             Requested size: 516.0pt x 646.70834pt.
 <images/free_space_propagation_metrics.png, id=69, 1144.0341pt x 1072.4868pt>
 File: images/free_space_propagation_metrics.png Graphic file (type png)
 <use images/free_space_propagation_metrics.png>
-Package pdftex.def Info: images/free_space_propagation_metrics.png  used on input line 40.
+Package pdftex.def Info: images/free_space_propagation_metrics.png  used on inp
+ut line 40.
 (pdftex.def)             Requested size: 516.0pt x 483.72742pt.
-<images/free_space_power_consumption.png, id=70, 1289.2968pt x 710.4141pt>
+[10 <./images/free_space.png> <./images/urban_macro.png> <./images/urban_micro.
+png>]
+<images/free_space_power_consumption.png, id=77, 1289.2968pt x 710.4141pt>
 File: images/free_space_power_consumption.png Graphic file (type png)
 <use images/free_space_power_consumption.png>
-Package pdftex.def Info: images/free_space_power_consumption.png  used on input line 62.
+Package pdftex.def Info: images/free_space_power_consumption.png  used on input
+ line 62.
 (pdftex.def)             Requested size: 516.0pt x 284.3232pt.
-[10 <./images/free_space.png> <./images/urban_macro.png> <./images/urban_micro.png>]) (./04_Results/02_experiment_part_II/03_urban_macro_scenario.tex
+) (./04_Results/02_experiment_part_II/03_urban_macro_scenario.tex
 <images/urban_macro_flow_metrics.png, id=78, 1144.7568pt x 1433.8368pt>
 File: images/urban_macro_flow_metrics.png Graphic file (type png)
 <use images/urban_macro_flow_metrics.png>
-Package pdftex.def Info: images/urban_macro_flow_metrics.png  used on input line 34.
+Package pdftex.def Info: images/urban_macro_flow_metrics.png  used on input lin
+e 34.
 (pdftex.def)             Requested size: 516.0pt x 646.29266pt.
 <images/urban_macro_propagation_metrics.png, id=79, 1144.0341pt x 1072.4868pt>
 File: images/urban_macro_propagation_metrics.png Graphic file (type png)
 <use images/urban_macro_propagation_metrics.png>
-Package pdftex.def Info: images/urban_macro_propagation_metrics.png  used on input line 59.
+Package pdftex.def Info: images/urban_macro_propagation_metrics.png  used on in
+put line 59.
 (pdftex.def)             Requested size: 516.0pt x 483.72742pt.
-<images/urban_macro_power_consumption.png, id=80, 1289.2968pt x 710.4141pt>
+ [11]
+<images/urban_macro_power_consumption.png, id=83, 1289.2968pt x 710.4141pt>
 File: images/urban_macro_power_consumption.png Graphic file (type png)
 <use images/urban_macro_power_consumption.png>
-Package pdftex.def Info: images/urban_macro_power_consumption.png  used on input line 83.
+Package pdftex.def Info: images/urban_macro_power_consumption.png  used on inpu
+t line 83.
 (pdftex.def)             Requested size: 516.0pt x 284.3232pt.
- [11]) (./04_Results/02_experiment_part_II/04_urban_micro_scenario.tex
+)
+(./04_Results/02_experiment_part_II/04_urban_micro_scenario.tex
 <images/urban_micro_flow_metrics.png, id=84, 1144.7568pt x 1433.8368pt>
 File: images/urban_micro_flow_metrics.png Graphic file (type png)
 <use images/urban_micro_flow_metrics.png>
-Package pdftex.def Info: images/urban_micro_flow_metrics.png  used on input line 33.
+Package pdftex.def Info: images/urban_micro_flow_metrics.png  used on input lin
+e 33.
 (pdftex.def)             Requested size: 516.0pt x 646.29266pt.
 <images/urban_micro_propagation_metrics.png, id=85, 1144.0341pt x 1072.4868pt>
 File: images/urban_micro_propagation_metrics.png Graphic file (type png)
 <use images/urban_micro_propagation_metrics.png>
-Package pdftex.def Info: images/urban_micro_propagation_metrics.png  used on input line 59.
+Package pdftex.def Info: images/urban_micro_propagation_metrics.png  used on in
+put line 59.
 (pdftex.def)             Requested size: 516.0pt x 483.72742pt.
-<images/urban_micro_power_consumption.png, id=86, 1289.2968pt x 710.4141pt>
+ [12]
+<images/urban_micro_power_consumption.png, id=89, 1289.2968pt x 710.4141pt>
 File: images/urban_micro_power_consumption.png Graphic file (type png)
 <use images/urban_micro_power_consumption.png>
-Package pdftex.def Info: images/urban_micro_power_consumption.png  used on input line 83.
+Package pdftex.def Info: images/urban_micro_power_consumption.png  used on inpu
+t line 83.
 (pdftex.def)             Requested size: 516.0pt x 284.3232pt.
-))) (./05_Conclusion/conclusion.tex [12]) (./06_Bibliography/bibliography.tex
+)))
+(./05_Conclusion/conclusion.tex) (./06_Bibliography/bibliography.tex [13]
 Underfull \hbox (badness 10000) in paragraph at lines 173--175
 []\OT1/ptm/m/n/8 Ericsson, ``Er-ic-s-son Mo-bil-ity Re-port,'' Nov. 2025.
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 173--175
-\OT1/ptm/m/n/8 [On-line]. Avail-able: $https : / / www . ericsson . com / 4aca6f /
+\OT1/ptm/m/n/8 [On-line]. Avail-able: $https : / / www . ericsson . com / 4aca6
+f /
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 173--175
-\OT1/ptm/m/n/8 assets / local / reports-[]papers / mobility-[]report / documents / 2025 /
+\OT1/ptm/m/n/8 assets / local / reports-[]papers / mobility-[]report / document
+s / 2025 /
  []
 
-) [13] [14 <./images/free_space_flow_metrics.png>] [15 <./images/free_space_propagation_metrics.png>] [16 <./images/free_space_power_consumption.png>] [17 <./images/urban_macro_flow_metrics.png>] [18 <./images/urban_macro_propagation_metrics.png>] [19 <./images/urban_macro_power_consumption.png>] [20 <./images/urban_micro_flow_metrics.png>] [21 <./images/urban_micro_propagation_metrics.png>] [22 <./images/urban_micro_power_consumption.png>] (./docte6g.aux)
+) [14
+
+] [15 <./images/free_space_flow_metrics.png>] [16 <./images/free_space_propagat
+ion_metrics.png>] [17 <./images/free_space_power_consumption.png>]
+[18 <./images/urban_macro_flow_metrics.png>] [19 <./images/urban_macro_propagat
+ion_metrics.png>] [20 <./images/urban_macro_power_consumption.png>] [21 <./imag
+es/urban_micro_flow_metrics.png>] [22 <./images/urban_micro_propagation_metrics
+.png>] [23 <./images/urban_micro_power_consumption.png>] (./docte6g.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4925 strings out of 476106
- 92493 string characters out of 5793934
- 1955975 words of memory out of 5000000
+ 4924 strings out of 476106
+ 92405 string characters out of 5793934
+ 1953975 words of memory out of 5000000
  26766 multiletter control sequences out of 15000+600000
  603440 words of font info for 128 fonts, out of 8000000 for 9000
  63 hyphenation exceptions out of 8191
- 57i,10n,65p,990b,504s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on docte6g.pdf (22 pages, 2639640 bytes).
+ 57i,10n,65p,995b,504s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
+courier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8
+a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/font
+s/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/tim
+es/utmri8a.pfb>
+Output written on docte6g.pdf (23 pages, 2640421 bytes).
 PDF statistics:
- 240 PDF objects out of 1000 (max. 8388607)
- 130 compressed objects within 2 object streams
+ 243 PDF objects out of 1000 (max. 8388607)
+ 132 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  81 words of extra memory for PDF output out of 10000 (max. 10000000)
 
