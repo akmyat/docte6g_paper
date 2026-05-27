@@ -16,10 +16,9 @@ The memory increases from $730$ MiB at $N=1$ to $7858$ MiB at $N=32$.
     \label{fig:gpu-usage}
 \end{figure}
 
-The peak-utilization panel present the maximum observed value but not the average GPU load.
-\texttt{sionnart} utilize upto $96\%$ at its peak for performing the channel calculations but the duration of running at peak is very short.
-On the other hand, \texttt{ns3sionna} has lower peak utilization but the GPU is busy most of the time.
+The peak-utilization panel reports the maximum observed value, not the average load.
+\texttt{sionnart} reaches up to $96\%$ peak utilization during batched channel calculations, but these bursts are short.
+By contrast, \texttt{ns3sionna} has lower peak utilization but occupies the GPU more continuously.
 
-In summary, \texttt{sionnart} keeps a nearly fixed GPU memory footprint because the scene and others are reused across channel queries.
-\texttt{ns3sionna} uses much more memory because it has to keep per-link ray-tracing state as the number of mobile links increases.
-For \texttt{sionnart}, it utilize full potential of GPU and duration of running calculation is very short while the \texttt{ns3sionna} is busy most of the time with lower peak utilization.
+In summary, \texttt{sionnart} maintains a nearly flat GPU memory footprint because the scene geometry and per-link state are reused across queries.
+\texttt{ns3sionna} requires growing memory because it must retain per-link ray tracing state for each additional mobile link.

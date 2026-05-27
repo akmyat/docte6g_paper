@@ -1,11 +1,11 @@
 \subsection{Propagation Calculation}
 \label{subsec:propagation-calculation}
 
-This is the point where the cache and adaptive virtual receiver generation mechanisms meet.
-When a cache miss occurs, ns-3 synchronize the current mobility state of the UEs and positions to Python scene.
-Then any eligible virtual receivers are added to the Python scene by invoking the adaptive virtual receiver generation function.
-Afer all of that finished, Sionna ray-tracing done over all receivers including the virtual receivers over the augmented scene.
-The results is a single geometrically consistent snapshot containing both present and future possible channel records.
+The cache and adaptive virtual receiver generation mechanisms interact at the point of each propagation query.
+When a cache miss occurs, ns-3 synchronizes the current mobility state and positions of all UEs to the Python scene.
+The framework then adds eligible virtual receivers to the scene by invoking the adaptive virtual receiver generation function.
+After synchronization is complete, Sionna RT performs ray tracing over all receivers — real and virtual — on the augmented scene.
+The result is a single geometrically consistent snapshot containing both present and near-future channel records.
 
 Let $\mathcal{R}$ be the physical receiver set and $\mathcal{V}_r$ the virtual
 receivers generated for UE $r$.
@@ -19,7 +19,7 @@ The Sionna \texttt{PathSolver} is called with maximum depth $3$, line-of-sight
 paths, specular reflections, refraction, and synthetic arrays enabled; diffuse
 reflection is disabled \cite{sionnart,alsamman_mmwave,raymobtime_sionna}.
 
-For each Tx--Rx pair $(b,r)$, the exported delay is the minimum
+For each Tx–Rx pair $(b,r)$, the reported delay is the minimum
 valid path delay in nanoseconds,
 \begin{equation}
     d_{b,r}=
@@ -51,7 +51,7 @@ The MIMO channel is normalized as
 This separates large-scale attenuation from small-scale frequency and antenna
 selectivity: $L_{b,r}$ carries the path loss, while
 $\widetilde{\mathbf{H}}_{b,r}$ carries the normalized MIMO structure. For
-ns-3 export, the tensor is flattened in the order
+ns-3 export, the tensor is flattened in the index order
 \begin{equation}
     q \rightarrow j \rightarrow i,
 \end{equation}

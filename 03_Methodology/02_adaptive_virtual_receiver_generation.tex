@@ -1,23 +1,19 @@
 \subsection{Adaptive Virtual Receiver Generation}
 \label{subsec:adaptive-virtual-rx-generation}
 
-The cache mechanism mentioned in the previous section reduce repeated call to Sionna RT but it is reactive.
-It means a new ray-tracing calculation is requested only after a cache entry becomes invalid.
-The adaptive virtual receiver generation is a proactive mechanism that is used to reduce the number of cache misses.
-During cache refresh, a small number of temporary receivers are placed ahead of a UE along its recent direction of travel, so that the same Sionna call returns both the current channel and likely near-future channel samples.
-These receivers are not new network nodes. They are just spatial samples for the same UE.
-The primary objectives is to reduce the call to computation expensive Sionna RT ray-tracing call by sampling future possible positions of each UE along their trajectory and perform ray-tracing including those virtual positions in a single call.
-The overhead to call SionnaRT from ns-3 is longer than computing multiple receivers positions in a single call.
-Thus, the trade off is made in order to minimize the total simulation time.
+The coherence cache described in Section~\ref{sec:sionna-cache-mechanism} is reactive: a new ray tracing call is issued only after a cache entry becomes invalid.
+Adaptive virtual receiver generation is a complementary proactive mechanism that reduces the number of such cache misses.
+During each cache refresh, a small number of temporary receiver positions are placed ahead of each UE along its trajectory.
+These positions are not new network nodes; they are spatial samples for the same UE at predicted future locations.
+Including them in the same Sionna RT call returns both present and near-future channel samples at no additional ray tracing overhead.
 
 Let the UE position and speed be
 \begin{equation}
     \mathbf{x}_r(t)=[x_r(t),y_r(t),z_r(t)]^{\mathsf{T}},
     \qquad v_r .
-\end{equation}.
-Prediction of virtual receiver positions is not performed for stationary receiver, i.e., when
-$v_r \leq 10^{-6}$.
-But for a moving UE, the distance to the nearest transmitter is
+\end{equation}
+Prediction of virtual receiver positions is not performed for a stationary receiver (i.e., $v_r \leq 10^{-6}$~m/s).
+For a moving UE, the distance to the nearest transmitter is
 \begin{equation}
     d_r(t)=\min_{b\in\mathcal{B}}
     \left\|\mathbf{x}_r(t)-\mathbf{x}_b\right\|_2 .
@@ -29,27 +25,27 @@ The current sample is predicted to expire after
 \begin{equation}
     T_{\mathrm{expire},r}=\frac{\Delta_r}{v_r}.
 \end{equation}
-This duration represents the expected time before the channel sample expires, which occurs when the UE travels beyond the valid displacement $\Delta_r$ at its current velocity $v_r$.
-If $T_{\mathrm{expire},r}<T_{\min}$, with $T_{\min}=1$, only then virtual receivers are generated.
+This is the time for the UE to travel the full valid displacement at its current speed.
+Virtual receivers are generated only if $T_{\mathrm{expire},r}<T_{\min}$, with $T_{\min}=1$ s.
 
-The generation of virtual receivers is closely tied with the underlying mobility model of the UE.
-For UE with predictable trajectories, such as those use  a Waypoint mobility model, the direction of motion is stable and virtual receivers are reliably generated along the projected path.
-In contrast, for unpredictable movement patterns, such as a random walk, predicting future positions is unreliable and difficult.
+The generation of virtual receivers is closely tied to the underlying mobility model of the UE.
+For UEs with predictable trajectories, such as those using a Waypoint mobility model, the direction of motion is stable and virtual receivers are reliably placed along the projected path.
+In contrast, for unpredictable movement patterns, such as a random walk, predicting future positions is unreliable.
 
-To differentiate these scenarios, the framework evaluates trajectory stability by requiring the dot product of the current and previous directions to satisfy
+To differentiate these scenarios, the framework assesses trajectory stability by checking that the dot product of the current and previous unit direction vectors satisfies
 \begin{equation}
     \mathbf{u}_r(t-\Delta t)^{\mathsf{T}}\mathbf{u}_r(t)\geq \rho_{\min},
 \end{equation}
-where $\rho_{\min}=0.7$ where the prediction direction is defined by the normalized horizontal displacement,
+where $\rho_{\min}=0.7$, and the prediction direction is defined by the normalized horizontal displacement,
 \begin{equation}
     \mathbf{u}_r(t)=
     \frac{[\Delta x_r(t),\Delta y_r(t),0]^{\mathsf{T}}}
     {\sqrt{\Delta x_r(t)^2+\Delta y_r(t)^2}} .
-\end{equation}.
+\end{equation}
 If this stability condition is not met, no virtual receivers are generated.
-This prevenets from wasting computatinal resources on ray-tracing calculations for locations the UE is unlikely to visit.
+This prevents wasting computational resources on ray tracing for locations the UE is unlikely to visit.
 
-For stable trajectories, the spacing and horizon distance are
+For stable trajectories, the inter-sample spacing $s_r$ and prediction horizon $D_r$ are
 \begin{equation}
     s_r=\beta\Delta_r, \qquad D_r=v_rT_h,
 \end{equation}
@@ -66,4 +62,4 @@ Their positions are calculated as
     \mathbf{x}_r(t)+ks_r\mathbf{u}_r(t),
     \qquad k=1,\ldots,K_r .
 \end{equation}
-Thus, only position along the UE trajectory is sampled, and the receiver height remains unchanged.
+Thus, only positions along the UE trajectory are sampled, and the receiver height remains unchanged.

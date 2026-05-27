@@ -4,25 +4,22 @@
 \subsubsection{Displacement-Based Cache Validity}
 \label{subsec:cache-validity}
 
-Performing the calculation using ray-tracing on Sionna RT is an computationally intensive calculation.
-The goal of the cache mechanism is to reduce this computationally expensive calculation for every ns-3 propagation query.
-When the receiver moved only a small distance from the previous position, the propagation information does not change significantly.
-By using this idea, the cache validation is implemented based on spatial displacement rather than a fixed time interval.
-In this section, how the cache is implemented is described in detail.
+The cache exploits spatial coherence: when a node moves only a small distance from its last traced position, channel parameters change negligibly.
+Cache validity is therefore determined by spatial displacement rather than elapsed time.
 
-The cache stores the records of the each transmitter and receiver pair for ns-3 simulation.
+The cache stores a record for each transmitter–receiver pair in the ns-3 simulation.
 Each cache entry is indexed by a canonical unordered node pair,
 \begin{equation}
     \kappa(a,b)=\left(\min(I_a,I_b),\max(I_a,I_b)\right),
 \end{equation}
 where $I_a$ and $I_b$ are ns-3 node identifiers.
-During the runtime, the cache stores the node positions $\mathbf{x}_a^0$ and $\mathbf{x}_b^0$, path loss, transmission delay, channel frequency reqponse (CFR), and the state for path whether it is in Line of Sight (LoS).
+Each entry stores the node positions $\mathbf{x}_a^0$ and $\mathbf{x}_b^0$, path loss, transmission delay, channel frequency response (CFR), and line-of-sight (LoS) state.
 
 The distance between Tx and Rx is calculated using
 \begin{equation}
     d_{a,b}^0=\left\|\mathbf{x}_a^0-\mathbf{x}_b^0\right\|_2 ,
 \end{equation}
-and the validity radius can be calculated using
+and the validity radius is given by
 \begin{equation}
     \Delta_{a,b}=
     \max\left(
@@ -32,26 +29,23 @@ and the validity radius can be calculated using
 \end{equation}
 where $\alpha$ is set to $0.4$ and $\Delta_{\min}$ is set to $0.1$ m as default values.
 
-When the query for propagation delay and path loss happens for the Tx-Rx pair, the current posisitons  $\mathbf{x}_a(t)$ and $\mathbf{x}_b(t)$
-are compared against the trace-time positions.
-A valid cache entry is found if
+On each propagation query for a Tx–Rx pair, the current positions $\mathbf{x}_a(t)$ and $\mathbf{x}_b(t)$ are compared against the positions stored at trace time.
+A valid cache entry exists if
 \begin{equation}
     \left\|\mathbf{x}_a(t)-\mathbf{x}_a^0\right\|_2 < \Delta_{a,b}
     \quad\mathrm{and}\quad
     \left\|\mathbf{x}_b(t)-\mathbf{x}_b^0\right\|_2 < \Delta_{a,b}.
-\end{equation}.
-Ifboth inequalities are satisfied, the propagation delay and path loss and other data are returned directly.
-Otherwise, the cache lookup is considered as a cache miss and the snapshot is refreshed.
+\end{equation}
+If both inequalities are satisfied, the cached parameters are returned directly.
+Otherwise, the lookup is a cache miss and the snapshot is refreshed.
 
 \subsubsection{Snapshot Refresh}
 \label{subsec:cache-refresh}
 
-When the cache miss happen, it does not referesh only one link between Tx and Rx.
-Instread, it refreshes the cache for all Tx-Rx pairs.
-First, positions of every node which are using \texttt{SionnaMobilityModel} are synchronized into the Python Sionna scene.
-Then it performs one batched calculation using ray-tracing for all Tx-Rx pairs by invoking \texttt{perform\_calculation} in \texttt{sionnart.py}.
-This is designed in such a way to reduce overall computation using ray-tracing by calculating for all Tx-Rx pairs at once.
-When the calculation are completes, it converts the returned records through pybind, and inserts them as new cache records in ns-3 propagation cache.
+When a cache miss occurs, the framework refreshes all Tx–Rx pairs rather than only the affected link.
+First, the positions of every node that uses \texttt{SionnaMobilityModel} are synchronized into the Python Sionna scene.
+A single batched ray tracing call is then issued for all Tx–Rx pairs by invoking \texttt{perform\_calculation} in \texttt{sionnart.py}.
+When the computation completes, the returned records are deserialized via pybind11 and inserted as new cache entries.
 For each record, the cache stores
 \begin{equation}
     \left(
@@ -69,20 +63,20 @@ For each record, the cache stores
 where $\tau_{a,b}$ is delay, $L_{a,b}$ is path loss, $\mathbf{h}_{a,b}$ is the
 scalar CFR, $\mathbf{H}_{a,b}$ is the MIMO CFR, and $\mathbf{f}$ is the
 frequency vector.
-The old cache records are removed only if the new results contains usable records.
+The old cache records are replaced only if the new results contain usable entries.
 
 \subsubsection{Lookup and Fallback Behavior}
 \label{subsec:cache-lookup-fallback}
 
-ns-3 query propagation related information for each Tx and Rx pair.
-For a normal link, the cache lookup sequence is that it search the canonical key, test displacment validity, and return the first valid entry it found.
-If no valid entry exists, the cache refreshes the full records and retris the same lookup sequence.
+ns-3 queries propagation information for each Tx–Rx pair.
+For a normal link, the cache searches the canonical key, tests displacement validity, and returns the first valid entry found.
+If no valid entry exists, the cache refreshes all records and retries the same lookup sequence.
 
-In Sionna RT, the link between nodes with same radio role, such as Tx--Tx or Rx--Rx, are not computable.
-In such cases, the dummy entry with large path loss and delay are returned instead.
-If Sionna RT does not return usable data for the requested link after refresh, the cache falls back to stochastic Friis model and constant constant-speed delay are returned for that lookup.
+In Sionna RT, links between nodes with the same radio role, such as Tx–Tx or Rx–Rx, cannot be computed.
+In such cases, a dummy entry with large path loss and delay is returned instead.
+If Sionna RT does not return usable data for the requested link after refresh, the cache falls back to the stochastic Friis model and constant-speed delay.
 
-Moreover, before calling Sionna RT to refresh the cache, it checks estimated received power using Friis in order to avoid unnecessary computation expensive calculation.
+Before calling Sionna RT, the cache checks the estimated received power using the Friis model to avoid unnecessary ray tracing.
 If
 \begin{equation}
     P_{\mathrm{Friis}}^{\mathrm{rx}} + M
@@ -91,17 +85,17 @@ If
 \end{equation}
 where $P_{\mathrm{weak}}=-95$ dBm and $M=6$ dB by default, the link is treated
 as too weak to justify ray tracing.
-In that case,  Friis loss and constant-speed delay are used directly.
+In that case, Friis loss and constant-speed delay are used directly.
 
 \subsubsection{Derived MIMO Caches}
 \label{subsec:derived-mimo-caches}
 
-The cache records returned from Sionna side stores the normalized element-level MIMO CFR.
-However, ns-3 needs derived quantities such as  port-level channel, matrices, PSD-scaled matrices, and effective gains after precoding.
-These quantities depend not only on geometry but also on antenna objects, beamforming vectors, PSDs, and precoders.
-Thus, these information are computed based on the returned element-level MIMO CFR and other information from the ns-3 side, and stored in the propagation entry as derived quantities.
+The records returned by the Sionna RT engine store the normalized element-level MIMO CFR.
+However, ns-3 requires derived quantities such as port-level channels, PSD-scaled matrices, and effective post-precoding gains.
+These quantities depend not only on geometry but also on antenna configuration, beamforming vectors, PSDs, and precoders.
+They are computed from the element-level CFR together with ns-3-side parameters and stored as derived cache entries.
 
-The calculation can be done as followed.
+Computation proceeds as follows.
 For a given beam configuration, the element-level channel is projected onto
 antenna ports.
 For resource block $q$, transmit port $p_t$, and receive port

@@ -1,9 +1,9 @@
 \subsection{Experiment Configuration}
 \label{subsec:exp2-setup}
 
-In each simulation run, one gNB and$20$ UEs are used for simulation.
-The number of UEs is fixed to 20 due to the computation limitation of GPU and total time required to finish the simulation to be in reasonable range.
-Different gNB array is varied over $2\times2$, $4\times4$, and $8\times8$ while each UEs uses a $2\times2$ array.
+In each simulation run, one gNB and 20 UEs are used.
+The UE count is fixed to 20 to keep per-step GPU memory and simulation wall-clock time within practical bounds on the evaluation hardware; scaling to denser deployments is outside the scope of this work.
+The gNB antenna array is varied over $2\times2$, $4\times4$, and $8\times8$; each UE uses a fixed $2\times2$ array.
 The simulations are tested in three different radio environments:
 \begin{itemize}
     \item \textbf{free space}: $2$ GHz carrier, $35$ m gNB height, and UE
@@ -17,20 +17,20 @@ The carrier frequencies, antenna heights, and UE distance ranges are aligned wit
 The 2~GHz carrier for the free-space baseline corresponds to the FR1 sub-3~GHz band; the 3.5~GHz urban macro carrier matches the primary 5G~NR band (n78, FR1); and the 28~GHz urban micro carrier represents the FR2 mmWave band (n257/n261).
 The gNB heights of 25~m (urban macro) and 10~m (urban micro) follow the TR~38.901 UMa and UMi reference values respectively, while the 35~m free-space height is consistent with rural macro conventions.
 The UE distance ranges are chosen to cover the minimum coupling distance and approximate cell radius defined for each scenario in TR~38.901 Table~7.2-1.
-The cell count is fixed to one gNB with 20~UEs, which is consistent with the single-sector system-level evaluation methodology of TR~38.901 Table~A.1 and is bounded in practice by the per-step GPU cost of full-scene ray-tracing; scaling to denser deployments is left as future work.
+The single-cell, 20-UE configuration is consistent with the single-sector system-level evaluation methodology of TR~38.901 Table~A.1.
 The free-space scenario is the baseline, the urban macro scenario represents a sub-6~GHz deployment, and the urban micro scenario represents the most demanding physical setting as it combines a mmWave carrier with geometry-sensitive, short-range links.
 The 3D visualizations of these three environments are shown in Figure~\ref{fig:scenarios}.
 
-\begin{figure*}[t]
+\begin{figure}[t]
     \centering
-    \subfloat[Free-space scenario.]{\includegraphics[width=0.32\textwidth]{images/free_space.png}\label{fig:scenario_free_space}}
+    \subfloat[Free space.]{\includegraphics[width=0.32\linewidth]{images/free_space.png}\label{fig:scenario_free_space}}
     \hfill
-    \subfloat[Urban macro scenario.]{\includegraphics[width=0.32\textwidth]{images/urban_macro.png}\label{fig:scenario_urban_macro}}
+    \subfloat[Urban macro.]{\includegraphics[width=0.32\linewidth]{images/urban_macro.png}\label{fig:scenario_urban_macro}}
     \hfill
-    \subfloat[Urban micro scenario.]{\includegraphics[width=0.32\textwidth]{images/urban_micro.png}\label{fig:scenario_urban_micro}}
-    \caption{The three simulated radio environments: (a) free space, (b) urban macro, and (c) urban micro.}
+    \subfloat[Urban micro.]{\includegraphics[width=0.32\linewidth]{images/urban_micro.png}\label{fig:scenario_urban_micro}}
+    \caption{The three simulated radio environments.}
     \label{fig:scenarios}
-\end{figure*}
+\end{figure}
 
 For scheduling UEs, a TDMA proportional fair scheduler, and full-buffer TDD slots are used.
 On top of the realistic wireless channel model, different applications with different traffic loads are tested.

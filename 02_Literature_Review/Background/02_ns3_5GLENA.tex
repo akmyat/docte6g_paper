@@ -1,7 +1,7 @@
-\subsection{ns-3 and 5G-LENA NR}
+\subsection{ns-3 and 5G-LENA}
 ns-3 is an open-source discrete-event network simulator written in C++, widely used for protocol-level research \cite{ns3}.
 Its core abstraction mirrors real network hardware: a \texttt{Node} aggregates a \texttt{NetDevice}, protocol stack, and \texttt{Application}, while a \texttt{Channel} connects devices and invokes a \texttt{PropagationLossModel} and \texttt{PropagationDelayModel} on each packet transmission.
-The 5G-LENA NR module extends ns-3 with a 3GPP-compliant 5G NR stack, implementing \texttt{PHY}, \texttt{MAC}, \texttt{RLC}, and \texttt{PDCP} layers with flexible OFDMA schedulers, link adaptation, and MIMO beamforming \cite{5glena,bojovic_mimo,bojovic_beamforming}.
+The 5G-LENA module extends ns-3 with a 3GPP-compliant 5G NR stack, implementing \texttt{PHY}, \texttt{MAC}, \texttt{RLC}, and \texttt{PDCP} layers with flexible OFDMA schedulers, link adaptation, and MIMO beamforming \cite{5glena,bojovic_mimo,bojovic_beamforming}.
 
 Both ns-3 and 5G-LENA rely on analytical or stochastic propagation models such as Friis, log-distance, or 3GPP TR~38.901, which represent path loss and multipath through statistical distributions \cite{ns3,tr38901,5glena}.
 These abstractions are efficient for large-scale average-case studies but do not capture site-specific propagation paths, spatially consistent channel evolution under mobility, or the geometric multipath structure required for ISAC and beamforming research.

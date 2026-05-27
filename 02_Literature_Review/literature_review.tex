@@ -1,20 +1,18 @@
 \section{Background}
 \label{sec:litreview}
 
-To understand the motivation behind the integration of ns-3 and Sionna RT, this section reviews the evolution toward Massive MIMO and the need for physically realistic channel models in 6G systems research.
-The difference between traditional stochastic approaches and deterministic ray-tracing approache is discussed, hightlighting the need for the latter in 6G systems research.
-Finally, discuss the limitations of prior integration with Simu5G and motivates the use of ns-3 combined with Sionna RT to achieve realistic channel modelling and computationally efficient simulations for advanced 6G research.
+This section introduces the three components that the proposed framework builds upon: ns-3 with 5G-LENA as the protocol-level simulation environment, Sionna RT as the ray tracing engine, and ray-traced propagation as the physical modeling approach.
+Related work on prior integration approaches and alternative channel modeling strategies is discussed in Section~\ref{sec:relatedwork}.
 
-\input{02_Literature_Review/Massive MIMO for 6G.tex}
+\input{02_Literature_Review/Background/01_Ray-Tracing based Simulation.tex}
 
-\input{02_Literature_Review/Stochastic vs Deterministic Channel Modeling.tex}
+\input{02_Literature_Review/Background/02_ns3_5GLENA.tex}
 
-\input{02_Literature_Review/Ray-Tracing based Simulation.tex}
+\input{02_Literature_Review/Background/03_SionnaRT.tex}
 
-\input{02_Literature_Review/Simu5G and Sionna Prior Integration Limitations.tex}
+\section{Related Work}
+\label{sec:relatedwork}
 
-\input{02_Literature_Review/ns3.tex}
+\input{02_Literature_Review/Related_Work/01_stochastic_vs_deterministic.tex}
 
-\input{02_Literature_Review/5GLENA NR Module.tex}
-
-\input{02_Literature_Review/SionnaRT.tex}
+\input{02_Literature_Review/Related_Work/02_ray_tracing_integrate_network_simulator.tex}
