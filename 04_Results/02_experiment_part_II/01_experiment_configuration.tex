@@ -13,9 +13,12 @@ The simulations are tested in three different radio environments:
     \item \textbf{urban micro}: $28$ GHz carrier, $10$ m gNB height, and UE
           distances from $10$ m to $80$ m.
 \end{itemize}
-The height of gNB antenna is set to different values depending on the radio environments.
-The UE positions are generated randomly in the given environments and the distance between gNB and UEs are set according to the environments.
-The free-space scenario is the baseline, the urban macro scenario represents a sub-6 GHz deployment, and the urban micro scenario represents the most demanding physical setting as it combines a mmWave carrier with geometry-sensitive short-range links.
+The carrier frequencies, antenna heights, and UE distance ranges are aligned with the 3GPP TR 38.901 reference deployment configurations \cite{tr38901}.
+The 2~GHz carrier for the free-space baseline corresponds to the FR1 sub-3~GHz band; the 3.5~GHz urban macro carrier matches the primary 5G~NR band (n78, FR1); and the 28~GHz urban micro carrier represents the FR2 mmWave band (n257/n261).
+The gNB heights of 25~m (urban macro) and 10~m (urban micro) follow the TR~38.901 UMa and UMi reference values respectively, while the 35~m free-space height is consistent with rural macro conventions.
+The UE distance ranges are chosen to cover the minimum coupling distance and approximate cell radius defined for each scenario in TR~38.901 Table~7.2-1.
+The cell count is fixed to one gNB with 20~UEs, which is consistent with the single-sector system-level evaluation methodology of TR~38.901 Table~A.1 and is bounded in practice by the per-step GPU cost of full-scene ray-tracing; scaling to denser deployments is left as future work.
+The free-space scenario is the baseline, the urban macro scenario represents a sub-6~GHz deployment, and the urban micro scenario represents the most demanding physical setting as it combines a mmWave carrier with geometry-sensitive, short-range links.
 The 3D visualizations of these three environments are shown in Figure~\ref{fig:scenarios}.
 
 \begin{figure*}[t]

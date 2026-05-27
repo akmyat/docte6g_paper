@@ -1,0 +1,15 @@
+\subsection{Integrating Ray Tracing with Network Simulator}
+Coupling ray-tracing engines with network simulators has been explored in several prior works.
+The \texttt{ns3sionna} framework connects ns-3 to Sionna~RT through a ZMQ socket interface, exchanging channel data between separate processes \cite{ns3sionna}.
+While this loose coupling preserves the independence of both tools, it introduces per-query inter-process communication and serialization overhead that grows with station count and update frequency under mobility.
+
+Prior to the present work, we investigated coupling Sionna~RT with Simu5G, a 5G system-level simulator built on the OMNeT++ framework \cite{simu5g,omnet}.
+The OMNeT++ architecture, which uses NED-defined topologies instantiated through a C++ runtime, introduces integration complexity when connecting to Python-based tools \cite{omnet,simu5g}.
+Additionally, Simu5G does not expose a native beamforming interface for MIMO antenna arrays at the time of writing, requiring workarounds that add brittleness to the simulation pipeline \cite{simu5g}.
+These constraints, combined with the stochastic propagation models used by default, motivated the transition to ns-3 with 5G-LENA, which provides native MIMO support, a Python-accessible C++ API, and a flexible propagation interface that can be replaced without modifying the protocol stack.
+
+The approach presented in this paper differs from prior couplings in three respects.
+First, Sionna~RT is embedded directly within the ns-3 process via pybind11, eliminating inter-process communication and serialization overhead entirely \cite{pybind11}.
+Second, a displacement-based coherence cache avoids redundant ray-tracing calls when nodes have not moved beyond the spatial validity radius of a prior result, reducing per-packet query overhead without sacrificing channel accuracy.
+Third, adaptive virtual receiver generation proactively pre-computes channel samples for predicted near-future UE positions in the same Sionna~RT call, converting reactive cache misses into batched look-aheads and further reducing the number of ray-tracing invocations under mobility.
+Together, these mechanisms make deterministic ray-traced propagation practical as a live packet-level simulation backend, which no prior integration has demonstrated at the protocol-stack fidelity provided by ns-3 with 5G-LENA.

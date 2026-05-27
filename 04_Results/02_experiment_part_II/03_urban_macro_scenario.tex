@@ -1,10 +1,9 @@
 \subsection{Urban Macro Scenario}
 \label{subsec:exp2-urban-macro}
 
-The urban macro scenarios is based on the Charles de Gaulle Etoile in Paris, which is a dense urban environment with tall buildings and many obstacles.
-The gNB is placed at the top of the Arc de Triomphe at a height of $25$ m and UEs are distributed in a circle of radius $500$ m around the gNB.
-The antennas are configured to use the $3.5$ GHz carrier frequency, which is in the sub 6-Hz range.
-This scenario is one of the challenging scenario for 6G network deployments due to the high density of buildings and obstacles.
+The urban macro scenario is based on the Charles de Gaulle Étoile in Paris, a dense urban environment with tall buildings and complex obstruction patterns.
+The gNB is mounted at 25~m (3GPP UMa reference height \cite{tr38901}) near the Arc de Triomphe, and the 3.5~GHz carrier (FR1 n78) is used.
+The combination of high building density, sub-6~GHz carrier, and macro-cell distances makes this a representative and challenging 5G~NR deployment scenario.
 
 \subsubsection{Application-related Metrics}
 \label{subsubsec:exp2-urban-macro-flow}
@@ -13,7 +12,7 @@ Figure \ref{fig:exp2-urban-macro-flow} illustrates the application-related metri
 Among the traffic types, data-intensive applications such as FTP and video streaming achieve the highest throughput in both simulators.
 For FTP, ns-3 outperforms Sionna RT at the $2 \times 2$ configuration where ns-3 achieve roughly $16.8$ Mbps whereas Sionna RT achieve $15.2$ Mbps.
 But as the gNB array size increase to $4 \times 4$ and $8 \times 8$, Sionna RT perform better than ns-3 and achieve nearly $19.5$ Mbps whereas ns-3 achieve $18.5$ Mbps.
-The statistical ns-3 approach performs well generally but Sionna RT approach performs better at larger array size as it can better leverage massive MIMO spatial multiplexing by capturing multipath components such as reflections and diffractions from the buildings and environment.
+Sionna~RT benefits more from larger arrays because ray-tracing resolves the multipath structure — reflections and diffractions from surrounding buildings — that enables spatial multiplexing; the stochastic model cannot exploit this geometry.
 In contrast, for video streaming application, ns-3 consistently achieve higher than Sionna RT across all antenna configurations.
 
 For Sionna RT, higher packet loss for video traffic is observed in downlink which values are $9.5\%$, $7.6\%$ and $4.6\%$ respectively for $2 \times 2$, $4 \times 4$ and $8 \times 8$ antenna configurations.
@@ -26,7 +25,7 @@ Interestingly, Sionna RT still achieve higher throughput than ns-3 for gaming an
 Packet delay and jitter metrics further align with these observations.
 Downlink delay is worst for video and FTP traffic where Sionna RT achieve $295$ ms, $220$ms, and $175$ ms for FTP and $220$ ms, $145$ ms, and $65$ ms for video, respectively for $2\times2, 4\times4, 8\times8$ antenna configurations.
 Ns-3 also observes high delay for video and FTP traffic in downlink as well, however, it is lower than Sionna RT.
-The reason Sionna RT experience higher delay is because the detailed multipath components captured by ray-tracing introduce longer propagation paths and varying signal arrival times, increasing the queuing delay.
+The elevated delay in Sionna~RT is attributable to its multipath-aware propagation accounting: ray-traced paths include reflected and diffracted components whose longer geometric lengths contribute to the reported path delay, whereas the stochastic model reports only the direct-path delay.
 Jitter remains relatively low in both simulators for all the applications but ns-3 occasionally reports high spike for application like FTP and gaming.
 
 \begin{figure*}[t]
@@ -51,7 +50,7 @@ Similarly, lower CQI and MCS values are observed in Sionna RT than ns-3 for all 
 For instance, in the $2 \times 2$ configuration, Sionna RT reports an average CQI of $9.5$ and MCS of $16.5$ while ns-3 estimates a CQI of $10.5$ and MCS of $17.5$.
 Nevertheless, increasing gNB array size from $2 \times 2$ to $8 \times 8$ improves CQI and MCS in both simulators.
 For example,  Sionna RT reports an average CQI of $10$ and MCS of $17$ at $8\times8$ configuration while ns-3 estimates a CQI of $11$ and MCS of $18$.
-Improving CQI and MCS according to gNB array size validate that increasing the array size enhances beamforming capabilities and effectively reduces impact of environment and improves overall link quality.
+Consistent with the free-space baseline (Section~\ref{subsec:exp2-free-space}), scaling from $2\times2$ to $8\times8$ confirms that larger arrays progressively overcome the obstructed urban channel via beamforming gain.
 
 
 \begin{figure*}[t]
@@ -70,7 +69,7 @@ In Figure \ref{fig:exp2-urban-macro-energy}, the energy consumptions of gNB and 
 The power consumption of gNB scales accordingly with both antenna array size and traffic load and both simulators show similar scaling trends.
 For instance, both ns-3 and Sionna RT reports approximately $25$ W, $40$ W and $100$ W for $2\times2, 4\times4, 8\times8$ array configurations under low traffic load.
 However, Sionna RT reports slightly higher power consumption than ns-3 for all antenna configurations.
-The reason is link to lower CQI and MCS values estimated by Sionna RT, which alters resource block allocations and transmission durations compared to ns-3.
+This is attributable to lower CQI and MCS values estimated by Sionna RT, which alters resource block allocations and transmission durations compared to ns-3.
 These results show that increasing gNB array size improve performance but at the cost of significantly higher energy consumption.
 
 The power consumption of UE remains relatively stable for all antenna configurations in both simulators but scale noticeably with traffic load.

@@ -1,0 +1,8 @@
+\subsection{Ray-Traced Propagation}
+
+Ray tracing models radio propagation by computing geometric paths between transmitters and receivers in a three-dimensional scene \cite{alsamman_mmwave,han_thz}.
+Each ray undergoes reflections, diffractions, and scattering at surfaces, yielding multipath components with physically derived delays, angles of arrival and departure, and complex amplitudes.
+In contrast to stochastic models, which represent path loss and multipath through statistical distributions and cannot distinguish a line-of-sight path along an open street from one blocked by a building, ray tracing produces a site-specific channel that evolves smoothly and predictably as a node moves through the environment \cite{alsamman_mmwave,tr38901}.
+
+This propagation model that reflect the environment is especially valuable for 6G research, where mmWave and THz propagation is highly directional and sensitive to deployment geometry, and where applications such as ISAC require channel information that reflects the physical structure of the scene \cite{uwaechia_mmwave,han_thz,zhou_isac}.
+Although ray tracing is computationally demanding, GPU-accelerated implementations have made it practical for simulation-scale studies \cite{sionnart,raymobtime_sionna,cazzella_dt_mimo}.

@@ -1,0 +1,7 @@
+\subsection{Sionna RT}
+Sionna RT is a GPU-accelerated, differentiable ray-tracing engine for radio propagation modeling, built on Mitsuba~3 and Dr.JIT with a PyTorch API \cite{sionna,sionnart}.
+It resolves multipath components for arbitrary antenna arrays with support for polarization and configurable material properties, and computes channel impulse responses for entire scenes in a single differentiable forward pass.
+
+Sionna RT does not include a network protocol stack and it does not support NR scheduling, link adaptation, packet queuing, mobility procedures, or energy accounting \cite{sionna,sionnart}.
+This makes it a natural complement to ns-3 with 5G-LENA, where Sionna RT supplies the physical channel and ns-3 supplies the protocol behavior.
+To integrate the two, we leverage pybind11 to embed the Python interpreter and Sionna RT engine directly within the ns-3 process \cite{pybind11}, replacing stochastic propagation abstractions with deterministic, environment-specific channel information.
