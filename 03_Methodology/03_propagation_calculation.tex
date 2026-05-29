@@ -1,15 +1,11 @@
 \subsection{Propagation Calculation}
 \label{subsec:propagation-calculation}
 
-The cache and adaptive virtual receiver generation mechanisms interact at the point of each propagation query.
-When a cache miss occurs, ns-3 synchronizes the current mobility state and positions of all UEs to the Python scene.
-The framework then adds eligible virtual receivers to the scene by invoking the adaptive virtual receiver generation function.
-After synchronization is complete, Sionna RT performs ray tracing over all receivers — real and virtual — on the augmented scene.
-The result is a single geometrically consistent snapshot containing both present and near-future channel records.
-
+On a cache miss, ns-3 synchronizes the positions of all UEs to the Python
+scene and adds eligible virtual receivers before issuing a single batched ray
+tracing call.
 Let $\mathcal{R}$ be the physical receiver set and $\mathcal{V}_r$ the virtual
-receivers generated for UE $r$.
-Ray tracing is performed over
+receivers generated for UE $r$; ray tracing is performed over the augmented set
 \begin{equation}
     \mathcal{R}^{+}
     =
@@ -18,46 +14,59 @@ Ray tracing is performed over
 The Sionna \texttt{PathSolver} is called with maximum depth $3$, line-of-sight
 paths, specular reflections, refraction, and synthetic arrays enabled; diffuse
 reflection is disabled \cite{sionnart,alsamman_mmwave,raymobtime_sionna}.
+The result is a single geometrically consistent snapshot of propagation
+parameters for all present and predicted receiver positions.
 
-For each Tx–Rx pair $(b,r)$, the reported delay is the minimum
-valid path delay in nanoseconds,
+For each Tx–Rx pair $(b,r)$, the solver returns a set of propagation paths
+$\{(\tau_{b,r,p}, \mathbf{h}_{b,r,p})\}$ indexed by $p$.
+The reported propagation delay is the minimum non-negative path delay,
 \begin{equation}
     d_{b,r}=
     \mathrm{round}
     \left(
     10^9 \min_{p:\tau_{b,r,p}\geq 0}\tau_{b,r,p}
-    \right).
+    \right)\;\text{[ns]}.
 \end{equation}
-Let the MIMO channel frequency response be
+Combining all paths across the OFDM bandwidth yields the MIMO channel frequency
+response
 \begin{equation}
     \mathbf{H}_{b,r}\in
-    \mathbb{C}^{N_{\mathrm{rx}}\times N_{\mathrm{tx}}\times N_f}.
+    \mathbb{C}^{N_{\mathrm{rx}}\times N_{\mathrm{tx}}\times N_f},
 \end{equation}
-The average channel power and path loss are
+where $N_{\mathrm{rx}}$, $N_{\mathrm{tx}}$, and $N_f$ are the numbers of
+receive antenna elements, transmit antenna elements, and resource blocks,
+respectively.
+
+The average channel power and path loss are then computed as
 \begin{align}
-    P_{b,r} &=
+    P_{b,r} & =
     \frac{1}{N_{\mathrm{rx}}N_{\mathrm{tx}}N_f}
     \sum_{i,j,q}\left|H_{b,r}[i,j,q]\right|^2, \\
-    L_{b,r} &=-10\log_{10}(P_{b,r}).
+    L_{b,r} & =-10\log_{10}(P_{b,r}).
 \end{align}
-If $P_{b,r}=0$, the implementation exports $L_{b,r}=200$ dB.
-
-The MIMO channel is normalized as
+If $P_{b,r}=0$, the implementation exports $L_{b,r}=200$ dB to indicate no signal.
+The channel is then normalized as
 \begin{equation}
     \widetilde{H}_{b,r}[i,j,q]
     =
-    \frac{H_{b,r}[i,j,q]}{\sqrt{P_{b,r}}}.
+    \frac{H_{b,r}[i,j,q]}{\sqrt{P_{b,r}}},
 \end{equation}
-This separates large-scale attenuation from small-scale frequency and antenna
-selectivity: $L_{b,r}$ carries the path loss, while
-$\widetilde{\mathbf{H}}_{b,r}$ carries the normalized MIMO structure. For
-ns-3 export, the tensor is flattened in the index order
+separating large-scale attenuation from small-scale spatial and frequency
+selectivity: $L_{b,r}$ is consumed by the ns-3 \texttt{PropagationLossModel},
+while $\widetilde{\mathbf{H}}_{b,r}$ is passed to the spectrum channel matrix.
+For ns-3 export, the tensor is serialized according to the \texttt{MatrixArray}
+page-major, column-major layout: the flat index is
 \begin{equation}
-    q \rightarrow j \rightarrow i,
+    k = q\,N_{\mathrm{tx}}N_{\mathrm{rx}}
+    + j\,N_{\mathrm{rx}}
+    + i,
 \end{equation}
-corresponding to resource block, transmit antenna element, and receive antenna
-element.
+where $q$, $j$, and $i$ index resource block, transmit antenna element, and
+receive antenna element, respectively.
 
 After the records are returned to ns-3, the temporary virtual receivers are
 removed from the Python scene.
-The ns-3 propagation cache then stores the returned records using the same displacement-validity rule as ordinary receiver samples.
+The ns-3 propagation cache stores all returned records for both real and
+virtual receiver positions using the same displacement-validity rule, so that
+future queries for nearby positions are served from the cache without invoking
+the ray tracer again.

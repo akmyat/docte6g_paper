@@ -1,4 +1,4 @@
-\subsubsection{Speedup Analysis}
+\subsection{Speedup Analysis}
 \label{subsec:speedup-analysis}
 Figure~\ref{fig:speed-comparison} shows the runtime ratios.
 The left panel shows $T_{\mathrm{ns3sionna}}/T_{\mathrm{sionnart}}$ and a larger value means that \texttt{sionnart} is faster than \texttt{ns3sionna}.
@@ -38,4 +38,4 @@ This removes much of the communication cost and the remaining cost is the actual
 \end{table}
 
 The two-server design also has its own merits: a separate Sionna RT server can run on a different machine and multiple ray tracing engines can run in parallel.
-For the use case considered here, however, co-locating the ray tracing engine with ns-3 is sufficient and yields the embedded design.
+For the use case considered here, however, co-locating the ray tracing engine with ns-3 is sufficient.

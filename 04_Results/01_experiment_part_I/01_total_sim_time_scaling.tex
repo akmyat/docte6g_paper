@@ -1,4 +1,4 @@
-\subsubsection{Total Simulation Time Scaling}
+\subsection{Total Simulation Time Scaling}
 \label{subsec:total-sim-time-scaling}
 
 Figure \ref{fig:total-sim-time-scaling} shows the total time taken to finish the simulation over the number of stations $N$ with different channel backends.
@@ -39,7 +39,7 @@ The same results are presented in Table \ref{tab:total-sim-time-scaling}.
 \end{table}
 
 Scaling behavior differs across scenarios.
-In the stationary scenario, the apparent advantage of \texttt{sionnart} over the \texttt{pure ns-3} baseline is an artefact of the cache (Section~\ref{subsec:cache-validity}), not evidence that ray tracing is intrinsically faster than Friis evaluation.
+In the stationary scenario, the apparent advantage of \texttt{sionnart} over the \texttt{pure ns-3} baseline is a consequence of the cache (Section~\ref{subsec:cache-validity}), not evidence that ray tracing is intrinsically faster than Friis evaluation.
 Because no UE moves, the ray-tracer is invoked only once at $t=0$; all subsequent propagation queries are served from the cached channel snapshot while the analytical baseline still re-evaluates its loss model at every packet arrival.
 This cache-driven effect produces an approximately $40\times$ wall-clock reduction at $N=32$, and would collapse to significant overhead if mobility were introduced without the cache.
 Even in this stationary case, the \texttt{ns3sionna} backend is slower than both \texttt{pure ns-3} and \texttt{sionnart} due to the round-trip overhead of communicating with the external Sionna RT server.

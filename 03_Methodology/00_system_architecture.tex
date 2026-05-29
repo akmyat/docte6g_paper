@@ -1,6 +1,6 @@
 The overall architecture of the proposed integrated simulation framework is depicted in Figure \ref{fig:system_architecture}.
 The proposed integrated simulation framework follows a layered design in which ns-3 remains the primary discrete-event simulator while Sionna RT is embedded as an environment-aware ray tracing engine \cite{pybind11,ns3sionna,sionna,sionnart}.
-The architecture preserves the mature protocol, traffic generation, and scheduling capabilities of ns-3; Sionna RT handles ray tracing to provide a site-specific propagation channel model, with GPU acceleration for computationally intensive operations.
+The architecture preserves the mature protocol, traffic generation, and scheduling capabilities of ns-3 and Sionna RT handles ray tracing to provide a site-specific propagation channel model, with GPU acceleration for computationally intensive operations.
 
 \begin{figure}[htbp]
     \centering
@@ -15,10 +15,10 @@ Traffic types include video streaming, social media, gaming, FTP, and VoIP, enab
 The middle layer (shown in green) contains the ns-3 network stack, which handles node management, mobility, routing, scheduling, and MAC operations for the chosen protocol standard (Wi-Fi 802.11ax or 5G NR).
 When a packet is generated, it passes through the protocol stack until it reaches the wireless medium, at which point ns-3 invokes \texttt{PropagationLossModel} and \texttt{PropagationDelayModel} to obtain path loss, transmission delay, and channel response.
 
-When \texttt{PropagationLossModel} or \texttt{PropagationDelayModel} is invoked, the Sionna RT engine computes environment-aware channel parameters (path loss, propagation delay, and multipath angles) for the requested transmitter–receiver pair.
+When \texttt{PropagationLossModel} or \texttt{PropagationDelayModel} is invoked, the Sionna RT engine computes environment-aware channel parameters (path loss, propagation delay, and arrival and departure angles) for the requested transmitter–receiver pair.
 Issuing a full ray tracing query on every packet event is computationally expensive and would dominate simulation runtime.
 The framework addresses this through two complementary mechanisms: a coherence-distance cache that reuses recently computed parameters for spatially close positions, and adaptive virtual receiver pre-computation that pre-populates the cache with channel parameters for predicted future node positions.
-On each query for a link $(p_{tx}, p_{rx})$, the cache layer computes the spatial displacement between the current positions and those stored in the nearest cache entry.
+On each query for a link $(p_{tx}, p_{rx})$, the cache layer computes the spatial displacement between the current positions and those stored in the cache entry.
 If the displacement is below the coherence distance $d_\mathrm{coh}$, the cached parameters are returned directly.
 Otherwise, the Sionna RT engine is invoked and the cache is updated with the newly computed parameters.
 Algorithm~\ref{alg:cache_query} formalizes this lookup procedure.
@@ -74,7 +74,7 @@ However, ns-3 cannot directly call the Sionna RT engine, as the two components a
 A wrapper class is therefore introduced to bridge ns-3 and the Sionna RT engine.
 
 The bottom layer hosts the Sionna RT engine, which performs the physical ray tracing computation.
-Before simulation begins, the engine is initialized with radio propagation parameters, antenna configuration, and the 3D scene geometry passed from the ns-3 side.
+Before simulation begins, the engine is initialized with radio propagation parameters, antenna configuration, and the 3D scene file name passed from the ns-3 side.
 During simulation, the path solver computes path loss, time of arrival, angle of arrival, and angle of departure for each requested receiver position by tracing rays through the 3D environment \cite{sionnart}.
 These computations execute on the GPU, and the results are returned to the cache layer via the wrapper class.
 

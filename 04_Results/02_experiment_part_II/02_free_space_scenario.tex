@@ -8,7 +8,7 @@ UEs are distributed up to $1000$~m from the gNB, so the scenario combines strong
 \label{subsubsec:exp2-free-space-flow}
 
 Figure~\ref{fig:exp2-free-space-flow} shows per-application throughput, packet loss, delay, and jitter for both directions and all antenna configurations.
-The stochastic ns-3 model outperforms Sionna~RT in average downlink throughput: at $8\times8$, ns-3 delivers $4.85$~Mbit/s ($21.6\%$ loss) versus $3.77$~Mbit/s ($26.6\%$ loss) for Sionna~RT, with the same ordering at $2\times2$.
+The stochastic ns-3 model outperforms Sionna~RT in average downlink throughput: at $8\times8$, ns-3 delivers $4.85$~Mbit~s$^{-1}$ with $21.6\%$ loss versus $3.77$~Mbit~s$^{-1}$ with $26.6\%$ loss for Sionna~RT, with the same ordering at $2\times2$.
 The gap reflects the large cell radius: UEs at the cell edge experience greater path loss under ray tracing than the stochastic model predicts.
 Array scaling yields only marginal throughput gain in both simulators because the bottleneck is cell-edge path loss, not beamforming resolution.
 
@@ -24,9 +24,8 @@ Array scaling yields only marginal throughput gain in both simulators because th
 
 Average path loss is $94.2$~dB and estimated receive power is $-48.2$~dBm for both channel models (Fig.~\ref{fig:exp2-channel-quality}).
 The ns-3 model reports a mean path delay of $3059$~ns while Sionna~RT reports $2237$~ns; both are consistent with radio path lengths of hundreds of metres.
-CQI and MCS improve monotonically with array size in both simulators.
-At $8\times8$, ns-3 reaches mean CQI~$15$ and MCS~$27$; Sionna~RT reaches CQI~$14.79$ and MCS~$26.59$.
-The gap is small in free space because most links are near-line-of-sight; array gain raises channel quality but cannot overcome path loss for the most remote UEs.
+Channel quality improves monotonically with array size in both simulators, with ns-3 reporting marginally higher values than Sionna~RT at each configuration.
+The difference is small in free space because most links are near-line-of-sight; beamforming gain raises link quality but cannot overcome path loss for the most remote UEs.
 
 \subsubsection{Energy Consumption-related Metrics}
 \label{subsubsec:exp2-free-space-energy}

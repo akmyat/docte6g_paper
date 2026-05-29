@@ -9,7 +9,7 @@ The combination of high building density, sub-6~GHz carrier, and macro-cell dist
 \label{subsubsec:exp2-urban-macro-flow}
 
 Figure~\ref{fig:exp2-urban-macro-flow} shows per-application metrics for the urban macro scenario.
-Among data-intensive applications, ns-3 outperforms Sionna~RT at $2\times2$ for FTP ($16.8$~Mbit/s vs.\ $15.2$~Mbit/s), but Sionna~RT surpasses ns-3 at $4\times4$ and $8\times8$ ($19.5$~Mbit/s vs.\ $18.5$~Mbit/s).
+Among data-intensive applications, ns-3 outperforms Sionna~RT at $2\times2$ for FTP ($16.8$~Mbit~s$^{-1}$ vs.\ $15.2$~Mbit~s$^{-1}$), but Sionna~RT surpasses ns-3 at $4\times4$ and $8\times8$ ($19.5$~Mbit~s$^{-1}$ vs.\ $18.5$~Mbit~s$^{-1}$).
 Sionna~RT benefits more from larger arrays because ray tracing resolves the multipath structure — reflections and diffractions from surrounding buildings — that enables spatial multiplexing; the stochastic model cannot leverage this geometric structure.
 For video streaming, ns-3 consistently achieves higher throughput than Sionna~RT across all antenna configurations.
 
@@ -27,12 +27,12 @@ Uplink packet loss is severe in both simulators ($15\%$ for VoIP up to near-tota
 \subsubsection{Propagation-related Metrics}
 \label{subsubsec:exp2-urban-macro-propagation}
 
-Path loss ($83.5$~dB) and received power ($-37.5$~dBm) are nearly identical between the two channel models across all array sizes (Fig.~\ref{fig:exp2-channel-quality}).
+Average path loss is $83.5$~dB and received power is $-37.5$~dBm, nearly identical between the two channel models across all array sizes (Fig.~\ref{fig:exp2-channel-quality}).
 The simulators diverge on path delay: ns-3 reports $\approx220$~ns while Sionna~RT reports $\approx360$~ns.
 The elevated delay in Sionna~RT is attributable to its multipath-aware propagation model: ray-traced paths include reflected and diffracted components whose longer geometric lengths contribute to the reported delay, whereas the stochastic model reports only the direct-path delay.
 This mechanistic difference persists in the urban micro scenario as well (Section~\ref{subsec:exp2-urban-micro}).
 
-CQI and MCS are lower in Sionna~RT than in ns-3: at $2\times2$, Sionna~RT reports CQI~$9.5$/MCS~$16.5$ against ns-3's CQI~$10.5$/MCS~$17.5$; at $8\times8$, values rise to CQI~$10$/MCS~$17$ (Sionna~RT) and CQI~$11$/MCS~$18$ (ns-3).
+Channel quality is consistently lower in Sionna~RT than in ns-3 across all array configurations, and improves with array size in both simulators.
 Consistent with the free-space baseline (Section~\ref{subsec:exp2-free-space}), scaling from $2\times2$ to $8\times8$ confirms that larger arrays overcome urban obstruction through beamforming gain.
 
 \subsubsection{Energy Consumption-related Metrics}
@@ -40,5 +40,5 @@ Consistent with the free-space baseline (Section~\ref{subsec:exp2-free-space}), 
 
 gNB power scales with both array size and traffic load in both simulators (Fig.~\ref{fig:exp2-gnb-power}).
 Under low traffic, both report approximately $25$~W, $40$~W, and $100$~W for $2\times2$, $4\times4$, and $8\times8$.
-Sionna~RT reports slightly higher power than ns-3 under high load because its lower CQI/MCS estimates alter resource-block allocations and transmission durations.
+Sionna~RT reports slightly higher power than ns-3 under high load because its lower predicted channel quality leads to different resource-block allocations and transmission durations.
 UE power consumption increases from $0.058$~W at low load to $0.095$~W at high load and is nearly identical between the two simulators, as UEs are constrained to a $2\times2$ array throughout.

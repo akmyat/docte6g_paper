@@ -1,21 +1,20 @@
 \section{Introduction}
 
 Sixth-generation (6G) cellular systems are expected to operate in environments where the radio channel is shaped by geometry, blockage, material properties, mobility, and highly directional antenna arrays \cite{tr38901,alsamman_mmwave,han_thz}.
-Massive MIMO, mmWave and THz access, integrated sensing and communication (ISAC), reconfigurable intelligent surfaces, and AI-assisted beam management all depend on spatial information such as angles, delays, blockage states, and multipath structure \cite{zhou_isac,gao_isac_mimo,cazzella_dt_mimo}.
-Validating these systems through field trials is prohibitively costly and difficult to reproduce; high-fidelity simulation that captures site-specific propagation geometry is therefore the primary research vehicle \cite{cazzella_dt_mimo,bojovic_mimo}.
-For these use cases, a channel model is not only a scalar path-loss function.
-It is part of the simulated environment itself.
+Techniques like integrated sensing and communication (ISAC) and AI-assisted beam management all depend on spatial information such as angles, delays, blockage states, and multipath structure \cite{zhou_isac,gao_isac_mimo,cazzella_dt_mimo}.
+Validating these systems in real-world deployments is costly and difficult to reproduce.
+Thus, simulation that captures site-specific propagation geometry is therefore the best alternative to test these techniques \cite{cazzella_dt_mimo,bojovic_mimo}.
 
 This creates a methodological gap for network research.
-System-level simulators are needed because the quantities that users observe -- throughput, delay, jitter, packet loss, scheduling decisions, retransmissions, and energy consumption -- emerge from MAC, RLC, PDCP, mobility, traffic, and transport behavior.
-ns-3 provides this discrete-event protocol-stack fidelity through a mature C++ framework and, through 5G-LENA, a detailed 5G NR stack with scheduling, link adaptation, and MIMO support \cite{ns3,5glena}.
+System-level simulators are needed because the quantities that users observe -- throughput, delay, jitter, packet loss, scheduling decisions, retransmissions, and energy consumption.
+ns-3 provides this discrete-event protocol-stack capability through a mature C++ framework and, through 5G-LENA, a detailed 5G NR stack with scheduling, link adaptation, and MIMO support \cite{ns3,5glena}.
 However, the propagation models commonly used in ns-3, including Friis, log-distance, and standardized stochastic models such as 3GPP TR~38.901, are designed to be computationally efficient abstractions \cite{tr38901,5glena}.
 They are valuable for average-case studies, but they do not reproduce the site-specific propagation paths created by a particular street canyon, indoor layout, or deployment geometry.
 
 Ray tracing addresses this missing physical realism by computing propagation paths directly from a three-dimensional scene \cite{alsamman_mmwave,han_thz,raymobtime_sionna}.
 Sionna~RT provides a modern GPU-accelerated ray tracing engine with support for antenna arrays, polarization, and scene-based propagation studies \cite{sionna,sionnart}.
 Yet Sionna~RT is not a network simulator: it does not provide the NR protocol stack, packet scheduler, traffic models, mobility procedures, or energy accounting required to study end-to-end network behavior \cite{sionna,sionnart,5glena}.
-The central problem is therefore not whether ray tracing or protocol simulation is useful in isolation, but whether deterministic ray-traced channels can be made practical as a live propagation backend for packet-level ns-3 simulations.
+The main issue is therefore not whether ray tracing or protocol simulation is useful in isolation, but whether deterministic ray-traced channels can be made practical for packet-level ns-3 simulations.
 
 Existing integrations typically connect ns-3 to a separate Python ray tracing process through sockets.
 The \texttt{ns3sionna} implementation follows this design and exchanges channel information with Sionna~RT over ZMQ \cite{ns3sionna}.
@@ -23,24 +22,24 @@ This separation is flexible, but it introduces per-query inter-process communica
 Those costs become especially visible under mobility, where small position changes repeatedly invalidate channel samples while the simulator continues to issue packet-level propagation queries.
 In this work, we take the opposite design choice: Sionna~RT is embedded directly into the ns-3 process, and deterministic channel information is exposed through standard ns-3 propagation interfaces.
 
-This paper presents \texttt{sionnart}, an ns-3 contrib module for fast, repeatable, ray-traced wireless network simulation.
-The goal is to preserve ns-3 and 5G-LENA as the source of protocol behavior while replacing purely analytical propagation with environment-specific channel information from Sionna~RT.
-The research question is twofold: first, how can the computational overhead of ray tracing be reduced enough for packet-level simulation; second, how does the use of deterministic multipath alter NR performance and energy conclusions compared with conventional ns-3 propagation models?
+This paper presents \texttt{sionnart}, an extension module of ns-3 that provides a fast, repeatable, and ray-traced wireless network simulation environment.
+The primary goal is to preserve ns-3 and 5G-LENA as the reliable source of protocol behavior, while seamlessly substituting purely analytical propagation models with site-specific channel information from Sionna~RT.
+Consequently, our research addresses two critical questions: first, how can we integrate ns-3 and Sionna~RT to reduce the computational overhead of ray tracing to a level practical for packet-level simulation? Second, when applied to a real-world case study, how does this deterministic multipath data alter 5G NR performance and energy conclusions compared to conventional ns-3 propagation models?
 
-The main contributions are as follows:
+The main contributions of this work are:
 
 \begin{enumerate}
-    \item \textbf{An embedded ns-3--Sionna~RT framework.} We implement \texttt{contrib/sionnart}, where the Python interpreter and Sionna~RT engine run inside the ns-3 address space via pybind11 \cite{sionna,sionnart,pybind11}. The module connects to ns-3 through \texttt{PropagationLossModel}, \texttt{PropagationDelayModel}, and spectrum propagation logic, allowing packet-level simulations to request ray-traced path loss, delay, and MIMO channel frequency responses without socket-level round trips.
+    \item \textbf{An embedded ns-3--Sionna~RT simulation framework.} We implement \texttt{sionnart}, integrating the Sionna~RT engine directly into the ns-3 address space via pybind11 \cite{sionna,sionnart,pybind11}. This architecture connects to ns-3 through \texttt{PropagationLossModel}, \texttt{PropagationDelayModel}, and spectrum propagation logic. It enables packet-level simulations to seamlessly request ray-traced path loss, delay, and MIMO channel frequency responses without relying on slow socket-level round trips.
 
-    \item \textbf{Computational-efficiency mechanisms.} To make ray tracing practical under mobility, the framework combines a displacement-based coherence cache — whose validity radius depends on link distance and transmit-array geometry — with adaptive virtual receiver generation. The cache reuses path loss, delay, LoS state, and MIMO channel information when nodes remain within the spatial validity radius. The virtual receiver mechanism predicts short-horizon UE positions and includes them in the same Sionna~RT batched call, converting reactive cache misses into proactive look-aheads with no additional ray tracing overhead.
+    \item \textbf{Computational-efficiency mechanisms for practical execution.} To make ray tracing viable under mobility, our framework introduces a displacement-based coherence cache, whose validity radius adjusts based on link distance and transmit array size, coupled with an adaptive virtual receiver generation technique. The cache efficiently reuses path loss, delay, LoS state, and MIMO channel information while nodes remain within their spatial validity radius. Meanwhile, the virtual receiver mechanism proactively predicts short-horizon UE positions and bundles them into the same Sionna~RT batched call, transforming reactive cache misses into proactive look-aheads without any added ray tracing overhead.
 
-    \item \textbf{Evaluation across runtime and NR performance metrics.} Experiment~I compares \texttt{sionnart} with pure ns-3 propagation and socket-coupled \texttt{ns3sionna} in IEEE 802.11ax scenarios. At $N=32$, \texttt{sionnart} is up to $232.3\times$ faster than \texttt{ns3sionna} in the stationary high-load case and $43.8\times$ faster under high mobility and high load, while keeping GPU memory below 500~MiB. Experiment~II applies the embedded backend to 5G NR scenarios with 20 UEs, $2\times2$, $4\times4$, and $8\times8$ gNB arrays, and free-space, urban macro, and urban micro radio environments \cite{5glena,tr38901,bojovic_mimo}. Deterministic multipath consistently alters CQI/MCS selection, application throughput, packet loss, and gNB energy trends compared with stochastic models, with the divergence most pronounced in geometry-sensitive urban deployments.
+    \item \textbf{Framework Benchmarking and Application Case Study.} We evaluate the framework's performance by benchmarking \texttt{sionnart} against pure ns-3 propagation and the socket-coupled \texttt{ns3sionna} baseline in IEEE 802.11ax scenarios. At $N=32$, \texttt{sionnart} operates up to $232.3\times$ faster than \texttt{ns3sionna} in stationary high-load conditions, and $43.8\times$ faster under high mobility, keeping GPU memory usage comfortably below 500~MiB. Finally, we present an application case study using the embedded backend in a 5G NR deployment with 20 UEs, $2\times2$, $4\times4$, and $8\times8$ gNB arrays across free-space, urban macro, and urban micro radio environments \cite{5glena,tr38901,bojovic_mimo}. This practical demonstration highlights how deterministic multipath consistently shifts CQI/MCS selection, application throughput, packet loss, and gNB energy trends relative to stochastic models, particularly in geometry-sensitive urban deployments.
 \end{enumerate}
 
 The remainder of this paper is organized as follows.
 Section~\ref{sec:litreview} provides background on ns-3, 5G-LENA, Sionna~RT, and ray-traced propagation.
 Section~\ref{sec:relatedwork} reviews prior integration approaches, including stochastic channel models in NR simulators and socket-coupled ray tracing frameworks.
-Section~\ref{sec:methodology} describes the embedded architecture, displacement-based cache, adaptive virtual receiver generation, propagation calculations, and NR energy formulation.
-Section~\ref{sec:results-part1-runtime-scaling} evaluates runtime scaling and GPU footprint against pure ns-3 and \texttt{ns3sionna}.
-Section~\ref{sec:exp2-nr-energy} evaluates the impact of deterministic ray-traced propagation on NR application, propagation, and energy metrics.
+Section~\ref{sec:methodology} details the embedded architecture, displacement-based cache, adaptive virtual receiver generation, propagation calculations, and the NR energy formulation.
+Section~\ref{sec:results-part1-runtime-scaling} benchmarks the runtime scaling and GPU footprint of our framework against pure ns-3 and \texttt{ns3sionna}.
+Section~\ref{sec:exp2-nr-energy} presents the application case study, evaluating the impact of deterministic ray-traced propagation on NR application, propagation, and energy metrics.
 Section~\ref{sec:conclusion} concludes the paper and discusses future work toward ISAC-oriented simulation.

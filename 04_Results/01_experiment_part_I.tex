@@ -1,11 +1,11 @@
-\section{Experiment Part I: Runtime Scaling of the Embedded Ray-Traced Channel}
+\section{Simulation Framework Benchmarking}
 \label{sec:results-part1-runtime-scaling}
-This section evaluates the computational cost of replacing a stochastic ns-3 propagation model with Sionna RT inside the simulator process.
-We compare three channel backends: \texttt{pure ns-3}, \texttt{ns3sionna}, and \texttt{sionnart}.
-The \texttt{pure ns-3} backend uses the standard ns-3 stochastic propagation model,
-while \texttt{ns3sionna} \cite{ns3sionna} communicates with an external Python Sionna RT server via ZMQ.
-Finally, \texttt{sionnart} loads Sionna RT directly into the simulator's address space via pybind11 \cite{sionna,sionnart,pybind11}.
 
+This section benchmarks the computational viability of our integrated simulation framework. Specifically, we evaluate the cost of replacing the standard stochastic ns-3 propagation model with the deterministic Sionna RT engine embedded directly within the simulator process.
+To establish a baseline for our framework's efficiency, we compare three distinct channel backends: \texttt{pure ns-3}, \texttt{ns3sionna}, and our embedded \texttt{sionnart} module.
+The \texttt{pure ns-3} backend utilizes the conventional ns-3 stochastic propagation model,
+while the \texttt{ns3sionna} \cite{ns3sionna} implementation relies on communicating with an external Python-based Sionna RT server via ZMQ sockets.
+Finally, \texttt{sionnart} runs Sionna RT directly inside the simulator's address space using pybind11 \cite{sionna,sionnart,pybind11}.
 To benchmark the computational cost of the three channel backends, the same network topology — a single IEEE 802.11ax access point and $N\in\{1,2,4,8,16,32\}$ stations — and the same application traffic profile are used.
 The benchmarking is done on IEEE 802.11ax instead of 5G NR as the \texttt{ns3sionna} \cite{ns3sionna} is tested only on IEEE 802.11ax and not on 5G NR.
 Keeping topology and traffic fixed ensures that runtime differences are caused solely by the channel backend.

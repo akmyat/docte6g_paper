@@ -274,10 +274,10 @@ INPUT ./02_Literature_Review/Background/01_Ray-Tracing based Simulation.tex
 INPUT ./02_Literature_Review/Background/01_Ray-Tracing based Simulation.tex
 INPUT 02_Literature_Review/Background/01_Ray-Tracing based Simulation.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1095.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecss1000.tfm
 INPUT ./02_Literature_Review/Background/02_ns3_5GLENA.tex
 INPUT ./02_Literature_Review/Background/02_ns3_5GLENA.tex
 INPUT 02_Literature_Review/Background/02_ns3_5GLENA.tex
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecss1000.tfm
 INPUT ./02_Literature_Review/Background/03_SionnaRT.tex
 INPUT ./02_Literature_Review/Background/03_SionnaRT.tex
 INPUT 02_Literature_Review/Background/03_SionnaRT.tex
@@ -319,11 +319,11 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT ./03_Methodology/03_propagation_calculation.tex
 INPUT ./03_Methodology/03_propagation_calculation.tex
 INPUT 03_Methodology/03_propagation_calculation.tex
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm0700.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm0500.tfm
 INPUT ./03_Methodology/04_energy_model.tex
 INPUT ./03_Methodology/04_energy_model.tex
 INPUT 03_Methodology/04_energy_model.tex
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm0700.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm0500.tfm
 INPUT ./04_Results/results.tex
 INPUT ./04_Results/results.tex
 INPUT 04_Results/results.tex
@@ -440,8 +440,8 @@ INPUT ./docte6g.out
 INPUT /home/aung/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1000.600pk
 INPUT /home/aung/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0800.450pk
 INPUT /home/aung/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0700.600pk
-INPUT /home/aung/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0900.600pk
 INPUT /home/aung/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk
+INPUT /home/aung/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt0900.600pk
 INPUT /home/aung/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrb1095.600pk
 INPUT /home/aung/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk
 INPUT /home/aung/.texlive2023/texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx0900.600pk
@@ -464,13 +464,11 @@ INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb
-INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
-INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb

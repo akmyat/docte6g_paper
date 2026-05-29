@@ -9,7 +9,7 @@ The combination of a 28~GHz mmWave carrier, short inter-site distances, and freq
 
 Figure~\ref{fig:exp2-urban-micro-flow} shows per-application metrics for the urban micro scenario.
 Sionna~RT consistently achieves higher downlink throughput than ns-3 for data-intensive applications.
-FTP throughput reaches nearly $20$~Mbit/s at $4\times4$ and $8\times8$ under Sionna~RT, compared to $\approx15$~Mbit/s for ns-3.
+FTP throughput reaches nearly $20$~Mbit~s$^{-1}$ at $4\times4$ and $8\times8$ under Sionna~RT, compared to $\approx15$~Mbit~s$^{-1}$ for ns-3.
 This advantage reflects the multipath components (reflections, diffractions) resolved by the ray tracer, which enable spatial multiplexing gains that the stochastic model cannot capture — consistent with the trend observed in the macro scenario (Section~\ref{subsec:exp2-urban-macro}).
 
 Downlink packet loss under ns-3 reaches nearly $30\%$ for FTP and gaming at $2\times2$, while Sionna~RT shows lower loss for these applications but higher loss for video at $2\times2$.
@@ -26,17 +26,16 @@ Uplink remains severely loss-limited ($60\%$–$90\%$ in both simulators), refle
 \subsubsection{Propagation-related Metrics}
 \label{subsubsec:exp2-urban-micro-propagation}
 
-Average path loss ($95.5$~dB) and received power ($-62.5$~dBm) remain consistent across all antenna sizes and both simulators (Fig.~\ref{fig:exp2-channel-quality}).
+Average path loss is $95.5$~dB and received power is $-62.5$~dBm, consistent across all antenna sizes and both simulators (Fig.~\ref{fig:exp2-channel-quality}).
 As in the macro scenario (Section~\ref{subsec:exp2-urban-macro}), Sionna~RT reports a higher mean path delay ($178$~ns vs.\ $120$~ns for ns-3), consistent with its multipath-aware propagation accounting over the dense street-level geometry.
 
-Sionna~RT also predicts lower channel quality than ns-3: at $2\times2$, Sionna~RT reports CQI~$6$/MCS~$10$ against ns-3's CQI~$9.5$/MCS~$16.5$.
-The lower values reflect the harsher fading and interference captured by the ray tracer, though both simulators show significant CQI and MCS improvement as the array scales to $8\times8$.
-This further confirms that larger arrays are essential for meeting latency and reliability requirements in dense urban mmWave deployments.
+Sionna~RT also predicts lower channel quality than ns-3, with a more pronounced gap at $2\times2$ that reflects the harsher fading and interference resolved by the ray tracer.
+Both simulators show significant channel quality improvement as the array scales to $8\times8$, further confirming that larger arrays are essential for meeting latency and reliability requirements in dense urban mmWave deployments.
 
 \subsubsection{Energy Consumption-related Metrics}
 \label{subsubsec:exp2-urban-micro-energy}
 
-The gNB energy scaling pattern mirrors the macro scenario: power increases with both array size and traffic load, and Sionna~RT reports slightly lower consumption than ns-3 under high load, because its lower CQI/MCS estimates lead to different resource-block allocations (Fig.~\ref{fig:exp2-gnb-power}).
+The gNB energy scaling pattern mirrors the macro scenario: power increases with both array size and traffic load, and Sionna~RT reports slightly lower consumption than ns-3 under high load, because its lower predicted channel quality leads to different resource-block allocations (Fig.~\ref{fig:exp2-gnb-power}).
 Under low load, both simulators report $23$~W, $33$~W, and $68$~W for $2\times2$, $4\times4$, and $8\times8$ respectively.
 The urban micro scenario presents a notable high-load extreme: the $8\times8$ configuration reaches $215$~W (ns-3) and $193$~W (Sionna~RT) — roughly three times the macro high-load figure — driven by the combined demand of a 400~MHz mmWave channel and dense multipath-induced retransmissions.
 

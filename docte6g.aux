@@ -24,11 +24,11 @@
 \citation{alsamman_mmwave,tr38901}
 \citation{uwaechia_mmwave,han_thz,zhou_isac}
 \citation{sionnart,raymobtime_sionna,cazzella_dt_mimo}
-\citation{ns3}
-\citation{5glena,bojovic_mimo,bojovic_beamforming}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Background}{2}{section.2}\protected@file@percent }
 \newlabel{sec:litreview}{{2}{2}{Background}{section.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Ray-Traced Propagation}{2}{subsection.2.1}\protected@file@percent }
+\citation{ns3}
+\citation{5glena,bojovic_mimo,bojovic_beamforming}
 \citation{ns3,tr38901,5glena}
 \citation{sionna,sionnart}
 \citation{sionna,sionnart}
@@ -41,20 +41,20 @@
 \citation{omnet,simu5g}
 \citation{simu5g}
 \citation{pybind11}
-\citation{pybind11,ns3sionna,sionna,sionnart}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}ns-3 and 5G-LENA}{3}{subsection.2.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Sionna RT}{3}{subsection.2.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3}Related Work}{3}{section.3}\protected@file@percent }
 \newlabel{sec:relatedwork}{{3}{3}{Related Work}{section.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Stochastic Channel Models in NR Simulation}{3}{subsection.3.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Integrating Ray Tracing with Network Simulator}{3}{subsection.3.2}\protected@file@percent }
+\citation{pybind11,ns3sionna,sionna,sionnart}
+\citation{sionnart}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Methodology}{4}{section.4}\protected@file@percent }
 \newlabel{sec:methodology}{{4}{4}{Methodology}{section.4}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Architecture of the integrated simulation framework. }}{4}{figure.1}\protected@file@percent }
 \newlabel{fig:system_architecture}{{1}{4}{Architecture of the integrated simulation framework}{figure.1}{}}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Propagation Query with Coherence Cache}}{4}{algorithm.1}\protected@file@percent }
-\newlabel{alg:cache_query}{{1}{4}{Methodology}{algorithm.1}{}}
-\citation{sionnart}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Propagation Query with Coherence Cache}}{5}{algorithm.1}\protected@file@percent }
+\newlabel{alg:cache_query}{{1}{5}{Methodology}{algorithm.1}{}}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Adaptive Virtual Receiver Generation}}{5}{algorithm.2}\protected@file@percent }
 \newlabel{alg:virtual_rx}{{2}{5}{Methodology}{algorithm.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Sionna Propagation Cache Mechanism}{5}{subsection.4.1}\protected@file@percent }
@@ -63,8 +63,8 @@
 \newlabel{subsec:cache-validity}{{4.1.1}{5}{Displacement-Based Cache Validity}{subsubsection.4.1.1}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Snapshot Refresh}{5}{subsubsection.4.1.2}\protected@file@percent }
 \newlabel{subsec:cache-refresh}{{4.1.2}{5}{Snapshot Refresh}{subsubsection.4.1.2}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.3}Lookup and Fallback Behavior}{5}{subsubsection.4.1.3}\protected@file@percent }
-\newlabel{subsec:cache-lookup-fallback}{{4.1.3}{5}{Lookup and Fallback Behavior}{subsubsection.4.1.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.3}Lookup and Fallback Behavior}{6}{subsubsection.4.1.3}\protected@file@percent }
+\newlabel{subsec:cache-lookup-fallback}{{4.1.3}{6}{Lookup and Fallback Behavior}{subsubsection.4.1.3}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.4}Derived MIMO Caches}{6}{subsubsection.4.1.4}\protected@file@percent }
 \newlabel{subsec:derived-mimo-caches}{{4.1.4}{6}{Derived MIMO Caches}{subsubsection.4.1.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Adaptive Virtual Receiver Generation}{6}{subsection.4.2}\protected@file@percent }
@@ -77,29 +77,31 @@
 \citation{ns3sionna}
 \citation{sionna,sionnart,pybind11}
 \citation{ns3sionna}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Experiment Part I: Runtime Scaling of the Embedded Ray-Traced Channel}{8}{section.5}\protected@file@percent }
-\newlabel{sec:results-part1-runtime-scaling}{{5}{8}{Experiment Part I: Runtime Scaling of the Embedded Ray-Traced Channel}{section.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Simulation Framework Benchmarking}{8}{section.5}\protected@file@percent }
+\newlabel{sec:results-part1-runtime-scaling}{{5}{8}{Simulation Framework Benchmarking}{section.5}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Total simulation runtime of the three channel backends as the number of stations increases. The communication with external Sionna RT server via ZMQ in \texttt  {ns3sionna} causes large overhead. The embedded \texttt  {sionnart} backend avoids the round trip overhead, while the pure ns-3 baseline provides the analytical-channel lower bound.}}{8}{figure.2}\protected@file@percent }
 \newlabel{fig:total-sim-time-scaling}{{2}{8}{Total simulation runtime of the three channel backends as the number of stations increases. The communication with external Sionna RT server via ZMQ in \texttt {ns3sionna} causes large overhead. The embedded \texttt {sionnart} backend avoids the round trip overhead, while the pure ns-3 baseline provides the analytical-channel lower bound}{figure.2}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Total simulation runtime in seconds for representative station counts.}}{8}{table.1}\protected@file@percent }
 \newlabel{tab:total-sim-time-scaling}{{1}{8}{Total simulation runtime in seconds for representative station counts}{table.1}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.0.1}Total Simulation Time Scaling}{8}{subsubsection.5.0.1}\protected@file@percent }
-\newlabel{subsec:total-sim-time-scaling}{{5.0.1}{8}{Total Simulation Time Scaling}{subsubsection.5.0.1}{}}
-\citation{5glena,tr38901}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Total Simulation Time Scaling}{8}{subsection.5.1}\protected@file@percent }
+\newlabel{subsec:total-sim-time-scaling}{{5.1}{8}{Total Simulation Time Scaling}{subsection.5.1}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces The left graph shows the ratio of \texttt  {ns3sionna} runtime to \texttt  {sionnart} runtime. The right graph is the ratio of \texttt  {sionnart} runtime to \texttt  {pure ns-3} baseline runtime.}}{9}{figure.3}\protected@file@percent }
 \newlabel{fig:speed-comparison}{{3}{9}{The left graph shows the ratio of \texttt {ns3sionna} runtime to \texttt {sionnart} runtime. The right graph is the ratio of \texttt {sionnart} runtime to \texttt {pure ns-3} baseline runtime}{figure.3}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.0.2}Speedup Analysis}{9}{subsubsection.5.0.2}\protected@file@percent }
-\newlabel{subsec:speedup-analysis}{{5.0.2}{9}{Speedup Analysis}{subsubsection.5.0.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Speedup Analysis}{9}{subsection.5.2}\protected@file@percent }
+\newlabel{subsec:speedup-analysis}{{5.2}{9}{Speedup Analysis}{subsection.5.2}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Ratios at $N=32$. The first ratio is $T_{\mathrm  {ns3sionna}}/T_{\mathrm  {sionnart}}$; the second is $T_{\mathrm  {sionnart}}/T_{\mathrm  {pure\ ns\text  {-}3}}$.}}{9}{table.2}\protected@file@percent }
 \newlabel{tab:speed-comparison}{{2}{9}{Ratios at $N=32$. The first ratio is $T_{\mathrm {ns3sionna}}/T_{\mathrm {sionnart}}$; the second is $T_{\mathrm {sionnart}}/T_{\mathrm {pure\ ns\text {-}3}}$}{table.2}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Reported GPU memory footprint and peak utilization for the two Sionna-backed backends.}}{9}{figure.4}\protected@file@percent }
 \newlabel{fig:gpu-usage}{{4}{9}{Reported GPU memory footprint and peak utilization for the two Sionna-backed backends}{figure.4}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.0.3}GPU Footprint and Utilization}{9}{subsubsection.5.0.3}\protected@file@percent }
-\newlabel{subsec:gpu-usage}{{5.0.3}{9}{GPU Footprint and Utilization}{subsubsection.5.0.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Experiment Part II: NR Application, Propagation, and Energy Evaluation}{9}{section.6}\protected@file@percent }
-\newlabel{sec:exp2-nr-energy}{{6}{9}{Experiment Part II: NR Application, Propagation, and Energy Evaluation}{section.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}GPU Footprint and Utilization}{9}{subsection.5.3}\protected@file@percent }
+\newlabel{subsec:gpu-usage}{{5.3}{9}{GPU Footprint and Utilization}{subsection.5.3}{}}
+\citation{5glena,tr38901}
 \citation{tr38901}
 \citation{ericsson_mobility}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Application Case Study: massive MIMO 5G Evaluation}{10}{section.6}\protected@file@percent }
+\newlabel{sec:exp2-nr-energy}{{6}{10}{Application Case Study: massive MIMO 5G Evaluation}{section.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Experiment Configuration}{10}{subsection.6.1}\protected@file@percent }
+\newlabel{subsec:exp2-setup}{{6.1}{10}{Experiment Configuration}{subsection.6.1}{}}
 \newlabel{fig:scenario_free_space}{{5a}{10}{Subfigure 5a}{subfigure.5.1}{}}
 \newlabel{sub@fig:scenario_free_space}{{(a)}{a}{Subfigure 5a\relax }{subfigure.5.1}{}}
 \newlabel{fig:scenario_urban_macro}{{5b}{10}{Subfigure 5b}{subfigure.5.2}{}}
@@ -111,69 +113,67 @@
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Urban macro.}}}{10}{subfigure.5.2}\protected@file@percent }
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Urban micro.}}}{10}{subfigure.5.3}\protected@file@percent }
 \newlabel{fig:scenarios}{{5}{10}{The three simulated radio environments}{figure.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Experiment Configuration}{10}{subsection.6.1}\protected@file@percent }
-\newlabel{subsec:exp2-setup}{{6.1}{10}{Experiment Configuration}{subsection.6.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Free-Space Scenario}{10}{subsection.6.2}\protected@file@percent }
 \newlabel{subsec:exp2-free-space}{{6.2}{10}{Free-Space Scenario}{subsection.6.2}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.1}Application-related Metrics}{10}{subsubsection.6.2.1}\protected@file@percent }
 \newlabel{subsubsec:exp2-free-space-flow}{{6.2.1}{10}{Application-related Metrics}{subsubsection.6.2.1}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.2}Propagation-related Metrics}{10}{subsubsection.6.2.2}\protected@file@percent }
 \newlabel{subsubsec:exp2-free-space-propagation}{{6.2.2}{10}{Propagation-related Metrics}{subsubsection.6.2.2}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.3}Energy Consumption-related Metrics}{10}{subsubsection.6.2.3}\protected@file@percent }
-\newlabel{subsubsec:exp2-free-space-energy}{{6.2.3}{10}{Energy Consumption-related Metrics}{subsubsection.6.2.3}{}}
 \citation{tr38901}
 \@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Application data rate by application and load.}}{11}{table.3}\protected@file@percent }
 \newlabel{tab:exp2-offered-load}{{3}{11}{Application data rate by application and load}{table.3}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Free-space application-level throughput and packet loss by application, direction, and gNB array size. Solid bars: ns-3; hatched bars: Sionna~RT.}}{11}{figure.6}\protected@file@percent }
 \newlabel{fig:exp2-free-space-flow}{{6}{11}{Free-space application-level throughput and packet loss by application, direction, and gNB array size. Solid bars: ns-3; hatched bars: Sionna~RT}{figure.6}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.2.3}Energy Consumption-related Metrics}{11}{subsubsection.6.2.3}\protected@file@percent }
+\newlabel{subsubsec:exp2-free-space-energy}{{6.2.3}{11}{Energy Consumption-related Metrics}{subsubsection.6.2.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Urban Macro Scenario}{11}{subsection.6.3}\protected@file@percent }
 \newlabel{subsec:exp2-urban-macro}{{6.3}{11}{Urban Macro Scenario}{subsection.6.3}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.3.1}Application-related Metrics}{11}{subsubsection.6.3.1}\protected@file@percent }
-\newlabel{subsubsec:exp2-urban-macro-flow}{{6.3.1}{11}{Application-related Metrics}{subsubsection.6.3.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Urban macro application-level throughput and packet loss by application, direction, and gNB array size. Solid bars: ns-3; hatched bars: Sionna~RT.}}{12}{figure.7}\protected@file@percent }
-\newlabel{fig:exp2-urban-macro-flow}{{7}{12}{Urban macro application-level throughput and packet loss by application, direction, and gNB array size. Solid bars: ns-3; hatched bars: Sionna~RT}{figure.7}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.3.1}Application-related Metrics}{12}{subsubsection.6.3.1}\protected@file@percent }
+\newlabel{subsubsec:exp2-urban-macro-flow}{{6.3.1}{12}{Application-related Metrics}{subsubsection.6.3.1}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {6.3.2}Propagation-related Metrics}{12}{subsubsection.6.3.2}\protected@file@percent }
 \newlabel{subsubsec:exp2-urban-macro-propagation}{{6.3.2}{12}{Propagation-related Metrics}{subsubsection.6.3.2}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {6.3.3}Energy Consumption-related Metrics}{12}{subsubsection.6.3.3}\protected@file@percent }
 \newlabel{subsubsec:exp2-urban-macro-energy}{{6.3.3}{12}{Energy Consumption-related Metrics}{subsubsection.6.3.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Urban Micro Scenario}{12}{subsection.6.4}\protected@file@percent }
 \newlabel{subsec:exp2-urban-micro}{{6.4}{12}{Urban Micro Scenario}{subsection.6.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Urban micro application-level throughput and packet loss by application, direction, and gNB array size. Solid bars: ns-3; hatched bars: Sionna~RT.}}{13}{figure.8}\protected@file@percent }
-\newlabel{fig:exp2-urban-micro-flow}{{8}{13}{Urban micro application-level throughput and packet loss by application, direction, and gNB array size. Solid bars: ns-3; hatched bars: Sionna~RT}{figure.8}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.1}Application-related Metrics}{13}{subsubsection.6.4.1}\protected@file@percent }
-\newlabel{subsubsec:exp2-urban-micro-flow}{{6.4.1}{13}{Application-related Metrics}{subsubsection.6.4.1}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.2}Propagation-related Metrics}{13}{subsubsection.6.4.2}\protected@file@percent }
-\newlabel{subsubsec:exp2-urban-micro-propagation}{{6.4.2}{13}{Propagation-related Metrics}{subsubsection.6.4.2}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.3}Energy Consumption-related Metrics}{13}{subsubsection.6.4.3}\protected@file@percent }
-\newlabel{subsubsec:exp2-urban-micro-energy}{{6.4.3}{13}{Energy Consumption-related Metrics}{subsubsection.6.4.3}{}}
-\bibcite{sionna}{{1}{}{{}}{{}}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.1}Application-related Metrics}{12}{subsubsection.6.4.1}\protected@file@percent }
+\newlabel{subsubsec:exp2-urban-micro-flow}{{6.4.1}{12}{Application-related Metrics}{subsubsection.6.4.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.2}Propagation-related Metrics}{12}{subsubsection.6.4.2}\protected@file@percent }
+\newlabel{subsubsec:exp2-urban-micro-propagation}{{6.4.2}{12}{Propagation-related Metrics}{subsubsection.6.4.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.4.3}Energy Consumption-related Metrics}{12}{subsubsection.6.4.3}\protected@file@percent }
+\newlabel{subsubsec:exp2-urban-micro-energy}{{6.4.3}{12}{Energy Consumption-related Metrics}{subsubsection.6.4.3}{}}
+\bibcite{tr38901}{{1}{}{{}}{{}}}
+\bibcite{alsamman_mmwave}{{2}{}{{}}{{}}}
+\bibcite{han_thz}{{3}{}{{}}{{}}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Urban macro application-level throughput and packet loss by application, direction, and gNB array size. Solid bars: ns-3; hatched bars: Sionna~RT.}}{13}{figure.7}\protected@file@percent }
+\newlabel{fig:exp2-urban-macro-flow}{{7}{13}{Urban macro application-level throughput and packet loss by application, direction, and gNB array size. Solid bars: ns-3; hatched bars: Sionna~RT}{figure.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{13}{section.7}\protected@file@percent }
+\newlabel{sec:conclusion}{{7}{13}{Conclusion}{section.7}{}}
+\bibcite{zhou_isac}{{4}{}{{}}{{}}}
+\bibcite{gao_isac_mimo}{{5}{}{{}}{{}}}
+\bibcite{cazzella_dt_mimo}{{6}{}{{}}{{}}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Urban micro application-level throughput and packet loss by application, direction, and gNB array size. Solid bars: ns-3; hatched bars: Sionna~RT.}}{14}{figure.8}\protected@file@percent }
+\newlabel{fig:exp2-urban-micro-flow}{{8}{14}{Urban micro application-level throughput and packet loss by application, direction, and gNB array size. Solid bars: ns-3; hatched bars: Sionna~RT}{figure.8}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Propagation-related metrics (path loss, received power, path delay, CQI, MCS) across three radio environments and gNB array sizes, comparing ns-3 and Sionna~RT under high traffic load.}}{14}{figure.9}\protected@file@percent }
 \newlabel{fig:exp2-channel-quality}{{9}{14}{Propagation-related metrics (path loss, received power, path delay, CQI, MCS) across three radio environments and gNB array sizes, comparing ns-3 and Sionna~RT under high traffic load}{figure.9}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces gNB power consumption (W) by array size and radio environment, comparing ns-3 and Sionna~RT under high traffic load.}}{14}{figure.10}\protected@file@percent }
-\newlabel{fig:exp2-gnb-power}{{10}{14}{gNB power consumption (W) by array size and radio environment, comparing ns-3 and Sionna~RT under high traffic load}{figure.10}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{14}{section.7}\protected@file@percent }
-\newlabel{sec:conclusion}{{7}{14}{Conclusion}{section.7}{}}
-\bibcite{sionnart}{{2}{}{{}}{{}}}
-\bibcite{ns3}{{3}{}{{}}{{}}}
-\bibcite{5glena}{{4}{}{{}}{{}}}
-\bibcite{tr38901}{{5}{}{{}}{{}}}
-\bibcite{omnet}{{6}{}{{}}{{}}}
-\bibcite{simu5g}{{7}{}{{}}{{}}}
-\bibcite{ns3sionna}{{8}{}{{}}{{}}}
-\bibcite{pybind11}{{9}{}{{}}{{}}}
-\bibcite{eesm}{{10}{}{{}}{{}}}
-\bibcite{bojovic_mimo}{{11}{}{{}}{{}}}
-\bibcite{bojovic_beamforming}{{12}{}{{}}{{}}}
-\bibcite{raymobtime_sionna}{{13}{}{{}}{{}}}
-\bibcite{alsamman_mmwave}{{14}{}{{}}{{}}}
-\bibcite{han_thz}{{15}{}{{}}{{}}}
-\bibcite{uwaechia_mmwave}{{16}{}{{}}{{}}}
-\bibcite{cazzella_dt_mimo}{{17}{}{{}}{{}}}
-\bibcite{zhou_isac}{{18}{}{{}}{{}}}
-\bibcite{gao_isac_mimo}{{19}{}{{}}{{}}}
+\bibcite{bojovic_mimo}{{7}{}{{}}{{}}}
+\bibcite{ns3}{{8}{}{{}}{{}}}
+\bibcite{5glena}{{9}{}{{}}{{}}}
+\bibcite{raymobtime_sionna}{{10}{}{{}}{{}}}
+\bibcite{sionna}{{11}{}{{}}{{}}}
+\bibcite{sionnart}{{12}{}{{}}{{}}}
+\bibcite{ns3sionna}{{13}{}{{}}{{}}}
+\bibcite{pybind11}{{14}{}{{}}{{}}}
+\bibcite{omnet}{{15}{}{{}}{{}}}
+\bibcite{simu5g}{{16}{}{{}}{{}}}
+\bibcite{eesm}{{17}{}{{}}{{}}}
+\bibcite{bojovic_beamforming}{{18}{}{{}}{{}}}
+\bibcite{uwaechia_mmwave}{{19}{}{{}}{{}}}
 \bibcite{hua_isac_beamforming}{{20}{}{{}}{{}}}
 \bibcite{samorzewski_energy}{{21}{}{{}}{{}}}
 \bibcite{ericsson_mobility}{{22}{}{{}}{{}}}
 \csxdef{lastpage}{15}
 \providecommand\NAT@force@numbers{}\NAT@force@numbers
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces gNB power consumption (W) by array size and radio environment, comparing ns-3 and Sionna~RT under high traffic load.}}{15}{figure.10}\protected@file@percent }
+\newlabel{fig:exp2-gnb-power}{{10}{15}{gNB power consumption (W) by array size and radio environment, comparing ns-3 and Sionna~RT under high traffic load}{figure.10}{}}
 \gdef \@abspage@last{15}
